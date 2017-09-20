@@ -43,26 +43,4 @@ show do |ceramique|
   end
  end
 
- controller do
-
-    def create
-      super do |format|
-        redirect_to admin_guns_path and return if resource.valid?
-      end
-    end
-
-    def update
-      super do |format|
-        redirect_to admin_guns_path and return if resource.valid?
-      end
-    end
-
-    def destroy
-      super do |format|
-        redirect_to admin_guns_path and return if resource.valid?
-      end
-    end
-
-  end
-
 end
