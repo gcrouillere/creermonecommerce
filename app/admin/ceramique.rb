@@ -1,4 +1,4 @@
-ActiveAdmin.register Ceramique, as: 'Guns' do
+ActiveAdmin.register Ceramique, as: 'guns' do
   permit_params :name, :description, :stock, :category_id, :price_cents, photos: []
   menu priority: 1
 
@@ -41,6 +41,27 @@ show do |ceramique|
       end
     end
   end
+ end
+ controller do
+
+  def create
+    super do |format|
+      redirect_to admin_guns_path and return if resource.valid?
+    end
+  end
+
+  def destroy
+    super do |format|
+      redirect_to admin_guns_path and return if resource.valid?
+    end
+  end
+
+  def update
+    super do |format|
+      redirect_to admin_guns_path and return if resource.valid?
+    end
+  end
+
  end
 
 end
