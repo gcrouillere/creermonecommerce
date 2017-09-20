@@ -23,8 +23,8 @@ en:
   activerecord:
       models:
         ceramique:
-          one: "Produit"
-          other: "Produits"
+          one: "Gun"
+          other: "Guns"
         category:
           one: "Catégories"
           other: "Catégories"
