@@ -1,0 +1,102 @@
+<% content_for(:description) do %>
+Vendez vos produits en ligne ! Site de e-commerce configurable. Affichez sur cette page des informations vous concernant : biographie, techniques utilisées.
+<% end %>
+<% content_for(:title_tag) do %>
+  Page bio de votre site de e-commerce
+<% end %>
+
+<div class="container">
+  <div class="row">
+
+  <!-- LAPTOP -->
+    <div class="hidden-xs hidden-sm col-sm-12">
+      <div class="wrapper">
+        <%= image_tag ENV['AVATAR'], class: "img-avatar"%>
+        <div class="texte">
+          <h4><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Maecenas in semper purus, semper hendrerit est. Proin vel ante ac ex iaculis condimentum. Nunc elementum ac tellus non consequat. In tempor est quis arcu hendrerit ultricies. Ut accumsan lacus a nunc mattis, a congue magna eleifend. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
+        </div>
+      </div>
+
+      <div class="localisation">
+        <%= image_tag ENV['CITY'], class: "img-city"%>
+        <div id="map"></div>
+      </div>
+
+      <%= link_to ceramiques_path, class: "back-in-home" do %>
+        <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL']%></span>
+      <% end %>
+    </div>
+
+  <!-- MOBILE -->
+   <div class="col-xs-12 hidden-md hidden-lg mobile-info">
+      <div class="wrapper-mobile">
+        <%= image_tag ENV['AVATAR'], class: "img-avatar-mobile"%>
+        <h4><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%></h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Maecenas in semper purus, semper hendrerit est. Proin vel ante ac ex iaculis condimentum. Nunc elementum ac tellus non consequat. In tempor est quis arcu hendrerit ultricies. Ut accumsan lacus a nunc mattis, a congue magna eleifend. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
+      </div>
+
+      <div class="localisation-mobile">
+        <div id="map-mobile"></div>
+        <%= image_tag ENV['CITY'], class: "img-city-mobile"%>
+      </div>
+
+      <%= link_to ceramiques_path, class: "back-in-home-mobile" do %>
+        <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL']%></span>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler1 = Gmaps.build('Google');
+      var infowindowtext = "<%= "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>"
+      lat = <%= ENV['LAT'].to_f%>;
+      lng = <%= ENV['LNG'].to_f%>;
+      handler1.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler1.addMarkers([
+          {
+            "lat": lat,
+            "lng": lng,
+            "infowindow": infowindowtext
+          }
+        ]);
+        handler1.bounds.extendWith(markers);
+        handler1.getMap().setCenter({lat: lat, lng: lng});
+        handler1.getMap().setZoom(6);
+      });
+
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ provider: {}, internal: {id: 'map-mobile'}}, function(){
+        markers = handler.addMarkers([
+          {
+            "lat": <%= ENV['LAT'].to_f%>,
+            "lng": <%= ENV['LNG'].to_f%>
+          }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.getMap().setCenter({lat: lat, lng: lng});
+        handler.getMap().setZoom(6);
+      });
+    });
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "ArtGallery",
+      "name": "Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>",
+      "description": "Online craft store",
+      "openingHours": "Mo-Fr 09:00-18:00",
+      "telephone": "<%= ENV['TELEPHONE']%>",
+      "url": "https://<%= ENV['APPNAME']%>.herokuapp.com/info",
+      "image":"https://<%= ENV['APPNAME']%>.herokuapp.com<%= image_path ENV['HOMEPIC']%>"
+      "address":"<%= ENV['ADDRESS']%>",
+      "priceRange":"20€ à 800€"
+    }
+  </script>
+<% end %>

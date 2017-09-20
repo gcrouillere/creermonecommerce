@@ -1,0 +1,33 @@
+ActiveAdmin.register Category do
+  permit_params :name
+  config.filters = false
+  actions  :index, :new, :create, :destroy, :update, :edit
+  menu priority: 2
+
+  index do
+    column :name
+    actions
+  end
+
+  controller do
+
+    def destroy
+      category = Category.find(params[:id].to_i)
+      ceramiques = category.ceramiques.size
+      if ceramiques > 0
+        flash[:alert] = "Cette catégorie est toujours utilisée dans des produits. Impossible de la supprimer."
+        redirect_to admin_categories_path and return
+      end
+      super do |format|
+        redirect_to admin_categories_path and return if resource.valid?
+      end
+    end
+
+    def update
+      super do |format|
+        redirect_to admin_categories_path and return if resource.valid?
+      end
+    end
+  end
+
+end

@@ -1,0 +1,89 @@
+.footer {
+  height: 107px;
+  background-color: $footer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .contact {
+    background-color: $footer;
+    display: flex;
+    align-items: center;
+    color: $navbar;
+    font-size: $font-size-footer-icone;
+    a {
+      margin-left: 30px;
+      color: $navbar;
+    }
+    i {
+      color: $navbar;
+      margin-right: 20px;
+      &:hover {
+      font-size: larger;
+      }
+    }
+    h6 {
+      color: $navbar;
+      .middle-text {
+        margin-right: 10px !important;
+      }
+    }
+    .info-text {
+      width: 0px;
+      transition: width ease 0.2s;
+      visibility: hidden;
+    }
+
+    .info-text.visible {
+      width: 100%;
+      outline: none;
+      visibility: visible;
+      margin-right: 20px;
+    }
+  }
+  img {
+    margin-right: 30px;
+  }
+}
+
+.footer-mobile {
+  background-color: $footer;
+  display: flex;
+  align-items: flex-start;
+
+  .contact {
+    background-color: $footer;
+    color: $navbar;
+    font-size: $font-size-footer-icone;
+    i {
+    color: $navbar;
+    }
+    .link {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+    .phone, .envelope {
+      display: flex;
+      align-items: center;
+
+      .info-text {
+        width: 0px;
+        margin: 0px;
+        transition: width ease 0.2s;
+        visibility: hidden;
+      }
+
+      .info-text.visible {
+        margin-left: 10px;
+        outline: none;
+        visibility: visible;
+      }
+    }
+    .envelope {
+      margin: 10px 10px 10px 20px;
+    }
+    .phone {
+      margin: 0px 10px 10px 20px
+    }
+  }
+}
