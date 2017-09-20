@@ -1,5 +1,6 @@
 ActiveAdmin.register Ceramique, as: 'guns' do
   permit_params :name, :description, :stock, :category_id, :price_cents, photos: []
+  actions  :index, :new, :create, :destroy, :update, :edit, :show
   menu priority: 1
 
   index do
@@ -51,8 +52,9 @@ show do |ceramique|
   end
 
   def destroy
+    flash[:notice] = "#{ENV['MODEL'][0...-1].capitalize} supprimé"
     super do |format|
-      redirect_to admin_guns_path and return if resource.valid?
+      redirect_to admin_guns_path and return
     end
   end
 
