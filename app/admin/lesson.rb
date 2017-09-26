@@ -4,6 +4,7 @@ ActiveAdmin.register Lesson do
   config.sort_order = 'start_asc'
   menu priority: 3
   config.filters = false
+  scope_to :current_user
 
   index_as_calendar ({:ajax => false}) do |lesson|
 

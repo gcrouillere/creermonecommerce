@@ -32,25 +32,38 @@
   <body>
     <div class="body">
       <div class="hidden-xs body-stage">
+
+        <% stagepicpath = image_path ENV['STAGEPIC'] %>
+        <% if user_signed_in? %>
+          <% if  current_user.lessonphoto.present? %>
+            <% stagepicpath = cl_image_path current_user.lessonphoto.path %>
+          <% end %>
+        <% end %>
+
         <style>
           .body-stage {
-            background-image: url(<%= image_path ENV['STAGEPIC']%>);
+            background-image: url(<%= stagepicpath %>);
           }
         </style>
+
         <%= render 'shared/navbar' %>
         <%= render 'shared/flashes' %>
         <div class="content">
           <%= yield %>
         </div>
         <%= render 'shared/footer' %>
+
       </div>
+
       <div class="hidden-sm hidden-md hidden-lg body-stage-mobile">
+
         <%= render 'shared/navbar' %>
         <%= render 'shared/flashes' %>
         <div class="content">
           <%= yield %>
         </div>
         <%= render 'shared/footer' %>
+
       </div>
 
       <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>

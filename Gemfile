@@ -54,6 +54,9 @@ gem 'dynopoker'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
+#geocode
+gem "geocoder"
+
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'

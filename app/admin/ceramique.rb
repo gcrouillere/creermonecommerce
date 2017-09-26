@@ -1,7 +1,8 @@
-ActiveAdmin.register Ceramique, as: 'guns' do
+ActiveAdmin.register Ceramique , as: 'Produits' do
   permit_params :name, :description, :stock, :category_id, :price_cents, photos: []
   actions  :index, :new, :create, :destroy, :update, :edit, :show
   menu priority: 1
+  scope_to :current_user, association_method: :ceramiques
 
   index do
     column :name
@@ -20,7 +21,7 @@ ActiveAdmin.register Ceramique, as: 'guns' do
     f.input :description
     f.input :stock
     f.input :category
-    f.input :price_cents
+    f.input :price_cents,  :hint => "Prix en centimes d'euros. Ex: 1000 = 10 €"
     f.input :photos, :as => :formtastic_attachinary
     # , :hint => image_tag(f.object.photos[0].path)
   end
@@ -47,20 +48,20 @@ show do |ceramique|
 
   def create
     super do |format|
-      redirect_to admin_guns_path and return if resource.valid?
+      redirect_to admin_produits_path and return if resource.valid?
     end
   end
 
   def destroy
     flash[:notice] = "#{ENV['MODEL'][0...-1].capitalize} supprimé"
     super do |format|
-      redirect_to admin_guns_path and return
+      redirect_to admin_produits_path and return
     end
   end
 
   def update
     super do |format|
-      redirect_to admin_guns_path and return if resource.valid?
+      redirect_to admin_produits_path and return if resource.valid?
     end
   end
 

@@ -41,7 +41,7 @@ class LessonsController < ApplicationController
 
     for i in 0...@lesson.duration
       day_checked = @lesson.start + i.day
-      booking = Booking.where(day: day_checked).first
+      booking = Booking.where(day: day_checked, user: current_user).first
       if booking.present?
         if booking.course != i + 1
           closest_start_answer = Findcloseststart.new(@lesson).closest_start(@lesson) # See service
@@ -78,7 +78,7 @@ class LessonsController < ApplicationController
     month = ""
     confirmed_courses_js_format = []
     previous_booking_full = false
-    Booking.order(day: :asc).all.each do |booking|
+    Booking.order(day: :asc).all.where(user: current_user).each do |booking|
       if !booking.full && booking.day > Time.now && !(previous_booking_full && booking.course > 1)
         day = format_booking_to_moment(booking.day.day)
         month = format_booking_to_moment(booking.day.month)
@@ -95,7 +95,7 @@ class LessonsController < ApplicationController
     min_capacities = []
     for i in 0...lesson.duration
       day_checked = lesson.start + i.day
-      min_capacities << Booking.where(day: day_checked).first.capacity
+      min_capacities << Booking.where(day: day_checked, user: current_user).first.capacity
     end
     return min_capacities.min
   end
@@ -114,7 +114,7 @@ class LessonsController < ApplicationController
     month = ""
     disabled_dates = []
     previous_booking_full = false
-    Booking.order(day: :asc).all.each do |booking|
+    Booking.order(day: :asc).all.where(user: current_user).each do |booking|
       day = format_booking_to_moment(booking.day.day)
       month = format_booking_to_moment(booking.day.month)
       if booking.full || (previous_booking_full && booking.course > 1)

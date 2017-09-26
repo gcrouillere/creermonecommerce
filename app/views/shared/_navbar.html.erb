@@ -1,8 +1,15 @@
+<% logositepictag = image_tag ENV['LOGOSITE'] %>
+<% if user_signed_in? %>
+  <% if  current_user.logophoto.present? %>
+    <% logositepictag = cl_image_tag current_user.logophoto.path %>
+  <% end %>
+<% end %>
+
 <!-- Right Navigation LAPTOP -->
 <div class="navbar-laptop hidden-xs hidden-sm">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag ENV['LOGOSITE']%>
+    <%= logositepictag %>
   <% end %>
 
   <!-- Different navigation if login or not -->
@@ -54,7 +61,7 @@
 <div class="navbar-mobile hidden-md hidden-lg">
  <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand-mobile" do %>
-    <%= image_tag ENV['LOGOSITE']%>
+    <%= logositepictag %>
   <% end %>
 
   <div class="navbar-item">

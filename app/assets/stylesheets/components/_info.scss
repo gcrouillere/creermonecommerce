@@ -28,7 +28,9 @@
   display: flex;
   margin-bottom: 30px;
   .img-city {
-    height: 200px;
+    img {
+      height: 200px;
+    }
   }
   #map {
     width: 100%;
@@ -52,11 +54,13 @@
   border-radius: $project-border-radius;
   border: $card-border;
   .img-avatar-mobile {
-    position: absolute;
-    border-radius: 50%;
-    top: 12px;
-    right: 12px;
-    height: 10%;
+    img {
+      position: absolute;
+      border-radius: 50%;
+      top: 12px;
+      right: 12px;
+      height: 10%;
+    }
   }
   h4 {
     margin-top: 21px;
@@ -69,7 +73,9 @@
   border: $card-border;
   margin-bottom: 20px;
   .img-city-mobile {
-    width: 100%;
+    img {
+      width: 100%;
+    }
   }
   #map-mobile {
     width: 100%;

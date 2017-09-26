@@ -1,18 +1,12 @@
 class PaymentsController < ApplicationController
-  before_action :set_order, only: [:create]
+  before_action :set_order, only: [:create, :new]
 
   def new
-    if (/\A(F-)?(((2[A|B])|[0-8]{1}[0-9]{1})|(9{1}[0-5]{1}))[0-9]{3}\z/).match("#{current_user.zip_code}") == nil
-      flash[:alert] = "Les livraisons ne sont possibles qu'en France métropolitaine. Modifiez votre adresse si vous souhaitez poursuivre."
-      redirect_to edit_user_registration_path
-    else
-      set_order
-    end
   end
 
   def create
     # STRIPE
-    @order = Order.find(params[:order_id])
+    @order = set_order
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]

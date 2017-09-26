@@ -1,4 +1,4 @@
-Bonjour <%= @user.first_name %> <%= @user.last_name %>,
+Bonjour <%= @user.email %>,
 
 Merci pour votre commande, elle va être expédiée. Voici le détail de cette commande :
 
@@ -16,7 +16,7 @@ Référence de commande: <%= "#{@order.id}-#{Time.now.hour}#{Time.now.min}#{Time
 
 Montant total: <%= humanized_money(@amount) %> €
 
-Adresse de livraison : <%= @user.adress %> - <%= @user.zip_code %> - <%= @user.city %>
+Adresse de livraison : 1 Rue imaginaire 99000 Ville
 
 Cordialement
 

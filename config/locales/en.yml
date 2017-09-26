@@ -23,8 +23,8 @@ en:
   activerecord:
       models:
         ceramique:
-          one: "Gun"
-          other: "Guns"
+          one: "Produit"
+          other: "Produits"
         category:
           one: "Catégories"
           other: "Catégories"
@@ -62,12 +62,12 @@ en:
     edit: "Editer"
     delete: "Supprimer"
     delete_confirmation: "Are you sure you want to delete this?"
-    create_another: "Create another %{model}"
+    create_another: "Créer another %{model}"
     new_model: "Créer %{model}"
     edit_model: "Editer %{model}"
     delete_model: "Supprimer %{model}"
     details: "%{model} Details"
-    cancel: "Cancel"
+    cancel: "Annuler"
     empty: "Vide"
     previous: "Précédent"
     next: "Suivant"
@@ -116,8 +116,8 @@ en:
         other: "entries"
     any: "Any"
     blank_slate:
-      content: "There are no %{resource_name} yet."
-      link: "Create one"
+      content: "Il n'y a pas de %{resource_name}."
+      link: "En créer"
     dropdown_actions:
       button_label: "Actions"
     batch_actions:
@@ -132,7 +132,7 @@ en:
       labels:
         destroy: "Delete"
     comments:
-      created_at: "Created"
+      created_at: "Crée"
       resource_type: "Resource Type"
       author_type: "Author Type"
       body: "Body"
