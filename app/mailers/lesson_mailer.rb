@@ -20,13 +20,12 @@ class LessonMailer < ApplicationMailer
     mail(to: "#{ENV['EMAIL']}", subject: 'Nouvelle demande de stage reçue')
   end
 
-  def mail_user_after_lesson_payment(lesson, user)
+  def mail_user_after_lesson_payment(lesson)
     @lesson = lesson
-    @user = user
     mail(to: @lesson.user.email, subject: "Paiement des arrhes pour votre stage chez #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}")
   end
 
-  def mail_francoise_after_lesson_payment(lesson, user)
+  def mail_francoise_after_lesson_payment(lesson)
     @lesson = lesson
     mail(to: "#{ENV['EMAIL']}", subject: 'Paiement des arrhes pour stage recu')
   end

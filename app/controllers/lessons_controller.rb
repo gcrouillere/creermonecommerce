@@ -25,11 +25,6 @@ class LessonsController < ApplicationController
       redirect_to new_lesson_path and return
     end
 
-    if current_user.lessons.where(confirmed: false).present?
-      flash[:alert] = "Vous avez déjà une demande de stage en cours"
-      redirect_to new_lesson_path and return
-    end
-
     @lesson = Lesson.new(lesson_params)
     @lesson.save
 

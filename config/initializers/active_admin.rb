@@ -58,7 +58,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the application controller.
-  config.authentication_method = :authenticate_admin!
+  config.authentication_method = false
 
   # == User Authorization
   #
@@ -117,7 +117,6 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   config.root_to = ENV['MODEL']+'#index'
-  # ENV['MODEL']+'#index'
 
   # == Admin Comments
   #

@@ -1,0 +1,56 @@
+<% content_for(:description) do %>
+<% end %>
+<% content_for(:title_tag) do %>
+<% end %>
+
+<!-- LAPTOP -->
+<div class="offer-container">
+  <div class="container">
+    <div class="row">
+        <h1>Vendez vos créations en ligne</h1>
+        <h2>Rencontrez vos clients - Partagez votre passion</h2>
+      <div class="col-xs-12">
+        <div class="offer-cards">
+          <div class="produit card-offer">
+            <h3>Vendez vos produits</h3>
+            <div class="card-separator">
+              <%= image_tag 'commerce.png', class: "offer-card-image"%>
+              <hr>
+            </div>
+            <p>Créez vos fiches produits</p>
+            <p>Gérer vos stocks</p>
+            <p>Visualiser vos commandes</p>
+          </div>
+          <div class="stage-info card-offer">
+            <h3>Accueillez vos clients</h3>
+            <div class="card-separator">
+              <%= image_tag 'time.png', class: "offer-card-image"%>
+              <hr>
+            </div>
+            <p>Proposez des stages/visites</p>
+            <p>Gérer votre calendrier</p>
+            <p>Visualiser les réservations</p>
+          </div>
+          <div class="ecrire card-offer">
+            <h3>Partagez</h3>
+            <div class="card-separator">
+              <%= image_tag 'website.png', class: "offer-card-image"%>
+              <hr>
+            </div>
+            <p>Ecrivez sur votre métier</p>
+            <p>Partagez votre technique</p>
+            <p>Populariser votre boutique</p>
+          </div>
+        </div>
+        <div class="offer-buttons">
+          <%= link_to home_path do %>
+            <button type="submit" class="pull-right btn explore">EXPLOREZ VOTRE FUTUR SITE</button>
+          <% end %>
+          <%= link_to new_user_registration_path do %>
+            <button type="submit" class="pull-right btn compte">CREEZ UN COMPTE</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

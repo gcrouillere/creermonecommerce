@@ -6,7 +6,7 @@ class Findcloseststart
   end
 
   def closest_start(lesson)
-    possible_bookings = Booking.where("course = ? AND day > ?", 1, Time.now).where(full: false, user: current_user)
+    possible_bookings = Booking.where("course = ? AND day > ?", 1, Time.now).where(full: false, user: lesson.user)
     possible_bookings.select do |possible_booking|
       ((lesson.start - possible_booking.day) / 60 / 60 / 24).abs < ENV['PERIODTOLOOKFORLESSON'].to_i
     end
@@ -21,9 +21,9 @@ class Findcloseststart
       period = 0
       day_checked = lesson.start
       until period == lesson.duration
-        if Booking.where("day = ? ", day_checked).where(user: current_user).present? && period > 0
+        if Booking.where("day = ? ", day_checked).where(user: lesson.user).present? && period > 0
           period -= 1
-        elsif Booking.where("day = ? ", day_checked).where(user: current_user).blank?
+        elsif Booking.where("day = ? ", day_checked).where(user: lesson.user).blank?
           period += 1
         end
         day_checked += 1.day

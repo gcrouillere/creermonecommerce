@@ -18,10 +18,8 @@
     <!-- Navbar right when connected -->
     <div class="navbar-item">
       <div class="nav-bar-list">
-        <% if current_user.admin %>
-          <%= link_to admin_root_path do %>
-            <span><i class="fa fa-unlock-alt"></i> Administration</span>
-          <% end %>
+        <%= link_to admin_root_path do %>
+          <span><i class="fa fa-unlock-alt"></i> Administration</span>
         <% end %>
         <%= link_to info_path do %>
           <span><i class="fa fa-female"></i> Bio</span>
@@ -49,8 +47,16 @@
         <%= link_to new_lesson_path do %>
           <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
         <% end %>
+        <% if session[:order].present? %>
+          <%= link_to order_path(Order.find(session[:order])) do %>
+            <span><i class="fa fa-shopping-cart"></i> Panier</span>
+          <% end %>
+        <% end %>
+        <%= link_to new_user_registration_path, class: "navbar-item navbar-link" do %>
+          <span><i class="fa fa-user-plus"></i> Inscription</span>
+        <% end %>
         <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
-          <span><i class="fa fa-sign-in"></i> Se connecter</span>
+          <span><i class="fa fa-user"></i> Compte</span>
         <% end %>
       </div>
     </div>

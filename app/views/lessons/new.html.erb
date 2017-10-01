@@ -1,12 +1,25 @@
 <% content_for(:description) do %>
-Moduel de prise de réservations. Offrez la possibilité à vos clients d'effectuer des stages ou des visites de votre atelier.
+Module de prise de réservations. Offrez la possibilité à vos clients d'effectuer des stages ou des visites de votre atelier.
 <% end %>
 <% content_for(:title_tag) do %>
-  Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%> - Réserver un stage
+  En plus de votre boutique, proposer des stages ou des visites à vos clients.
 <% end %>
 
 <div class="container">
   <div class="row">
+
+      <div class="hidden-xs col-sm-12 list-header stage-list">
+        <div class="white-div"></div>
+        <div class="list-h1">
+          <div class="block1">
+            <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+            <h1>Réservation de stages via votre boutique en ligne</h1>
+          </div>
+          <i class="fa fa-times cross"></i>
+         </div>
+          <p>Proposez des stages ou des visites aux clients. Les caractéristiques de cette démo sont paramétrables: nombre de participants, durée, prix, etc.</p>
+      </div>
+
 
     <!-- LAPTOP -->
     <div class="hidden-xs col-sm-offset-2 col-sm-8">
@@ -44,6 +57,15 @@ Moduel de prise de réservations. Offrez la possibilité à vos clients d'effect
 
     <!-- MOBILE -->
     <div class="hidden-sm hidden-md hidden-lg col-xs-12">
+
+  <div class="list-header list-header-mobile stage-list">
+    <div class="list-h1">
+      <h1>Réservation de stages via votre boutique</h1>
+    </div>
+    <p>Proposez des stages ou des visites aux clients. Les caractéristiques de cette démo sont paramétrables ensuite: nombre de participants, durée, prix, etc.</p>
+    <span class="cross-mobile"><i class="fa fa-times"></i></span>
+  </div>
+
       <div class="stage">
         <%= simple_form_for @lesson do |f| %>
           <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Nombre de participants", selected: ENV['MINBOOKING'].to_i %>
@@ -84,6 +106,8 @@ Moduel de prise de réservations. Offrez la possibilité à vos clients d'effect
     $(document).on('ready', function() {
 
       var confirmed_course_js_format = <%= raw @confirmed_course_js_format%>
+      console.log(confirmed_course_js_format)
+      console.log(<%= raw @disabled_dates%>)
 
       $('#datetimepicker1').datetimepicker({
         disabledDates: <%= raw @disabled_dates%>,

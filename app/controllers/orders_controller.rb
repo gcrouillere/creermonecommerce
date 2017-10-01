@@ -1,13 +1,15 @@
 class OrdersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create, :show, :destroy]
 
   def create
     @ceramique = Ceramique.find(params[:ceramique].to_i)
     if session[:order].present?
       @order = Order.find(session[:order])
     else
+
       @order  = Order.create!(
         state: 'pending',
-        user: current_user
+        user: current_user ? current_user : nil
       )
       session[:order] = @order.id
     end
