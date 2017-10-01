@@ -1,36 +1,81 @@
 <% content_for(:description) do %>
 Vendez vos produits en ligne ! Site de e-commerce configurable. Créez votre compte et visualisez votre futur site de vente en ligne de vos produits.
 <% end %>
+<% content_for(:title_tag) do %>
+  Créer votre boutique en ligne: page d'accueil de votre site.
+<% end %>
+
+<% homepicpath = image_path ENV['HOMEPIC'] %>
+<% homepicpathmobile = image_path ENV['HOMEPICMOBILE'] %>
+<% if user_signed_in? %>
+  <% if  current_user.productphoto.present? %>
+    <% homepicpath = cl_image_path current_user.productphoto.path %>
+    <% homepicpathmobile = cl_image_path current_user.productphotomobile.path %>
+  <% end %>
+<% end %>
 
 <div class="jumbotron">
   <style>
   .jumbotron .banner {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path ENV['HOMEPIC']%>);
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= homepicpath %>);
   }
   .jumbotron .banner-xs {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url(<%= image_path ENV['HOMEPICMOBILE']%>);
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url(<%= homepicpathmobile %>);
   }
   </style>
 
 <!-- LAPTOP -->
-  <div class="hidden-xs">
+  <div class="hidden-xs hidden-sm">
     <div class="banner">
+
+      <div class="h1-home">
+        <div class="white-div"></div>
+        <div class="list-h1">
+          <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+          <h1>Créer votre boutique en ligne: page d'accueil personnalisable.</h1>
+          <i class="fa fa-times cross"></i>
+        </div>
+        <p>Créer un compte pour personnaliser la page d'accueil.</p>
+      </div>
+
       <div class="banner-content">
-        <h1><%= ENV['MODEL'].capitalize%></h1>
-        <p><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %></p>
-        <%= link_to "Voir les #{ENV['MODEL']}", ceramiques_path, class: "btn btn-primary btn-lg" %>
+        <% if user_signed_in? && current_user.produit %>
+          <h2><%= current_user.produit.capitalize%></h2>
+          <p><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></p>
+          <%= link_to "Voir les #{current_user.produit}", ceramiques_path, class: "btn btn-primary btn-lg" %>
+        <% else %>
+          <h2><%= ENV['MODEL'].capitalize%></h2>
+          <p><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %></p>
+          <%= link_to "Voir les #{ENV['MODEL']}", ceramiques_path, class: "btn btn-primary btn-lg" %>
+        <% end %>
       </div>
     </div>
   </div>
 
 <!-- MOBILE -->
-  <div class="hidden-sm hidden-md hidden-lg">
+  <div class="hidden-md hidden-lg">
     <div class="banner-xs">
-      <div class="banner-content-xs">
-        <h1><%= ENV['MODEL'].capitalize%></h1>
-        <p><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %></p>
-        <%= link_to "Voir les #{ENV['MODEL']}", ceramiques_path, class: "btn btn-primary" %>
+
+      <div class="h1-home-mobile">
+        <div class="logo-container">
+          <h1>Créer votre boutique en ligne: accueil</h1>
+          <i class="fa fa-times cross"></i>
+        </div>
+        <p>Créer un compte et personnaliser cette page.</p>
       </div>
+
+      <div class="banner-content-xs">
+          <% if user_signed_in? && current_user.produit %>
+            <h2><%= current_user.produit.capitalize%></h2>
+            <p><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></p>
+            <%= link_to "Voir les #{current_user.produit}", ceramiques_path, class: "btn btn-primary btn-lg" %>
+          <% else %>
+            <h2><%= ENV['MODEL'].capitalize%></h2>
+            <p><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %></p>
+            <%= link_to "Voir les #{ENV['MODEL']}", ceramiques_path, class: "btn btn-primary btn-lg" %>
+          <% end %>
+      </div>
+
     </div>
   </div>
 

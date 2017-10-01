@@ -3,10 +3,18 @@ ActiveAdmin.register Category do
   config.filters = false
   actions  :index, :new, :create, :destroy, :update, :edit
   menu priority: 2
+  scope_to :current_user
 
   index do
     column :name
     actions
+  end
+
+  form do |f|
+  f.inputs "" do
+    f.input :name
+    end
+  f.actions
   end
 
   controller do

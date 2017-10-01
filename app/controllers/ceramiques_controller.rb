@@ -2,7 +2,7 @@ class CeramiquesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @ceramiques = Ceramique.all
+    Ceramique.all.where(user: current_user).first.present? ? @ceramiques = Ceramique.all.where(user: current_user) : @ceramiques = User.where(admin: true).first.ceramiques
     clean_orders
     uniq_categories
     if params[:all].present?

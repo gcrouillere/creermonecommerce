@@ -1,8 +1,8 @@
 <% content_for(:description) do %>
-<%= @ceramique.name.capitalize %>. Prix : <%= humanized_money(@ceramique.price)%> €. Livraison sous 3 semaines.
+Votre boutique en ligne configurable. <%= @ceramique.name.capitalize %>. Prix : <%= humanized_money(@ceramique.price)%> €. Livraison sous 3 semaines.
 <% end %>
 <% content_for(:title_tag) do %>
-Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%> - <%= @ceramique.name.capitalize %>
+  Créer votre boutique en ligne: fiche produit vue de vos clients.
 <% end %>
 
 <div class="container">
@@ -12,18 +12,30 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
 
     <div class="row">
       <div class="col-md-12">
+        <div class="list-header">
+          <div class="white-div"></div>
+          <div class="list-h1">
+            <div class="block1">
+              <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+              <h1>Créer votre boutique en ligne: fiche produit.</h1>
+            </div>
+            <i class="fa fa-times cross"></i>
+          </div>
+          <p>Charger jusqu'à 4 photos par produit. Toutes les caractéristiques des produits sont paramétrables dans l'administration: stock, prix, description ...</p>
+        </div>
+
         <div class="product-show text center">
 
           <img class="img-front" id="zoom01" src="<%= cl_image_path @ceramique.photos[0].path %>" data-zoom-image="<%= cl_image_path @ceramique.photos[0].path %>">
 
           <div class="info-add-basket">
             <div class="description">
-              <h3> <%= @ceramique.name.capitalize%> </h4>
-              <h4 class="description"> <%= @ceramique.description%> </h4>
+              <h2 class="product-name"> <%= @ceramique.name.capitalize%> </h2>
+              <h2 class="description"> <%= @ceramique.description%> </h2>
               <hr>
             </div>
             <div class="prix-form">
-              <h4 class="prix"> <%= humanized_money(@ceramique.price)%> <%= currency_symbol %> </h4>
+              <h2 class="prix"> <%= humanized_money(@ceramique.price)%> <%= currency_symbol %> </h2>
               <% if  @ceramique.stock > 0 %>
                 <form action="/orders" method="post" authenticity_token="true" class="form">
                   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -41,7 +53,7 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
                   </button>
                 </form>
               <% else %>
-                  <h4 class="stock0">Stock épuisé</h4>
+                  <h3 class="stock0">Stock épuisé</h3>
               <% end %>
             </div>
           </div>
@@ -75,7 +87,7 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
       <div class="col-xs-12">
 
         <div class="head">
-          <h3> <%= @ceramique.name.capitalize%> </h4>
+          <h1> <%= @ceramique.name.capitalize%> </h1>
           <div class="image-xs-sm">
             <img class="img-front" src="<%= cl_image_path @ceramique.photos[0].path %>">
           </div>
@@ -93,11 +105,11 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
         <div class="product-show-mobile text center">
           <div class="info-add-basket">
             <div class="description">
-              <h4 class="description"> <%= @ceramique.description%> </h4>
+              <h2 class="description"> <%= @ceramique.description%> </h2>
               <hr>
             </div>
             <div class="prix-form">
-              <h4 class="prix"> <%= humanized_money(@ceramique.price)%> <%= currency_symbol %> </h4>
+              <h2 class="prix"> <%= humanized_money(@ceramique.price)%> <%= currency_symbol %> </h2>
               <% if  @ceramique.stock > 0 %>
                 <form action="/orders" method="post" authenticity_token="true" class="form">
                   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
@@ -115,7 +127,7 @@ Les <%="#{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capi
                   </button>
                 </form>
               <% else %>
-                  <h4 class="stock0">Stock épuisé</h4>
+                  <h3 class="stock0">Stock épuisé</h3>
               <% end %>
             </div>
           </div>

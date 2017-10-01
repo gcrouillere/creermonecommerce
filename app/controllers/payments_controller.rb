@@ -1,18 +1,13 @@
 class PaymentsController < ApplicationController
-  before_action :set_order, only: [:create]
+  before_action :set_order, only: [:create, :new]
+  skip_before_action :authenticate_user!, only: [:new, :create]
 
   def new
-    if (/\A(F-)?(((2[A|B])|[0-8]{1}[0-9]{1})|(9{1}[0-5]{1}))[0-9]{3}\z/).match("#{current_user.zip_code}") == nil
-      flash[:alert] = "Les livraisons ne sont possibles qu'en France métropolitaine. Modifiez votre adresse si vous souhaitez poursuivre."
-      redirect_to edit_user_registration_path
-    else
-      set_order
-    end
   end
 
   def create
     # STRIPE
-    @order = Order.find(params[:order_id])
+    @order = set_order
     customer = Stripe::Customer.create(
       source: params[:stripeToken],
       email:  params[:stripeEmail]
@@ -32,15 +27,17 @@ class PaymentsController < ApplicationController
       # SEND EMAILS
       @user = current_user
       @amount = Amountcalculation.new(@order).calculate_amount(@order)
-      OrderMailer.confirmation_mail_after_order(@user, @order, @amount).deliver_now
-      OrderMailer.mail_francoise_after_order(@user, @order, @amount).deliver_now
+      if @user
+        OrderMailer.confirmation_mail_after_order(@user, @order, @amount).deliver_now
+        OrderMailer.mail_francoise_after_order(@user, @order, @amount).deliver_now
+      end
       # CLEAR SESSION AND REDIRECT TO CONFIRMATION
       session[:order] = nil
       redirect_to confirmation_path
     else
       # SEND EMAILS
-      LessonMailer.mail_user_after_lesson_payment(@lesson, @user).deliver_now
-      LessonMailer.mail_francoise_after_lesson_payment(@lesson, @user).deliver_now
+      LessonMailer.mail_user_after_lesson_payment(@lesson).deliver_now
+      LessonMailer.mail_francoise_after_lesson_payment(@lesson).deliver_now
       redirect_to stage_payment_confirmation_path
     end
 

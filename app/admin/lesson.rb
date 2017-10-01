@@ -4,6 +4,7 @@ ActiveAdmin.register Lesson do
   config.sort_order = 'start_asc'
   menu priority: 3
   config.filters = false
+  scope_to :current_user
 
   index_as_calendar ({:ajax => false}) do |lesson|
 
@@ -137,7 +138,7 @@ ActiveAdmin.register Lesson do
             booking.update(full: true, capacity: 0)
           end
         else
-          booking = Booking.create(day: day_checked, capacity: ENV['CAPACITY'].to_i - lesson.student, course: i + 1, duration: lesson.duration)
+          booking = Booking.create(day: day_checked, capacity: ENV['CAPACITY'].to_i - lesson.student, course: i + 1, duration: lesson.duration, user: lesson.user)
           booking.update(full: true) if Booking.last.capacity < ENV['MINBOOKING'].to_i
         end
         previous_booking_full = booking.full

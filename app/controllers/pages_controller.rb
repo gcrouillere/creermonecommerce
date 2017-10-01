@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :google906057532e2dbb7e]
+  skip_before_action :authenticate_user!, only: [:home, :confirmation, :info, :google906057532e2dbb7e, :robots, :offerpresentation]
+  layout 'offerpresentationlayout', :only => [:offerpresentation]
 
   def home
   end
@@ -14,7 +15,10 @@ class PagesController < ApplicationController
   end
 
   def robots
-    render 'pages/robots.txt.erb'
-    expires_in 6.hours, public: true
+    respond_to :text
+    render 'pages/robots.text.erb', public: true
+  end
+
+  def offerpresentation
   end
 end

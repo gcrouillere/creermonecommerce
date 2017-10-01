@@ -1,0 +1,19 @@
+<% if params[:controller] == "app_specific_registration/registrations" || params[:controller] == "devise/sessions"%>
+<div class="offernavbar-devise">
+  <div class="offer-bar-list-devise">
+    <%= link_to "Démo", home_path %>
+    <%= link_to "Info", root_path %>
+    <%= link_to "Inscription", new_user_registration_path %>
+    <%= link_to "Contact", root_path %>
+  </div>
+</div>
+<% else %>
+<div class="offernavbar">
+  <div class="offer-bar-list">
+    <%= link_to "Démo", home_path %>
+    <%= link_to "Info", root_path %>
+    <%= link_to "Inscription", new_user_registration_path %>
+    <%= link_to "Contact", root_path %>
+  </div>
+</div>
+<% end %>

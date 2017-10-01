@@ -3,6 +3,7 @@ ActiveAdmin.register Calendarupdate do
   actions  :index, :new, :create, :destroy, :show
   menu priority: 3
   config.filters = false
+  scope_to :current_user
 
   form do |f|
     f.inputs "" do
@@ -13,13 +14,15 @@ ActiveAdmin.register Calendarupdate do
   end
 
   index_as_calendar do |calendarupdate|
-    {
-      title: "Période bloquée",
-      start: calendarupdate.period_start,
-      end: calendarupdate.period_end + 1.day,
-      url: "#{admin_calendarupdate_path(calendarupdate)}",
-      textColor: '#2A2827',
-    }
+    if calendarupdate.user == current_user
+      {
+        title: "Période bloquée",
+        start: calendarupdate.period_start,
+        end: calendarupdate.period_end + 1.day,
+        url: "#{admin_calendarupdate_path(calendarupdate)}",
+        textColor: '#2A2827',
+      }
+    end
   end
 
   index do
@@ -42,7 +45,7 @@ ActiveAdmin.register Calendarupdate do
         period_ok = period_check(p_start, p_end)
         if period_ok
           while day_checked <= p_end
-            Booking.create(day: day_checked, capacity: 0, course: 0, duration: 0, full: true)
+            Booking.create(day: day_checked, capacity: 0, course: 0, duration: 0, full: true, user: current_user)
             day_checked += 1.day
           end
         else
@@ -85,7 +88,7 @@ ActiveAdmin.register Calendarupdate do
       day_checked = day_start
       p_end = day_end
       while day_checked <= p_end
-          if Booking.where("day = ? AND capacity < ?", day_checked, ENV['CAPACITY'].to_i).present?
+          if Booking.where("day = ? AND capacity < ?", day_checked, ENV['CAPACITY'].to_i).where(user: current_user).present?
             period_ok = false
           end
           day_checked += 1.day
@@ -107,7 +110,7 @@ ActiveAdmin.register Calendarupdate do
       p_end = calendarupdate.period_end
       day_checked = p_start
       while day_checked <= p_end
-        booking = Booking.where(day: day_checked).first
+        booking = Booking.where(day: day_checked).where(user: current_user).first
         if booking.duration == 0
           booking.destroy
         end
