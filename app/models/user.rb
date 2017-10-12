@@ -20,6 +20,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   validates :email, presence: true, format: {with: Regexp.new('\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]{2,}\z'), message:"Adresse email invalide"}
+  validates :phone, presence: true, format: {with: Regexp.new('\A(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}\z'), message:"Téléphone invalide"}
 
   def display_name
     return self.email

@@ -10,3 +10,10 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+
+
+$(document).ready(function() {
+  setTimeout(function(){
+    $('.alert').remove();
+  }, 5000);
+})

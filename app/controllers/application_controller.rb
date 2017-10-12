@@ -28,31 +28,43 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || root_path
+    if session[:previous_url] == "/"
+      user_path(current_user)
+    else
+      session[:previous_url] || root_path
+    end
   end
 
   # 2 - Permitted parameters for sign_in/up
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [
+      :first_name,
+      :last_name,
+      :produit,
+      :email,
+      :phone,
       :productphoto,
-      :productphotomobile,
-      :productphotomobile,
-      :lessonphoto,
       :avatarphoto,
       :cityphoto,
-      :logophoto,
+      :productphotomobile,
+      :lessonphoto,
+      :logophoto
     ])
 
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [
+      :first_name,
+      :last_name,
+      :produit,
+      :email,
+      :phone,
       :productphoto,
-      :productphotomobile,
-      :productphotomobile,
-      :lessonphoto,
       :avatarphoto,
       :cityphoto,
-      :logophoto,
+      :productphotomobile,
+      :lessonphoto,
+      :logophoto
     ])
   end
 

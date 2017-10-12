@@ -1,19 +1,37 @@
-<% if params[:controller] == "app_specific_registration/registrations" || params[:controller] == "devise/sessions"%>
+<% if user_signed_in? && params[:action] != "offerpresentation" %>
 <div class="offernavbar-devise">
   <div class="offer-bar-list-devise">
     <%= link_to "Démo", home_path %>
     <%= link_to "Info", root_path %>
-    <%= link_to "Inscription", new_user_registration_path %>
-    <%= link_to "Contact", root_path %>
+    <%= link_to "Compte", user_path(current_user) %>
   </div>
 </div>
+<% elsif user_signed_in? && (params[:action] = "offerpresentation")%>
+  <div class="top-space"></div>
+  <div class="offernavbar">
+    <div class="offer-bar-list">
+      <%= link_to "Démo", home_path %>
+      <%= link_to "Info", root_path %>
+      <%= link_to "Compte", user_path(current_user) %>
+    </div>
+  </div>
+<% elsif params[:controller] == "app_specific_registration/registrations" || params[:controller] == "devise/sessions" || params[:controller] == "users" %>
+  <div class="offernavbar-devise">
+    <div class="offer-bar-list-devise">
+      <%= link_to "Démo", home_path %>
+      <%= link_to "Info", root_path %>
+      <%= link_to "Connexion", new_user_session_path %>
+      <%= link_to "Inscription", new_user_registration_path %>
+    </div>
+  </div>
 <% else %>
+<div class="top-space"></div>
 <div class="offernavbar">
   <div class="offer-bar-list">
     <%= link_to "Démo", home_path %>
     <%= link_to "Info", root_path %>
+    <%= link_to "Connexion", new_user_session_path %>
     <%= link_to "Inscription", new_user_registration_path %>
-    <%= link_to "Contact", root_path %>
   </div>
 </div>
 <% end %>

@@ -32,6 +32,9 @@
             <span><i class="fa fa-shopping-cart"></i> Panier</span>
           <% end %>
         <% end %>
+        <%= link_to user_path(current_user), class: "navbar-item navbar-link" do %>
+          <span><i class="fa fa-user"></i> Compte</span>
+        <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <span><i class="fa fa-sign-out"></i> Se déconnecter</span>
         <% end %>

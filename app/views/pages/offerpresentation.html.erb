@@ -46,8 +46,14 @@
           <%= link_to home_path do %>
             <button type="submit" class="pull-right btn explore">DEMO D'UNE BOUTIQUE</button>
           <% end %>
-          <%= link_to new_user_registration_path do %>
-            <button type="submit" class="pull-right btn compte">CREEZ UNE BOUTIQUE PERSONNALISEE</button>
+          <% if user_signed_in? %>
+          <%= link_to user_path(current_user) do %>
+              <button type="submit" class="pull-right btn compte">CREEZ UNE BOUTIQUE PERSONNALISEE</button>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_registration_path do %>
+              <button type="submit" class="pull-right btn compte">CREEZ UNE BOUTIQUE PERSONNALISEE</button>
+            <% end %>
           <% end %>
         </div>
       </div>
