@@ -7,6 +7,6 @@
   <p> Vous pourriez commencer votre stage à cette (ces) date(s) : <%="#{@closest_start}"%>. Veuillez effectuer une nouvelle demande sur le <%= link_to 'site', new_lesson_url %>.</p>
 <% end %>
 <p>Cordialement</p>
-<p><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %></p>
-<p>email : <%= "#{ENV['EMAIL']}" %></p>
-<p>téléphone : <%= "#{ENV['TELEPHONE']}" %></p>
+<p><%= @full_name %></p>
+<p>email : <%= @lesson.user.email ? @lesson.user.email : ENV['EMAIL']%></p>
+<p>téléphone : <%= @lesson.user.phone ? @lesson.user.phone : ENV['TELEPHONE']%></p>

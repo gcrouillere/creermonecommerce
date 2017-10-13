@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   layout 'stage'
-  skip_before_action :authenticate_user!, only: [:show, :new]
+  skip_before_action :authenticate_user!, only: [:show, :new, :stage_payment_confirmation]
 
   def show
     @lesson = Lesson.find(params[:id])
@@ -57,9 +57,11 @@ class LessonsController < ApplicationController
   end
 
   def stage_confirmation
+    @model_string = model_print
   end
 
   def stage_payment_confirmation
+    @model_string = model_print
   end
 
   private

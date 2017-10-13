@@ -28,31 +28,55 @@ $(document).ready(function() {
         $('.input0').removeClass('hidden').focus();
         $('.add-photo0').css({'border-bottom-left-radius':0});
         $('.add-photo0').css({'border-bottom-right-radius':0});
+
+        $('.input1, .input2, .input3, .input4, .input5').addClass('hidden').val();
+        $('.add-photo1, .add-photo2, .add-photo3, .add-photo4, .add-photo5').css({'border-bottom-left-radius':3});
+        $('.add-photo1, .add-photo2, .add-photo3, .add-photo4, .add-photo5').css({'border-bottom-right-radius':3});
         break;
       case "Photo pour la page bio":
         $('.input1').removeClass('hidden').focus();
         $('.add-photo1').css({'border-bottom-left-radius':0});
         $('.add-photo1').css({'border-bottom-right-radius':0});
+
+        $('.input0, .input2, .input3, .input4, .input5').addClass('hidden').val();
+        $('.add-photo0, .add-photo2, .add-photo3, .add-photo4, .add-photo5').css({'border-bottom-left-radius':3});
+        $('.add-photo0, .add-photo2, .add-photo3, .add-photo4, .add-photo5').css({'border-bottom-right-radius':3});
         break;
       case "Image d'accueil pour mobiles":
         $('.input2').removeClass('hidden').focus();
         $('.add-photo2').css({'border-bottom-left-radius':0});
         $('.add-photo2').css({'border-bottom-right-radius':0});
+
+        $('.input0, .input1, .input3, .input4, .input5').addClass('hidden').val();
+        $('.add-photo0, .add-photo1, .add-photo3, .add-photo4, .add-photo5').css({'border-bottom-left-radius':3});
+        $('.add-photo0, .add-photo1, .add-photo3, .add-photo4, .add-photo5').css({'border-bottom-right-radius':3});
         break;
       case "Image pour les stages":
         $('.input3').removeClass('hidden').focus();
         $('.add-photo3').css({'border-bottom-left-radius':0});
         $('.add-photo3').css({'border-bottom-right-radius':0});
+
+        $('.input0, .input1, .input2, .input4, .input5').addClass('hidden').val();
+        $('.add-photo0, .add-photo1, .add-photo2, .add-photo4, .add-photo5').css({'border-bottom-left-radius':3});
+        $('.add-photo0, .add-photo1, .add-photo2, .add-photo4, .add-photo5').css({'border-bottom-right-radius':3});
         break;
       case "Image pour votre ville":
         $('.input4').removeClass('hidden').focus();
         $('.add-photo4').css({'border-bottom-left-radius':0});
         $('.add-photo4').css({'border-bottom-right-radius':0});
+
+        $('.input0, .input1, .input2, .input3, .input5').addClass('hidden').val();
+        $('.add-photo0, .add-photo1, .add-photo2, .add-photo3, .add-photo5').css({'border-bottom-left-radius':3});
+        $('.add-photo0, .add-photo1, .add-photo2, .add-photo3, .add-photo5').css({'border-bottom-right-radius':3});
         break;
       case "Image pour votre logo":
         $('.input5').removeClass('hidden').focus();
         $('.add-photo5').css({'border-bottom-left-radius':0});
         $('.add-photo5').css({'border-bottom-right-radius':0});
+
+        $('.input0, .input1, .input2, .input3, .input4').addClass('hidden').val();
+        $('.add-photo0, .add-photo1, .add-photo2, .add-photo3, .add-photo4').css({'border-bottom-left-radius':3});
+        $('.add-photo0, .add-photo1, .add-photo2, .add-photo3, .add-photo4').css({'border-bottom-right-radius':3});
         break;
     }
   });

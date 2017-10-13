@@ -11,11 +11,13 @@ class CeramiquesController < ApplicationController
       filter_by_category if params[:categories].present?
       filter_by_price if params[:prix_max].present?
     end
+    @model_string = model_print
   end
 
   def show
     clean_orders
     @ceramique = Ceramique.find(params[:id])
+    @model_string = model_print
   end
 
   private
@@ -52,5 +54,6 @@ class CeramiquesController < ApplicationController
   def filter_by_price
     @ceramiques = @ceramiques.select {|ceramique| ceramique.price_cents <= params[:prix_max].to_i * 100 }
   end
+
 end
 

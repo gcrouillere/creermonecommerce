@@ -4,15 +4,21 @@ class OrderMailer < ApplicationMailer
     @user = user
     @order = order
     @amount = amount
+    @model_string = model_print_mail(@user)
     productqty = @order.basketlines.sum(:quantity)
-    mail(to: @user.email, subject: "Confirmation de commande de #{productqty > 1 ? ENV['MODEL'] : ENV['MODEL'][0...-1]}")
+    mail(to: @user.email, subject: "Confirmation de commande de #{productqty > 1 ? @model_string : @model_string[0..-2]}")
   end
 
   def mail_francoise_after_order(user, order, amount)
     @user = user
     @order = order
     @amount = amount
-    mail(to: "#{ENV['EMAIL']}", subject: 'Nouvelle commande recue')
+    @model_string = model_print_mail(@user)
+    mail(to: @user.email, subject: 'Nouvelle commande recue')
+  end
+
+  def model_print_mail(user)
+    return user.produit[-1] == "s" ? user.produit.capitalize : (user.produit[-2..-1] == "au" ? user.produit.capitalize + "x" : user.produit.capitalize + "s")
   end
 
 end

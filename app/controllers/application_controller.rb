@@ -35,6 +35,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_out_path_for(resource_or_scope)
+    home_path
+  end
+
   # 2 - Permitted parameters for sign_in/up
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -72,6 +76,21 @@ class ApplicationController < ActionController::Base
   def default_url_options
     { host: ENV["HOST"] || "localhost:3000" }
   end
+
+  # GENERIC MODEL PRINT METHOD
+  def model_print
+    output = ""
+    if user_signed_in?
+      (output = current_user.produit[-1] == "s" ? current_user.produit.capitalize : (current_user.produit[-2..-1] == "au" ? current_user.produit.capitalize + "x" : current_user.produit.capitalize + "s"))
+    else
+      output = ENV['MODEL']
+    end
+  end
+
+   def env_variable_print(env_data, column, user)
+    user ? (user.column ? user.column : env_data) : env_data
+  end
+
 end
 
 

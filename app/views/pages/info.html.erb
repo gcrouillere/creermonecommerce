@@ -10,7 +10,11 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
 <% citypictag= image_tag ENV['CITY'] %>
 <% if user_signed_in? %>
   <% if  current_user.avatarphoto.present? %>
-    <% avatarpictag = cl_image_tag current_user.avatarphoto.path, class: "img-avatar" %>
+    <% if  current_user.avatarphoto.width.to_f / current_user.avatarphoto.height > 1.2 %>
+      <% avatarpictag = cl_image_tag current_user.avatarphoto.path, :width => 450, :height => 390, :crop => :thumb, :gravity => :face, class: "img-avatar" %>
+    <% else %>
+      <% avatarpictag = cl_image_tag current_user.avatarphoto.path, class: "img-avatar" %>
+    <% end %>
     <% avatarpictagmobile = cl_image_tag(cl_image_path current_user.avatarphoto.path, :width => 200, :height => 200, :crop => :thumb, :gravity => :face) %>
     <% if  current_user.cityphoto.present? %>
       <% citypictag= cl_image_tag current_user.cityphoto.path %>
@@ -23,21 +27,41 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
 
   <!-- LAPTOP -->
     <div class="hidden-xs hidden-sm col-sm-12">
-      <div class="list-header">
-        <div class="white-div"></div>
-        <div class="list-h1">
-          <div class="block1">
-            <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-            <h1>Informations personnelles de votre boutique en ligne.</h1>
+      <div class="info-top">
+        <div class="list-header-1">
+          <div class="white-div"></div>
+          <div class="list-h1">
+            <div class="block1">
+              <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+              <h2>Contactez nous pour un devis</h2>
+            </div>
+            <i class="fa fa-times cross cross-1"></i>
           </div>
-          <i class="fa fa-times cross"></i>
+          <p>Cette boutique est la base de notre offre, nous pouvons l'étoffer selon vos besoins. Contactez nous pour revoir votre projet ensemble.</p>
+          <p>Tel: 06.85.47.68.48</p>
+          <p>gcrouillere@hotmail.fr</p>
         </div>
-      <p>Partagez votre biographie, les techniques de fabrication, votre localisation, etc. Toutes les informations sont paramétrables dans l'administration.</p>
+
+        <div class="list-header-2">
+          <div class="white-div"></div>
+          <div class="list-h1">
+            <div class="block1">
+              <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+              <h1>Informations personnelles pour votre boutique.</h1>
+            </div>
+            <i class="fa fa-times cross cross-2"></i>
+          </div>
+        <p>Partagez votre biographie, les techniques de fabrication, votre localisation, etc. Toutes les informations sont paramétrables dans l'administration.</p>
+      </div>
     </div>
       <div class="wrapper">
         <%= avatarpictag %>
         <div class="texte">
-          <h2><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%></h4>
+          <% if user_signed_in? %>
+            <h2><%= current_user.first_name ? "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" : "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%></h4>
+          <% else %>
+            <h2><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%></h4>
+          <% end %>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Maecenas in semper purus, semper hendrerit est. Proin vel ante ac ex iaculis condimentum. Nunc elementum ac tellus non consequat. In tempor est quis arcu hendrerit ultricies. Ut accumsan lacus a nunc mattis, a congue magna eleifend. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
         </div>
@@ -49,18 +73,20 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
       </div>
 
       <%= link_to ceramiques_path, class: "back-in-home" do %>
-        <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL']%></span>
+        <span><i class="fa fa-arrow-right"></i> Liste des <%= @model_string%></span>
       <% end %>
     </div>
 
   <!-- MOBILE -->
    <div class="col-xs-12 hidden-md hidden-lg mobile-info">
-      <div class="list-header list-header-mobile">
-        <div class="list-h1">
-          <h1>Créer votre boutique en ligne: informations personnelles.</h1>
+      <div class="info-top">
+        <div class="list-header-1 list-header-mobile">
+          <div class="list-h1">
+            <h1>Créer votre boutique en ligne: informations personnelles.</h1>
+          </div>
+          <p>Partagez votre biographie, les techniques de fabrication, votre localisation, etc. Toutes les informations sont paramétrables dans l'administration.</p>
+          <span class="cross-mobile"><i class="fa fa-times"></i></span>
         </div>
-        <p>Partagez votre biographie, les techniques de fabrication, votre localisation, etc. Toutes les informations sont paramétrables dans l'administration.</p>
-        <span class="cross-mobile"><i class="fa fa-times"></i></span>
       </div>
       <div class="wrapper-mobile">
         <div class="img-avatar-mobile"><%= avatarpictagmobile %></div>
@@ -75,7 +101,7 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
       </div>
 
       <%= link_to ceramiques_path, class: "back-in-home-mobile" do %>
-        <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL']%></span>
+        <span><i class="fa fa-arrow-right"></i> Liste des <%= @model_string%></span>
       <% end %>
     </div>
 

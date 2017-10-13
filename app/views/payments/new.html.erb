@@ -14,7 +14,7 @@
             <div class="hidden-xs">
               <% if @order.lesson.present?  %>
                 <h3>Montant des arrhes: <%= humanized_money(@order.amount) %> <%= currency_symbol %></h3>
-                <h4>Stage de poterie pour <%= @order.lesson.duration%> jours, <%= @order.lesson.student%> personnes.</h4>
+                <h4>Stage pour <%= @order.lesson.duration%> jours, <%= @order.lesson.student%> personnes.</h4>
                 <h4>Début du stage le <%= @order.lesson.start.day%>/<%= @order.lesson.start.month%>/<%= @order.lesson.start.year%></h4>
               <% else %>
                 <h3>Montant total de votre commande: <%= humanized_money(@order.amount) %> <%= currency_symbol %></h3>
@@ -23,7 +23,7 @@
             <div class="hidden-sm hidden-md hidden-lg">
               <% if @order.lesson.present?  %>
                 <h3>Montant des arrhes: <%= humanized_money(@order.amount) %> <%= currency_symbol %></h3>
-                <h4>Stage de poterie pour <%= @order.lesson.duration%> jours, <%= @order.lesson.student%> personnes.</h4>
+                <h4>Stage pour <%= @order.lesson.duration%> jours, <%= @order.lesson.student%> personnes.</h4>
                 <h4>Début du stage le <%= @order.lesson.start.day%>/<%= @order.lesson.start.month%>/<%= @order.lesson.start.year%></h4>
               <% else %>
                 <h3>Total à payer: <%= humanized_money(@order.amount) %> <%= currency_symbol %></h3>

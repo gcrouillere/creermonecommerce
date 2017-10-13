@@ -13,6 +13,6 @@ Bonjour <%= @lesson.user.email %>,
 
 Cordialement
 
-<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
-email : <%= "#{ENV['EMAIL']}" %>
-téléphone : <%= "#{ENV['TELEPHONE']}" %>
+<%= @full_name %>,
+email: <%= @lesson.user.email ? @lesson.user.email : ENV['EMAIL']%>
+téléphone: <%= @lesson.user.phone ? @lesson.user.phone : ENV['TELEPHONE']%>

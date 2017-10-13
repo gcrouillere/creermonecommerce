@@ -2,68 +2,6 @@
   text-decoration: none !important;
 }
 
-.list-header {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  padding: 0px;
-  background: $card-background;
-  border-radius: 14px;
-  border: $card-border;
-  position: relative;
-  .white-div {
-    height: 13px;
-  }
-  .list-h1 {
-    background-color: $primary;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .block1 {
-      flex: 1 0 auto;
-      display: flex;
-      align-items: center;
-    }
-    .info-circle, .cross {
-      margin: 10px;
-      font-size: 20px;
-    }
-    h1 {
-      font-size: larger;
-      font-weight: 500;
-      margin: 10px;
-      padding: 2px;
-      color: white;
-    }
-  }
-  p {
-    margin: 12px;
-  }
-}
-
-.stage-list {
-  border-width: 0px 0px 1px 0px !important;
-}
-
-.list-header-mobile {
-  margin: 10px;
-  padding: 0;
-  .list-h1 {
-    background-color: $primary;
-    h1 {
-      padding: 2px;
-      color: white;
-      }
-  }
-  p {
-    min-height: 20px;
-  }
-    .cross-mobile {
-    position: absolute;
-    bottom: 2px;
-    right: 6px;
-  }
-}
-
 .ceramiquecard {
   margin-top: 20px;
   margin-bottom: 10px;

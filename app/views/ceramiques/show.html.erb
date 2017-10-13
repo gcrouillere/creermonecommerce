@@ -12,16 +12,18 @@ Votre boutique en ligne configurable. <%= @ceramique.name.capitalize %>. Prix : 
 
     <div class="row">
       <div class="col-md-12">
-        <div class="list-header">
-          <div class="white-div"></div>
-          <div class="list-h1">
-            <div class="block1">
-              <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-              <h1>Fiche produit de votre boutique en ligne.</h1>
+        <div class="info-top">
+          <div class="list-header-1">
+            <div class="white-div"></div>
+            <div class="list-h1">
+              <div class="block1">
+                <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+                <h1>Fiche produit de votre boutique en ligne.</h1>
+              </div>
+              <i class="fa fa-times cross cross-1"></i>
             </div>
-            <i class="fa fa-times cross"></i>
+            <p>Chargez jusqu'à 4 photos par produit. Toutes les caractéristiques des produits sont paramétrables dans l'administration: stock, prix, description ...</p>
           </div>
-          <p>Chargez jusqu'à 4 photos par produit. Toutes les caractéristiques des produits sont paramétrables dans l'administration: stock, prix, description ...</p>
         </div>
 
         <div class="product-show text center">
@@ -73,7 +75,7 @@ Votre boutique en ligne configurable. <%= @ceramique.name.capitalize %>. Prix : 
             <% end %>
           </div>
           <%= link_to ceramiques_path do %>
-            <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL'].capitalize%></span>
+            <span><i class="fa fa-arrow-right"></i> Liste des <%= @model_string%></span>
           <% end %>
         </div>
       </div>
@@ -135,7 +137,7 @@ Votre boutique en ligne configurable. <%= @ceramique.name.capitalize %>. Prix : 
 
         <div class="mobile-link">
           <%= link_to ceramiques_path do %>
-            <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL'].capitalize%></span>
+            <span><i class="fa fa-arrow-right"></i> Liste des <%= @model_string%></span>
           <% end %>
         </div>
 

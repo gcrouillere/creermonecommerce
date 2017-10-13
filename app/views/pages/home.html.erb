@@ -10,6 +10,8 @@ Vendez vos produits en ligne ! Site de e-commerce configurable. Créez votre com
 <% if user_signed_in? %>
   <% if  current_user.productphoto.present? %>
     <% homepicpath = cl_image_path current_user.productphoto.path %>
+  <% end %>
+  <% if  current_user.productphotomobile.present? %>
     <% homepicpathmobile = cl_image_path current_user.productphotomobile.path %>
   <% end %>
 <% end %>
@@ -32,17 +34,29 @@ Vendez vos produits en ligne ! Site de e-commerce configurable. Créez votre com
         <div class="white-div"></div>
         <div class="list-h1">
           <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-          <h1>Page d'accueil personnalisable de votre boutique en ligne.</h1>
-          <i class="fa fa-times cross"></i>
+          <h1>Page d'accueil personnalisable de la boutique en ligne.</h1>
+          <i class="fa fa-times cross-1"></i>
         </div>
         <p>Créez un compte pour personnaliser la page d'accueil.</p>
       </div>
 
+      <div class="h1-home-2">
+        <div class="white-div"></div>
+        <div class="list-h1">
+          <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+          <h2>Contactez nous pour un devis</h1>
+          <i class="fa fa-times cross-2"></i>
+        </div>
+        <p>Cette boutique est la base de notre offre, nous pouvons l'étoffer selon vos besoins. Contactez nous pour revoir votre projet ensemble.</p>
+        <p>Tel: 06.85.47.68.48</p>
+        <p>gcrouillere@hotmail.fr</p>
+      </div>
+
       <div class="banner-content">
         <% if user_signed_in? && current_user.produit %>
-          <h2><%= current_user.produit.capitalize%></h2>
+          <h2><%= @model_string.capitalize%></h2>
           <p><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></p>
-          <%= link_to "Voir les #{current_user.produit}", ceramiques_path, class: "btn btn-primary btn-lg" %>
+          <%= link_to "Voir les #{@model_string}", ceramiques_path, class: "btn btn-primary btn-lg" %>
         <% else %>
           <h2><%= ENV['MODEL'].capitalize%></h2>
           <p><%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %></p>
@@ -58,8 +72,8 @@ Vendez vos produits en ligne ! Site de e-commerce configurable. Créez votre com
 
       <div class="h1-home-mobile">
         <div class="logo-container">
-          <h1>Page d'accueil personnalisable de votre boutique en ligne.</h1>
-          <i class="fa fa-times cross"></i>
+          <h1>Page d'accueil de la boutique en ligne.</h1>
+          <i class="fa fa-times cross cross-1"></i>
         </div>
         <p>Créez un compte pour personnaliser la page d'accueil.</p>
       </div>

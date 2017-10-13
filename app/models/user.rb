@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_attachment :lessonphoto
   has_attachment :avatarphoto
   has_attachment :cityphoto
-  has_attachment :logophoto, accept: [:png]
+  has_attachment :logophoto # , accept: [:png]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

@@ -1,32 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
 
+    <!-- LAPTOP -->
+    <div class="hidden-xs hidden-sm col-md-12">
       <div class="top-info">
         <h2 class="compte-head">Compte utilisateur: <%=current_user.email%></h2>
-        <p>Configurez votre boutique à l'aide des champs données et photos ci-dessous. <%= link_to "Ou accédez directement à la démo de la boutique en ligne.", home_path %> </p>
+        <p>Configurez votre boutique à l'aide des champs données et photos ci-dessous. <%= link_to " Ou accédez directement à la démo de la boutique en ligne.", home_path %> </p>
       </div>
 
       <div class="col-xs-3 left-nav">
         <div class="user-info">
           <h2 class="compte-head">Vos données</h3>
           <%= simple_form_for @user do |f| %>
+            <% @user.first_name ? fname_print = @user.first_name : "" %>
+            <% @user.last_name ? lname_print = @user.last_name : "" %>
+            <% @user.produit ? produit_print = @user.produit : "" %>
             <div class="form-inputs user-inputs">
-              <%= f.input :first_name, label: "Prénom",  autofocus: true %>
-              <%= f.input :last_name, label: "Nom", autofocus: true %>
-              <%= f.input :produit, autofocus: true, hint: "Exemples: Luminaires, Sculptures, etc." %>
+              <%= f.input :first_name, label: "Prénom: #{fname_print}",  autofocus: true %>
+              <%= f.input :last_name, label: "Nom: #{lname_print}", autofocus: true %>
+              <%= f.input :produit, label: "Produit: #{produit_print}", autofocus: true, hint: "Exemples: Luminaires, Sculptures, etc." %>
             </div>
             <div class="form-actions info-perso">
-              <%= f.button :submit, "Mettre à jour", class: "btn btn-primary" %>
+              <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
             </div>
           <% end %>
         </div>
-
         <div id="slider" class="demo-bloc">
-          <h3>Accès boutique</h3>
           <%= link_to home_path, class: "btn btn-primary" do %>
-            Démo de votre boutique
+            VOIR VOTRE BOUTIQUE
           <% end %>
+          <p>N'oubliez pas d'enregistrer vos photos</p>
         </div>
       </div>
 
@@ -39,12 +42,12 @@
         <h3>Vous pouvez ajouter une photo pour chaque caractéristique ci-dessous (cliquez sur le +):</h3>
 
       <% info = [
-        [current_user.productphoto? ? current_user.productphoto.path : nil, "accueil.png", "Image d'accueil", :productphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.productphoto],
-        [current_user.avatarphoto? ? current_user.avatarphoto.path : nil, "bio.png", "Photo pour la page bio", :avatarphoto, "Utilisez une image aux dimensions carrées", current_user.avatarphoto],
-        [current_user.productphotomobile? ? current_user.productphotomobile.path : nil, "mobileview.png", "Image d'accueil pour mobiles", :productphotomobile, "Utilisez une image 'verticale'", current_user.productphotomobile, "verticale"],
-        [current_user.lessonphoto? ? current_user.lessonphoto.path : nil, "lessonview.png", "Image pour les stages", :lessonphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.lessonphoto],
-        [current_user.cityphoto? ? current_user.cityphoto.path : nil, "cityview.png", "Image pour votre ville", :cityphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.cityphoto],
-        [current_user.logophoto? ? current_user.logophoto.path : nil, "logoview.png", "Image pour votre logo", :logophoto, "Utilisez une image aux dimensions carrées", current_user.logophoto],
+        [current_user.productphoto? ? current_user.productphoto.path : nil, "homeview.jpg", "Image d'accueil", :productphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.productphoto],
+        [current_user.avatarphoto? ? current_user.avatarphoto.path : nil, "bio.jpg", "Photo pour la page bio", :avatarphoto, "Utilisez une image aux dimensions carrées", current_user.avatarphoto],
+        [current_user.productphotomobile? ? current_user.productphotomobile.path : nil, "mobileview.jpg", "Image d'accueil pour mobiles", :productphotomobile, "Utilisez une image 'verticale'", current_user.productphotomobile],
+        [current_user.lessonphoto? ? current_user.lessonphoto.path : nil, "lessonview.jpg", "Image pour les stages", :lessonphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.lessonphoto],
+        [current_user.cityphoto? ? current_user.cityphoto.path : nil, "cityview.jpg", "Image pour votre ville", :cityphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.cityphoto],
+        [current_user.logophoto? ? current_user.logophoto.path : nil, "logoview.jpg", "Image pour votre logo", :logophoto, "Utilisez une image aux dimensions carrées", current_user.logophoto],
       ]
       %>
 
@@ -56,9 +59,9 @@
             <% if i == 0 || i == 2 || i == 4%>
                <div class="row">
              <% end %>
-              <div class="col-xs-6">
+              <div class="col-xs-6 photos-card-container">
                 <div id="card<%=i%>" class="photos-card">
-                  <div class="user-photo">
+                  <div class="user-photo" id="anchor<%=i%>">
                     <% if info[i][0] %>
                       <% if (info[i][5].width + 0.0) / info[i][5].height > 1.51838 %>
                         <%= cl_image_tag info[i][0], class: "card-photo-horizontale" %>
@@ -75,6 +78,9 @@
                     <span><%= info[i][2]%></span>
                   </div>
                   <div class="input input<%=i%> hidden">
+                    <%= link_to user_path(@user, anchor: "anchor#{i}"), class: "btn btn-primary floppy" do %>
+                      <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                    <% end %>
                     <p class="input-info"><%= info[i][4]%></p>
                     <%= f.input info[i][3], as: :attachinary, label: false, autofocus: true %>
                     <div class="progress hidden">
@@ -89,17 +95,37 @@
             <% end %>
           </div>
 
-          <div class="form-actions top-form">
-            <%= f.button :submit, "Ajouter les photos", class: "btn btn-primary" %>
-          </div>
-
-          <div class="form-actions bottom-form">
-            <%= f.button :submit, "Ajouter les photos", class: "btn btn-primary" %>
-          </div>
-
         <% end %>
       </div>
-
     </div>
+
+    <!-- MOBILE -->
+    <div class="hidden-md hidden-lg col-xs-12">
+      <div class="top-info-mobile">
+        <h2 class="compte-head">Compte utilisateur: <%=current_user.email%></h2>
+        <p>Configurez votre boutique à l'aide des champs données ci-dessous.</p>
+        <p><%= link_to " Ou accédez directement à la démo de la boutique en ligne.", home_path %></p>
+      </div>
+
+      <div class="user-info-mobile">
+        <h2 class="compte-head">Vos données</h3>
+        <%= simple_form_for @user do |f| %>
+          <div class="form-inputs user-inputs">
+            <%= f.input :first_name, label: "Prénom",  autofocus: true %>
+            <%= f.input :last_name, label: "Nom", autofocus: true %>
+            <%= f.input :produit, autofocus: true, hint: "Exemples: Luminaires, Sculptures, etc." %>
+          </div>
+          <div class="form-actions info-perso">
+            <%= f.button :submit, "Mettre à jour", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <div id="slider" class="demo-bloc-mobile">
+        <%= link_to home_path, class: "btn btn-primary" do %>
+          VOIR VOTRE BOUTIQUE
+        <% end %>
+      </div>
+    </div>
+
   </div>
 </div>

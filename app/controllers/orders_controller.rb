@@ -28,6 +28,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.where(state: 'pending').find(params[:id])
     @amount = Amountcalculation.new(@order).calculate_amount(@order)
+    @model_string = model_print
   end
 
   def destroy

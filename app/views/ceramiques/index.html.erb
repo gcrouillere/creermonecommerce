@@ -9,17 +9,34 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
   <div class="row">
 
 <!-- LAPTOP -->
-    <div class="hidden-xs hidden-sm col-md-12 list-header">
-      <div class="white-div"></div>
-      <div class="list-h1">
-        <div class="block1">
-          <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-          <h1>Liste des produits à vendre dans votre boutique en ligne.</h1>
+    <div class="hidden-xs hidden-sm col-md-12 info-top">
+      <div class="list-header-1">
+        <div class="white-div"></div>
+        <div class="list-h1">
+          <div class="block1">
+            <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+            <h2>Contactez nous pour un devis</h2>
+          </div>
+          <i class="fa fa-times cross cross-1"></i>
         </div>
-        <i class="fa fa-times cross"></i>
+        <p>Cette boutique est la base de notre offre, nous pouvons l'étoffer selon vos besoins. Contactez nous pour revoir votre projet ensemble.</p>
+        <p>Tel: 06.85.47.68.48</p>
+        <p>gcrouillere@hotmail.fr</p>
       </div>
-      <p>Les produits affichés sont des exemples. Créez les votres dans la partie administration. Vous pourrez ensuite les visualiser comme vos futurs clients. Créez un compte pour accéder à l'administration.</p>
+
+      <div class="list-header-2">
+        <div class="white-div"></div>
+        <div class="list-h1">
+          <div class="block1">
+            <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
+            <h1>Liste des <%= @model_string%> dans votre boutique en ligne.</h1>
+          </div>
+          <i class="fa fa-times cross cross-2"></i>
+        </div>
+        <p>Les produits affichés sont des exemples. Créez les votres dans la partie administration. Vous pourrez ensuite les visualiser comme vos futurs clients. <%= current_user ? "" : "Créez un compte pour accéder à l'administration."%></p>
+      </div>
     </div>
+
 
     <div class="hidden-xs hidden-sm col-md-3 search-bar">
       <div class="ceramique-filters-content">
@@ -68,12 +85,14 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
 
 <!-- MOBILE -->
 <div class="hidden-md hidden-lg col-xs-12 col-md-12 ceramique-list">
-  <div class="list-header list-header-mobile">
-    <div class="list-h1">
-      <h1>Créez votre boutique en ligne accessible sur mobile.</h1>
+  <div class="info-top">
+    <div class="list-header-1 list-header-mobile">
+      <div class="list-h1">
+        <h1>Créez votre boutique en ligne accessible sur mobile.</h1>
+      </div>
+      <p>Liste des <%= @model_string%> à vendre. Les produits affichés sont des exemples. Pour créer les votres, utilisez un ordinateur et accédez à la partie administration. </p>
+      <span class="cross-mobile cross-1"><i class="fa fa-times"></i></span>
     </div>
-    <p>Liste des produits à vendre. Les produits affichés sont des exemples. Pour créer les votres, utilisez un ordinateur et accédez à la partie administration. </p>
-    <span class="cross-mobile"><i class="fa fa-times"></i></span>
   </div>
       <% @ceramiques.each do |ceramique| %>
           <div class="col-xs-12">

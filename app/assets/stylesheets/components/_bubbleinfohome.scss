@@ -1,0 +1,111 @@
+.h1-home {
+    position: absolute;
+    left: calc(50% - 563px);
+    top: 100px;
+    background-color: white;
+    padding: 0px;
+    border-radius: 14px 14px 0px 14px;
+    .white-div {
+      height: 12px;
+    }
+    .list-h1 {
+      background-color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      .info-circle, .cross-1 {
+        margin: 3px;
+      }
+      .cross {
+        cursor: pointer;
+      }
+      h1 {
+        padding: 5px;
+        color: white;
+        margin: 3px 3px 3px 3px;
+        font-size: 13px;
+      }
+    }
+    p {
+      font-size: 11px;
+      margin: 3px 3px 8px 3px;
+      text-align: center;
+
+    }
+    .logo-container {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .h1-home-2 {
+    width: 400px;
+    position: absolute;
+    right: calc(50% - 563px);
+    top: 300px;
+    background-color: white;
+    padding: 0px;
+    border-radius:  0px 14px 14px 14px;
+    .white-div {
+      height: 12px;
+    }
+    .list-h1 {
+      background-color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .info-circle, .cross-2 {
+        margin: 3px 3px 3px 6px;
+      }
+      .cross-2 {
+        cursor: pointer;
+      }
+      h2 {
+        padding: 5px;
+        color: white;
+        margin: 3px 3px 3px 3px;
+        font-size: 20px;
+      }
+    }
+    p {
+      font-size: 14px;
+      margin: 10px;
+    }
+    .logo-container {
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+.h1-home-mobile {
+      position: absolute;
+      top: 20px;
+      left: 15px;
+      background-color: white;
+      padding: 0px 10px 10px 10px;
+      border-radius: 14px 14px 14px 14px;
+      margin: 10px;
+      padding: 0;
+      .logo-container {
+        background-color: $primary;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .cross {
+          margin: 3px;
+        }
+        h1 {
+          padding: 2px;
+          color: white;
+          margin: 3px 3px 3px 3px;
+          font-size: 13px;
+        }
+      }
+      p {
+        font-size: 11px;
+        margin: 3px 3px 6px 3px;
+        text-align: center;
+      }
+    }

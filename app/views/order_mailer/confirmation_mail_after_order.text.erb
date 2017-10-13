@@ -5,7 +5,7 @@ Merci pour votre commande, elle va être expédiée. Voici le détail de cette c
 Référence de commande: <%= "#{@order.id}-#{Time.now.hour}#{Time.now.min}#{Time.now.day}#{Time.now.month}#{Time.now.year}" %>
 
 <% @order.basketlines.each do |basketline| %>
-  <%=ENV['MODEL'][0...-1].capitalize%>: <%= basketline.ceramique.name.capitalize %>
+  <%=@model_string[0..-2]%>: <%= basketline.ceramique.name.capitalize %>
   Quantité: <%= basketline.quantity %>
   Total pour cet article: <%= humanized_money(basketline.ceramique.price * basketline.quantity) %> €
   <% if  %>
@@ -20,6 +20,10 @@ Adresse de livraison : 1 Rue imaginaire 99000 Ville
 
 Cordialement
 
-<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
-email : <%= "#{ENV['EMAIL']}" %>
+<% if  @user.first_name && @user.last_name %>
+  <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %>
+<% else %>
+  <%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
+<% end %>
+email : <%= @user.email %>
 téléphone : <%= "#{ENV['TELEPHONE']}" %>

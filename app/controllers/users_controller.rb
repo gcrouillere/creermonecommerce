@@ -8,6 +8,9 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
+    if params[:check_user_origin] ==  "boutique_button"
+      redirect_to home_path
+    end
     redirect_to user_path(@user)
   end
 

@@ -1,4 +1,8 @@
-<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>,
+<% if  @user.first_name && @user.last_name %>
+  <%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}," %>
+<% else %>
+  <%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}," %>
+<% end %>
 
 Tu as reçu une nouvelle commande. Voici le détail de cette commande :
 
@@ -7,7 +11,7 @@ Référence de commande: <%= "#{@order.id}-#{Time.now.hour}#{Time.now.min}#{Time
 Client: <%= @user.email%>
 
 <% @order.basketlines.each do |basketline| %>
-  <%=ENV['MODEL'][0...-1].capitalize%>: <%= basketline.ceramique.name.capitalize %>
+  <%=@model_string[0..-2]%>: <%= basketline.ceramique.name.capitalize %>
   Quantité: <%= basketline.quantity %>
   Total pour cet article: <%= humanized_money(basketline.ceramique.price * basketline.quantity) %> €
   <% if  %>

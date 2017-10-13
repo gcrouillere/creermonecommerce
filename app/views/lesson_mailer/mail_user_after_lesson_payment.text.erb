@@ -6,6 +6,6 @@ Premier jour de stage <%= "#{@lesson.start.day}/#{@lesson.start.month}/#{@lesson
 
 Cordialement
 
-<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>
-email : <%= "#{ENV['EMAIL']}" %>
-téléphone : <%= "#{ENV['TELEPHONE']}" %>
+<%= @full_name %>
+email: <%= @lesson.user.email ? @lesson.user.email : ENV['EMAIL']%>
+téléphone: <%= @lesson.user.phone ? @lesson.user.phone : ENV['TELEPHONE']%>
