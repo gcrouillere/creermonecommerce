@@ -79,7 +79,7 @@ Vendez vos produits en ligne ! Site de e-commerce configurable. Créez votre com
       </div>
 
       <div class="banner-content-xs">
-          <% if user_signed_in? && current_user.produit %>
+          <% if user_signed_in? && current_user.produit && current_user.produit != "" %>
             <h2><%= current_user.produit.capitalize%></h2>
             <p><%= "#{current_user.first_name.capitalize} #{current_user.last_name.capitalize}" %></p>
             <%= link_to "Voir les #{current_user.produit}", ceramiques_path, class: "btn btn-primary btn-lg" %>
