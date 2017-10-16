@@ -16,9 +16,9 @@
             <% @user.last_name ? lname_print = @user.last_name : "" %>
             <% @user.produit ? produit_print = @user.produit : "" %>
             <div class="form-inputs user-inputs">
-              <%= f.input :first_name, label: "Prénom: #{fname_print}",  autofocus: true %>
-              <%= f.input :last_name, label: "Nom: #{lname_print}", autofocus: true %>
-              <%= f.input :produit, label: "Produit: #{produit_print}", autofocus: true, hint: "Exemples: Luminaires, Sculptures, etc." %>
+              <%= f.input :first_name, label: "Prénom: #{fname_print}" %>
+              <%= f.input :last_name, label: "Nom: #{lname_print}" %>
+              <%= f.input :produit, label: "Produit: #{produit_print}", hint: "Exemples: Luminaires, Sculptures, etc." %>
             </div>
             <div class="form-actions info-perso">
               <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
@@ -39,7 +39,7 @@
 
       <div class="col-xs-9 photos-container">
         <h2 class="compte-head">Personnalisez la boutique avec vos photos</h2>
-        <h3>Vous pouvez ajouter une photo pour chaque caractéristique ci-dessous (cliquez sur le +):</h3>
+        <h3>Vous pouvez ajouter une photo pour chaque caractéristique ci-dessous (cliquez sur le +).</h3>
 
       <% info = [
         [current_user.productphoto? ? current_user.productphoto.path : nil, "homeview.jpg", "Image d'accueil", :productphoto, "Utilisez une image aux dimensions d'une photo standard", current_user.productphoto],
@@ -61,7 +61,7 @@
              <% end %>
               <div class="col-xs-6 photos-card-container">
                 <div id="card<%=i%>" class="photos-card">
-                  <div class="user-photo" id="anchor<%=i%>">
+                  <div class="user-photo" id="button<%=i%>">
                     <% if info[i][0] %>
                       <% if (info[i][5].width + 0.0) / info[i][5].height > 1.51838 %>
                         <%= cl_image_tag info[i][0], class: "card-photo-horizontale" %>
@@ -78,11 +78,11 @@
                     <span><%= info[i][2]%></span>
                   </div>
                   <div class="input input<%=i%> hidden">
-                    <%= link_to user_path(@user, anchor: "anchor#{i}"), class: "btn btn-primary floppy" do %>
+                    <button class="btn btn-primary floppy" type="submit" name="button" value="button<%=i%>">
                       <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    <% end %>
+                    </button>
                     <p class="input-info"><%= info[i][4]%></p>
-                    <%= f.input info[i][3], as: :attachinary, label: false, autofocus: true %>
+                    <%= f.input info[i][3], as: :attachinary, label: false%>
                     <div class="progress hidden">
                       <%= f.button :submit, "", class: "button-in-card" %>
                     </div>

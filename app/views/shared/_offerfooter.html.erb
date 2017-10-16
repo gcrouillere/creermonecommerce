@@ -1,0 +1,34 @@
+<!-- LAPTOP -->
+<div class="hidden-xs">
+  <div id="footer" class="footer">
+    <div class="contact">
+      <a href="https://www.google.fr/maps/place/<%=ENV['ADDRESS']%>" target="blank"><i class="fa fa-map"></i></a>
+      <i class="fa fa-envelope-o"></i>
+      <h6 class="info-text middle-text"><%= ENV['EMAIL']%></h5>
+      <i class="fa fa-phone"></i>
+      <h6 class="info-text"><%= ENV['TELEPHONE']%></h5>
+    </div>
+    <%= link_to 'https://github.com/gcrouillere' do %>
+      <%= image_tag  'lego.svg'%>
+    <% end %>
+  </div>
+</div>
+
+<!-- MOBILE -->
+<div class="hidden-sm hidden-md hidden-lg">
+  <div class="footer-mobile">
+    <div class="contact">
+      <div class="link">
+        <a href="https://www.google.fr/maps/place/<%=ENV['ADDRESS']%>" target="blank"><i class="fa fa-map"></i></a>
+      </div>
+      <div class="envelope">
+        <i class="fa fa-envelope-o"></i>
+        <h6 class="info-text"><%= ENV['EMAIL']%></h5>
+      </div>
+      <div class="phone">
+        <i class="fa fa-phone"></i>
+        <h6 class="info-text"><%= ENV['TELEPHONE']%></h5>
+      </div>
+    </div>
+  </div>
+</div>

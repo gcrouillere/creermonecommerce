@@ -3,7 +3,7 @@ background-color: $body;
 }
 
 .padding-container-user-show {
-  padding-right: 0px;
+  // padding-right: 0px;
 }
 
 .photos-card-container {
@@ -24,6 +24,7 @@ background-color: $body;
     .card-separator{
       position: relative;
       .offer-card-image {
+        transition: all ease 0.25s;
         position: absolute;
         right: calc(50% - 19px);
         top: -17px;
@@ -31,6 +32,7 @@ background-color: $body;
         width: 38px;
       }
       hr {
+        transition: all ease 0.25s;
         border-top: 1px solid #C2C1C1;
         margin: 40px 30px;
       }
@@ -70,11 +72,29 @@ background-color: $body;
       margin-bottom: 30px;
       }
       .card-offer {
+        padding: 5px;
         min-width: 255px;
         background: white;
         border-radius: 3px;
         box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
         margin: 20px;
+        transition: all ease 0.25s;
+      }
+      .card-offer:hover {
+        transform: scale(1.03);
+        box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.1);
+        transition: all ease 0.25s;
+        h2 {
+          visibility: hidden;
+        }
+        .offer-card-image {
+          top: -74px;
+          width: 52px;
+          right: calc(50% - 26px);
+        }
+        hr {
+          margin: 40px 5px;
+        }
       }
     }
     .offer-cards-mobile {
@@ -98,7 +118,7 @@ background-color: $body;
         background: white;
         border-radius: 3px;
         box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-        margin: 20px;
+        margin: 28px;
       }
     }
   }

@@ -64,11 +64,12 @@
         width: 20%;
         height: 20%;
         margin-right: 10px;
+        transition: all ease 0.2s;
       }
       .thumbnail:hover {
           transform: scale(1.01);
           box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.1);
-          transition: ease 0.2s;
+          transition: all ease 0.2s;
       }
     }
     a {

@@ -4,14 +4,16 @@ $(document).ready(function() {
   // Prevent collision between footer and slider
   var height = 0;
   function checkOffset() {
-    if($('#slider').offset().top + $('#slider').height() >= $('#footer').offset().top - 10) {
-      $('#slider').css('position', 'absolute');
-      $('#slider').css({"top": (height.toString()+"px")})
+    if($('#slider').length > 0) {
+      if($('#slider').offset().top + $('#slider').height() >= $('#footer').offset().top - 10) {
+        $('#slider').css('position', 'absolute');
+        $('#slider').css({"top": (height.toString()+"px")})
+        }
+      if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top) {
+        $('#slider').css('position', 'fixed'); // restore when you scroll up
+        $('#slider').css({"top": ""})
+        height = $(document).scrollTop() + window.innerHeight - 107 - 91 - 124;
       }
-    if($(document).scrollTop() + window.innerHeight < $('#footer').offset().top) {
-      $('#slider').css('position', 'fixed'); // restore when you scroll up
-      $('#slider').css({"top": ""})
-      height = $(document).scrollTop() + window.innerHeight - 107 - 91 - 124;
     }
   }
 
