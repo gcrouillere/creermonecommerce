@@ -111,8 +111,8 @@
         <h2 class="compte-head">Vos données</h3>
         <%= simple_form_for @user do |f| %>
           <div class="form-inputs user-inputs">
-            <%= f.input :first_name, label: "Prénom",  autofocus: true %>
-            <%= f.input :last_name, label: "Nom", autofocus: true %>
+            <%= f.input :first_name, label: "Prénom" %>
+            <%= f.input :last_name, label: "Nom" %>
             <%= f.input :produit, autofocus: true, hint: "Exemples: Luminaires, Sculptures, etc." %>
           </div>
           <div class="form-actions info-perso">

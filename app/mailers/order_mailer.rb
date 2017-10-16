@@ -18,7 +18,11 @@ class OrderMailer < ApplicationMailer
   end
 
   def model_print_mail(user)
-    return user.produit[-1] == "s" ? user.produit.capitalize : (user.produit[-2..-1] == "au" ? user.produit.capitalize + "x" : user.produit.capitalize + "s")
+    if user.produit.present? && user.produit != ""
+      return user.produit[-1] == "s" ? user.produit.capitalize : (user.produit[-2..-1] == "au" ? user.produit.capitalize + "x" : user.produit.capitalize + "s")
+    else
+      return ENV['MODEL']
+    end
   end
 
 end

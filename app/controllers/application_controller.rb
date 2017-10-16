@@ -81,8 +81,10 @@ class ApplicationController < ActionController::Base
   def model_print
     output = ""
     if user_signed_in?
-      if current_user.produit
+      if current_user.produit && current_user.produit != ""
         (output = current_user.produit[-1] == "s" ? current_user.produit.capitalize : (current_user.produit[-2..-1] == "au" ? current_user.produit.capitalize + "x" : current_user.produit.capitalize + "s"))
+      else
+        output = ENV['MODEL']
       end
     else
       output = ENV['MODEL']

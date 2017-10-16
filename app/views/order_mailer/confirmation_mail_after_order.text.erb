@@ -5,7 +5,7 @@ Merci pour votre commande, elle va être expédiée. Voici le détail de cette c
 Référence de commande: <%= "#{@order.id}-#{Time.now.hour}#{Time.now.min}#{Time.now.day}#{Time.now.month}#{Time.now.year}" %>
 
 <% @order.basketlines.each do |basketline| %>
-  <%=@model_string[0..-2]%>: <%= basketline.ceramique.name.capitalize %>
+  <%=@model_string[0..-2].capitalize%>: <%= basketline.ceramique.name.capitalize %>
   Quantité: <%= basketline.quantity %>
   Total pour cet article: <%= humanized_money(basketline.ceramique.price * basketline.quantity) %> €
   <% if  %>
