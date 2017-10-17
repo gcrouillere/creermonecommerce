@@ -2,7 +2,7 @@
 Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurable. Affichez sur cette page des informations vous concernant : biographie, techniques utilisées.
 <% end %>
 <% content_for(:title_tag) do %>
-  Créer votre boutique en ligne. Votre page bio.
+  Créez votre boutique et partagez des informations avec vos clients.
 <% end %>
 
 <% avatarpictag = image_tag ENV['AVATAR'], class: "img-avatar" %>
@@ -182,7 +182,7 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
       "openingHours": "Mo-Fr 09:00-18:00",
       "telephone": "<%= ENV['TELEPHONE']%>",
       "url": "https://<%= ENV['APPNAME']%>.herokuapp.com/info",
-      "image":"https://<%= ENV['APPNAME']%>.herokuapp.com<%= image_path ENV['HOMEPIC']%>"
+      "image":"https://<%= ENV['APPNAME']%>.herokuapp.com<%= image_path ENV['AVATAR']%>"
       "address":"<%= ENV['ADDRESS']%>",
       "priceRange":"20€ à 800€"
     }

@@ -2,7 +2,7 @@
 Votre boutique en ligne configurable. <%= @ceramique.name.capitalize %>. Prix : <%= humanized_money(@ceramique.price)%> €. Livraison sous 3 semaines.
 <% end %>
 <% content_for(:title_tag) do %>
-  Créez votre boutique en ligne: fiche produit vue de vos clients.
+  Fiche produit vue de vos clients sur votre boutique en ligne.
 <% end %>
 
 <div class="container">
@@ -159,7 +159,7 @@ Votre boutique en ligne configurable. <%= @ceramique.name.capitalize %>. Prix : 
       "price": "<%= humanized_money(@ceramique.price)%>",
       "priceCurrency": "€"
     },
-    "url": "https://<%= ENV['APPNAME']%>.herokuapp.com/ceramiques/<%=@ceramique.id%>",
+    "url": "https://<%= ENV['APPNAME']%>.herokuapp.com/produits/<%=@ceramique.id%>",
     "image": "<%=cl_image_path @ceramique.photos[0].path%>"
   }
   </script>
