@@ -33,7 +33,7 @@
           <% end %>
         <% end %>
         <%= link_to user_path(current_user), class: "navbar-item navbar-link" do %>
-          <span><i class="fa fa-user"></i> Compte</span>
+          <span><i class="fa fa-user"></i> Configuration</span>
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <span><i class="fa fa-sign-out"></i> Se déconnecter</span>
@@ -59,7 +59,7 @@
           <span><i class="fa fa-user-plus"></i> Inscription</span>
         <% end %>
         <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
-          <span><i class="fa fa-user"></i> Compte</span>
+          <span><i class="fa fa-user"></i> Configuration</span>
         <% end %>
       </div>
     </div>
@@ -88,7 +88,7 @@
           <% end %>
         <% else %>
           <%= link_to user_path(current_user), class: "navbar-item navbar-link" do %>
-           <span><i class="fa fa-user"></i> Compte</span>
+           <span><i class="fa fa-user"></i> Configuration</span>
           <% end %>
         <% end %>
       <% else %>

@@ -98,57 +98,45 @@ $(document).ready(function() {
   $('#user_productphoto').on('click', function(e) {
     e.stopPropagation();
     $('#user_productphoto').addClass('hidden').focus();
-    $('.progress').removeClass('hidden').focus();
   });
   $('#user_avatarphoto').on('click', function(e) {
     e.stopPropagation();
     $('#user_avatarphoto').addClass('hidden').focus();
-    $('.progress').removeClass('hidden').focus();
   });
   $('#user_productphotomobile').on('click', function(e) {
     e.stopPropagation();
     $('#user_productphotomobile').addClass('hidden').focus();
-    $('.progress').removeClass('hidden').focus();
   });
   $('#user_lessonphoto').on('click', function(e) {
     e.stopPropagation();
     $('#user_lessonphoto').addClass('hidden').focus();
-    $('.progress').removeClass('hidden').focus();
   });
   $('#user_cityphoto').on('click', function(e) {
     e.stopPropagation();
     $('#user_cityphoto').addClass('hidden').focus();
-    $('.progress').removeClass('hidden').focus();
   });
   $('#user_logophoto').on('click', function(e) {
     e.stopPropagation();
     $('#user_logophoto').addClass('hidden').focus();
-    $('.progress').removeClass('hidden').focus();
   });
 
   //2 - Add input on clic
   $('.input0').on('click', function(e) {
     $('#user_productphoto').removeClass('hidden').val();
-    $('.progress').addClass('hidden').val();
   });
   $('.input1').on('click', function(e) {
     $('#user_avatarphoto').removeClass('hidden').val();
-    $('.progress').addClass('hidden').val();
   });
   $('.input2').on('click', function(e) {
     $('#user_productphotomobile').removeClass('hidden').val();
-    $('.progress').addClass('hidden').val();
   });
   $('.input3').on('click', function(e) {
     $('#user_lessonphoto').removeClass('hidden').val();
-    $('.progress').addClass('hidden').val();
   });
   $('.input4').on('click', function(e) {
     $('#user_cityphoto').removeClass('hidden').val();
-    $('.progress').addClass('hidden').val();
   });
   $('.input5').on('click', function(e) {
     $('#user_logophoto').removeClass('hidden').val();
-    $('.progress').addClass('hidden').val();
   });
 })

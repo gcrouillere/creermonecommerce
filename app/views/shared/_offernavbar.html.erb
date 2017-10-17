@@ -5,7 +5,7 @@
     <div class="offer-bar-list-devise">
       <%= link_to "Démo", home_path %>
       <%= link_to "Info", root_path %>
-      <%= link_to "Compte", user_path(current_user) %>
+      <%= link_to "Configuration", user_path(current_user) %>
     </div>
   </div>
   <% elsif user_signed_in? && (params[:action] = "offerpresentation")%>
@@ -14,7 +14,7 @@
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path %>
         <%= link_to "Info", root_path %>
-        <%= link_to "Compte", user_path(current_user) %>
+        <%= link_to "Configuration", user_path(current_user) %>
       </div>
     </div>
   <% elsif params[:controller] == "app_specific_registration/registrations" || params[:controller] == "devise/sessions" || params[:controller] == "users" %>
@@ -47,7 +47,7 @@
         <%= link_to "Démo", home_path %>
         <%= link_to "Info", root_path %>
         <% if user_signed_in? %>
-          <%= link_to "Compte", user_path(current_user) %>
+          <%= link_to "Configuration", user_path(current_user) %>
         <% else %>
           <%= link_to "Inscription", new_user_registration_path %>
         <% end %>
@@ -60,7 +60,7 @@
         <%= link_to "Démo", home_path %>
         <%= link_to "Info", root_path %>
         <% if user_signed_in? %>
-          <%= link_to "Compte", user_path(current_user) %>
+          <%= link_to "Configuration", user_path(current_user) %>
         <% else %>
           <%= link_to "Inscription", new_user_registration_path %>
         <% end %>

@@ -5,7 +5,7 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
   Créez votre boutique en ligne. Liste des produits à vendre.
 <% end %>
 
-<div class="container">
+<div class="container index-container">
   <div class="row">
 
 <!-- LAPTOP -->
@@ -34,6 +34,7 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
           <i class="fa fa-times cross cross-2"></i>
         </div>
         <p>Les produits affichés sont des exemples. Créez les votres dans la partie administration. Vous pourrez ensuite les visualiser comme vos futurs clients. <%= current_user ? "" : "Créez un compte pour accéder à l'administration."%></p>
+        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %> pour personnaliser la boutique.</p>
       </div>
     </div>
 
@@ -76,7 +77,8 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
                   <h2 class="prix-index"><%= humanized_money(ceramique.price)%> <%= currency_symbol %></h2>
                 </div>
                 <h2> <%= ceramique.name.capitalize%> </h2>
-                <p> <%= ceramique.description%> </p>
+                <% ratio = ceramique.photos[0].width.to_f / ceramique.photos[0].height > 1.35 ? "large" : "small" %>
+                <p class="<%= ratio %>"> <%= ceramique.description%> </p>
               </div>
             <% end %>
           </div>

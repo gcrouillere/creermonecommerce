@@ -16,9 +16,19 @@
             <% @user.last_name ? lname_print = @user.last_name : "" %>
             <% @user.produit ? produit_print = @user.produit : "" %>
             <div class="form-inputs user-inputs">
-              <%= f.input :first_name, label: "Prénom: #{fname_print}" %>
-              <%= f.input :last_name, label: "Nom: #{lname_print}" %>
-              <%= f.input :produit, label: "Produit: #{produit_print}", hint: "Exemples: Luminaires, Sculptures, etc." %>
+              <label class="form-group">
+                <div class="label"><p>Prénom:</p><p><%=@user.first_name ||= "" %></p></div>
+                <input class="form-control string optional" type="text" name="user[first_name]" value="<%= @user.first_name %>" id="user_first_name">
+              </label>
+              <label class="form-group">
+                <div class="label"><p>Nom:</p><p><%=@user.last_name ||= "" %></p></div>
+                <input class="form-control string optional" type="text" name="user[last_name]" value="<%= @user.last_name %>" id="user_last_name">
+              </label>
+              <label class="form-group">
+                <div class="label"><p>Produit:</p><p><%=@user.produit ||= "" %></p></div>
+                <input class="form-control string optional" type="text" name="user[produit]" value="<%= @user.produit %>" id="user_produit">
+              </label>
+              <p class="hint">Exemples: Luminaires, Sculptures, etc.</p>
             </div>
             <div class="form-actions info-perso">
               <%= f.button :submit, "Enregistrer", class: "btn btn-primary" %>
@@ -69,7 +79,6 @@
                         <%= cl_image_tag info[i][0], class: "card-photo-verticale" %>
                       <% end %>
                     <% else %>
-
                       <%= image_tag info[i][1], class: "card-photo #{info[i][6] ? info[i][6] : ""}"%>
                     <% end %>
                   </div>
@@ -78,13 +87,10 @@
                     <span><%= info[i][2]%></span>
                   </div>
                   <div class="input input<%=i%> hidden">
-                    <button class="btn btn-primary floppy" type="submit" name="button" value="button<%=i%>">
-                      <i class="fa fa-floppy-o" aria-hidden="true"></i>
-                    </button>
                     <p class="input-info"><%= info[i][4]%></p>
                     <%= f.input info[i][3], as: :attachinary, label: false%>
-                    <div class="progress hidden">
-                      <%= f.button :submit, "", class: "button-in-card" %>
+                    <div class="save-photo">
+                      <%= f.button :submit, "Enregistrer la photo", class: "btn btn-primary", name: "button#{i}" %>
                     </div>
                   </div>
                 </div>
@@ -108,12 +114,25 @@
       </div>
 
       <div class="user-info-mobile">
-        <h2 class="compte-head">Vos données</h3>
+        <h2 class="compte-head">Vos données</h2>
         <%= simple_form_for @user do |f| %>
+          <% @user.first_name ? fname_print = @user.first_name : "" %>
+          <% @user.last_name ? lname_print = @user.last_name : "" %>
+          <% @user.produit ? produit_print = @user.produit : "" %>
           <div class="form-inputs user-inputs">
-            <%= f.input :first_name, label: "Prénom" %>
-            <%= f.input :last_name, label: "Nom" %>
-            <%= f.input :produit, autofocus: true, hint: "Exemples: Luminaires, Sculptures, etc." %>
+            <label class="form-group">
+                <div class="label"><p>Prénom:</p><p><%=@user.first_name ||= "" %></p></div>
+                <input class="form-control string optional" type="text" name="user[first_name]" value="<%= @user.first_name %>" id="user_first_name">
+              </label>
+              <label class="form-group">
+                <div class="label"><p>Nom:</p><p><%=@user.last_name ||= "" %></p></div>
+                <input class="form-control string optional" type="text" name="user[last_name]" value="<%= @user.last_name %>" id="user_last_name">
+              </label>
+              <label class="form-group">
+                <div class="label"><p>Produit:</p><p><%=@user.produit ||= "" %></p></div>
+                <input class="form-control string optional" type="text" name="user[produit]" value="<%= @user.produit %>" id="user_produit">
+              </label>
+              <p class="hint">Exemples: Luminaires, Sculptures, etc.</p>
           </div>
           <div class="form-actions info-perso">
             <%= f.button :submit, "Mettre à jour", class: "btn btn-primary" %>

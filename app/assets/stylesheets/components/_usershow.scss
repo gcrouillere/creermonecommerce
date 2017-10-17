@@ -37,18 +37,47 @@ h2.compte-head {
       font-size: 21px;
       margin: 22px 0px 11px 0px;
     }
-    .form-group {
-      margin-bottom: 10px;
-      .form-control {
-        font-size: 13px;
-        height: 25px;
+    h2 {
+      margin-bottom: 15px;
+    }
+    .form-inputs {
+      .form-group {
+        margin-bottom: 8px;
+        width: 100%;
+        .label {
+          padding: 0px;
+          display: flex;
+          align-items: center;
+          color: black;
+          p {
+            font-weight: 300;
+            font-size: 15px;
+            margin: 0px 5px 5px 0px;
+          }
+          p:last-child {
+            font-weight: 400;
+            font-size: 16px;
+          }
+        }
+        .form-control {
+          font-weight: 400;
+          font-size: 13px;
+          height: 25px;
+          margin-bottom: 10px;
+        }
+        .control-label.string {
+          font-size: 15px;
+          font-weight: 300;
+        }
+        .help-block {
+          font-size: 12px;
+          font-weight: 300;
+        }
       }
-      .control-label.string {
-        font-size: 15px;
-        font-weight: 300;
-      }
-      .help-block {
-        font-size: 12px;
+      .hint {
+        margin-left: 5px;
+        margin-top: -16px;
+        font-size: 11px;
         font-weight: 300;
       }
     }
@@ -59,13 +88,13 @@ h2.compte-head {
   }
   .demo-bloc {
     position: fixed;
-    margin-top: 30px;
+    margin-top: 15px;
     text-align: center;
     width: 270px;
     .btn.btn-primary {
       background-color: #53f !important;
       color: white;
-      margin: 10px;
+      margin: 10px 10px 5px 10px;
       border-radius: 3px;
       box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
     }
@@ -152,11 +181,10 @@ h2.compte-head {
     border: 1px solid rgba(0, 0, 0, 0.4);
     border-top: 0px;
     border-radius: 0px 0px 3px 3px;
-    .floppy {
-      padding: 3px 7px;
-      position: absolute;
-      top: 5px;
-      right: 5px;
+    .save-photo {
+      margin: 10px 0px;
+      display: flex;
+      justify-content: center;
     }
     .form-group.attachinary.optional {
       margin: 5px;
@@ -168,26 +196,11 @@ h2.compte-head {
       list-style: none;
       margin-top: 20px;
     }
-    .input-info {
-        color: #53f;
-        font-size: 11px;
-        margin: 0px 0px 0px 5px;
-        padding: 5px 5px 0px 5px;
-    }
-    .progress {
-        margin: 0px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: none;
-        background-color: white;
-        box-shadow: none !important;
-      .button-in-card {
-        // cursor:
-        border: none;
-        background-color: white;
-        box-shadow: none !important;
-      }
+   .input-info {
+      color: #53f;
+      font-size: 11px;
+      margin: 0px 0px 0px 5px;
+      padding: 5px 5px 0px 5px;
     }
   }
 }
@@ -229,21 +242,46 @@ h2.compte-head {
     font-size: 21px;
     margin: 22px 0px 11px 0px;
   }
-  .form-group {
-    margin: 10px;
-    margin-bottom: 10px;
-    .form-control {
-      font-size: 13px;
-      height: 25px;
+  .form-inputs {
+    text-align: center;
+    .form-group {
+        margin: 10px;
+        margin-bottom: 10px;
+        width: 80%;
+      .form-control {
+        font-size: 13px;
+        height: 25px;
+      }
+      .control-label.string {
+        font-size: 15px;
+        font-weight: 300;
+      }
+      .help-block {
+        font-size: 12px;
+        font-weight: 300;
+      }
+      .label {
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        color: black;
+        p {
+          font-weight: 300;
+          font-size: 15px;
+          margin: 0px 5px 5px 0px;
+        }
+        p:last-child {
+          font-weight: 400;
+          font-size: 16px;
+        }
+      }
     }
-    .control-label.string {
-      font-size: 15px;
-      font-weight: 300;
-    }
-    .help-block {
-      font-size: 12px;
-      font-weight: 300;
-    }
+  }
+  .hint {
+    margin-left: 12px;
+    margin-top: -8px;
+    font-size: 11px;
+    font-weight: 300;
   }
   .info-perso {
     text-align: center;

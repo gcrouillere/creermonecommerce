@@ -21,7 +21,7 @@
     h2 {
       font-size: $font-size-h4;
       font-weight: $font-weight-h4-search;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       margin-top: 10px;
       color: $filter-title;
     }
@@ -29,6 +29,7 @@
     h3 {
       font-size: $font-size-h5;
       font-weight: $font-weight-h5-search;
+      margin-bottom: 8px;
     }
 
 
@@ -38,15 +39,18 @@
 
     .prix {
       width: 100px;
-      margin-bottom: 20px;
+      margin-bottom: 13px;
     }
 
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      li {
+        margin-left: 7px;
+      }
       li:last-child {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
       }
     }
   }
