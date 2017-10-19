@@ -1,11 +1,16 @@
 <% content_for(:description) do %>
+Nous créons des boutiques en ligne pour des artisans. Grâce à notre application vous pouvez configurez votre projet de boutique en quelques clics.
 <% end %>
 <% content_for(:title_tag) do %>
+Créez une boutique en ligne. Testez votre projet en quelques clics.
 <% end %>
 
-
 <div class="offer-container">
-  <div class="container padding-container-user-show">
+  <div class="box">
+    <span class="box1"></span>
+    <span class="box2"></span>
+  </div>
+  <div class="container container-user-show">
     <div class="row">
 
 <!-- LAPTOP -->
@@ -118,7 +123,34 @@
   </div>
 </div>
 
-<!-- <div class="offer-info">
-  <h2></h2>
+<div id="anchor-info" class="container">
+  <div class="row">
+    <div class="col-offset-xs-1 col-xs-10 bottom-info">
+      <div class="offer-intro">
+        <h2>UNE BOUTIQUE A VOTRE IMAGE, UN DESIGN EPURE</h2>
+        <p>Nous vous proposons un design qui s'adapte à votre image. Quand nous créons votre projet, la structure du design est prête. Nous avons simplement besoins de choisir ensemble quelques photos, 2 couleurs et un logo pour personnaliser votre boutique en ligne.</p>
+        <p>Nous pouvons conserver la configuration que vous avez pu tester dans notre démo de boutique ou définir ensemble tous les éléments.</p>
+        <h2>SIMPLE D'UTILISATION</h2>
+        <p>L'administration de votre boutique vous permet de gérer toutes vos ressources (fiches produits, informations personnelles, calendrier des réservations). Grâce à des formulaires simples et un calendrier vous visualisez et mettez à jour toutes ces ressources en quelques clics.<p>
+        <p>Ne vous souciez pas du format des photos ou de la taille du texte, votre boutique en ligne s'adapte automatiquement.</p>
+        <h2>VOTRE BOUTIQUE EST SECURISEE</h2>
+        <p>Les paiements de vos clients sont sécurisés par Stripe, spécialiste des paiements par carte sur internet.</p>
+        <p>Votre boutique est herbergée en https, les connexions de vos clients sont sécurisées.</p>
+        <h2>EVOLUTION</h2>
+        <p>Les photos et logo qui donnent l'identité de votre site sont modifiables à tout moment par vos soins. Vous mettez ainsi en avant les nouvelles collections, des changement dans votre atelier pour vos visites, etc.</p>
+        <p>La structure de base sur laquelle repose votre la boutique est en constante évolution dans notre agence. Dès qu'une amélioration technique est prête nous vous en faisons bénéficier avec votre accord.</p>
+        <h2>PROPRIETE</h2>
+        <p>Vous êtes propriétaires de la boutique, le code source est mis en ligne sur une plateforme sécurisée. Elle est hébergée sur des serveurs européens. Au lancement de votre boutique, vous disposez d'un hébergement et d'un nom de domaine gratuits... Avec certaines conditions: la taille de votre base de donnée est limitée et votre nom de domaine est suffixé.<p>
+        </p>Si vous le souhaitez, nous mettons en place avec vous les abonnements mensuels pour obtenir un hébergement illimité et un nom de domaine propre (10 € par mois).</p>
+        <h2>OFFRE MODULABLE</h2>
+        <p>Nous disposons d'une structure de base pour votre boutique en ligne qui nous permet de la créer avec un budget limité.</p>
+        <p>Nous pouvons également concevoir une boutique à partir d'un feuille blanche, selon votre cahier des charges. Contactez nous pour revoir ensemble votre projet.</p>
+      </div>
+    </div>
+      <div id="contactbutton" class="contact-offer-presentation">
+        <p>Contactez-nous: 06.85.47.68.48</p>
+        <p class="text-center">Ou</p>
+        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+      </div>
+  </div>
 </div>
- -->

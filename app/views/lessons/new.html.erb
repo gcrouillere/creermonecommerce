@@ -123,8 +123,8 @@ Module de prise de réservations. Offrez la possibilité à vos clients d'effect
     $(document).on('ready', function() {
 
       var confirmed_course_js_format = <%= raw @confirmed_course_js_format%>
-      console.log(confirmed_course_js_format)
-      console.log(<%= raw @disabled_dates%>)
+      // console.log(confirmed_course_js_format)
+      // console.log(<%= raw @disabled_dates%>)
 
       $('#datetimepicker1').datetimepicker({
         disabledDates: <%= raw @disabled_dates%>,

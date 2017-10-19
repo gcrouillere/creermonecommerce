@@ -17,8 +17,26 @@ $(document).ready(function() {
     }
   }
 
+  // Manage contact-button position
+  function changeButton() {
+    if($(document).scrollTop() > $('#anchor-info').offset().top) {
+      $('#contactbutton').css({
+        position: 'fixed',
+        top: 20,
+        right: 30
+      });
+    } else {
+      $('#contactbutton').css({
+        position: '',
+        top: '',
+        right: -25
+      });
+    }
+  }
+
   $(document).scroll(function() {
     checkOffset();
+    changeButton();
   });
 
 

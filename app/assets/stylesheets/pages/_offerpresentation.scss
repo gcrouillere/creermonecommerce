@@ -1,9 +1,38 @@
+.offer-container {
+  position: relative;
+  .box {
+    z-index: 0;
+    width: 100%;
+    height: 690px;
+    top: -136px;
+    position: relative;
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    transform: skewY(-12deg);
+    // background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%)
+    .box1 {
+      background: #43cea2;
+      position: absolute;
+      top: 0px;
+      height: 107px;
+      width: 33%;
+    }
+    .box2 {
+      background:#185a9d;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      height: 100px;
+      width: 33%;
+    }
+  }
+  .container-user-show {
+    position: absolute;
+    left: calc(50% - 585px);
+    top: 6px;
+  }
+}
 .body-offer {
 background-color: $body;
-}
-
-.padding-container-user-show {
-  // padding-right: 0px;
 }
 
 .photos-card-container {
@@ -13,8 +42,8 @@ background-color: $body;
 .offer-content {
 
   .offer-container {
-    background: #43cea2;
-    background: linear-gradient(to right, #43cea2, #185a9d);
+    // background: #43cea2;
+    // background: linear-gradient(to right, #43cea2, #185a9d);
     margin-top: 0px;
     min-height: 100vh;
     .container {
@@ -43,6 +72,7 @@ background-color: $body;
       font-size: 45px;
       text-align: center;
       font-family: "Open Sans" !important;
+      margin-right: 30px;
     }
     h2 {
       margin: 5px;
@@ -183,6 +213,44 @@ background-color: $body;
   }
 }
 
-.offer-info {
-  background-color: white;
+.bottom-info {
+  .offer-intro {
+    background-color: $body;
+    h2 {
+      letter-spacing: 2px;
+      font-weight: 600;
+      font-size: 22px;
+      color: #32325d;
+      // #160285;
+    }
+    p {
+      font-size: 17px;
+      margin-right: 10px;
+    }
+  }
+  margin-bottom: 50px;
+}
+
+#anchor-info {
+  position: relative;
+  .contact-offer-presentation {
+    font-weight: 100;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: white;
+    color: black;
+    background: $card-background;
+    border-radius: $project-border-radius;
+    // border: $card-border;
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    p {
+      font-size: 12px;
+    }
+    p:last-child {
+      margin-bottom: 0px;
+    }
+  }
 }

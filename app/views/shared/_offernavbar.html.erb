@@ -4,7 +4,7 @@
   <div class="offernavbar-devise">
     <div class="offer-bar-list-devise">
       <%= link_to "Démo", home_path %>
-      <%= link_to "Info", root_path %>
+      <%= link_to "Info", root_path(anchor: "anchor-info") %>
       <%= link_to "Configuration", user_path(current_user) %>
     </div>
   </div>
@@ -13,7 +13,7 @@
     <div class="offernavbar">
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path %>
+        <%= link_to "Info", root_path(anchor: "anchor-info") %>
         <%= link_to "Configuration", user_path(current_user) %>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="offernavbar-devise">
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path %>
+        <%= link_to "Info", root_path(anchor: "anchor-info") %>
         <%= link_to "Connexion", new_user_session_path %>
         <%= link_to "Inscription", new_user_registration_path %>
       </div>
@@ -31,7 +31,7 @@
   <div class="offernavbar">
     <div class="offer-bar-list">
       <%= link_to "Démo", home_path %>
-      <%= link_to "Info", root_path %>
+      <%= link_to "Info", root_path(anchor: "anchor-info") %>
       <%= link_to "Connexion", new_user_session_path %>
       <%= link_to "Inscription", new_user_registration_path %>
     </div>
@@ -45,7 +45,7 @@
     <div class="offernavbar-devise">
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path %>
+        <%= link_to "Info", root_path(anchor: "anchor-info") %>
         <% if user_signed_in? %>
           <%= link_to "Configuration", user_path(current_user) %>
         <% else %>
@@ -58,7 +58,7 @@
     <div class="offernavbar">
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path %>
+        <%= link_to "Info", root_path(anchor: "anchor-info") %>
         <% if user_signed_in? %>
           <%= link_to "Configuration", user_path(current_user) %>
         <% else %>

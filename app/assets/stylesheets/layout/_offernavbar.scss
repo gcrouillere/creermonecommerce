@@ -1,10 +1,15 @@
   .top-space {
+    position: relative;
+    z-index: 1;
     height: 20px;
     background: #43cea2;
     background: linear-gradient(to right, #43cea2, #185a9d);
   }
 
 .offernavbar {
+  position: relative;
+  z-index: 1;
+  background: white;
   .offer-bar-list {
     height: 70px;
     display: flex;

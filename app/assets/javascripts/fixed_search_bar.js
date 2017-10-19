@@ -13,9 +13,6 @@ $(document).ready(function() {
           $('.ceramique-filters-content').css('position', 'fixed'); // restore when you scroll up
           $('.ceramique-filters-content').css({"top": ""})
           height = $(document).scrollTop();
-          console.log($(document).scrollTop());
-          console.log(window.innerHeight);
-          console.log(height);
         }
       }
     }
