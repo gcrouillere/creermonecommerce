@@ -127,36 +127,38 @@ background-color: $body;
         }
       }
     }
-    .offer-cards-mobile {
-      display: flex;
-      flex-direction: column;
-      h2 {
-        color: #32325d;
-        font-size: 20px;
-        text-align: center;
-        font-family: "Open Sans" !important;
-        margin-top: 30px;
-      }
-      p {
-        color: #32325d;
-        text-align: center;
-      }
-      p:last-child {
-      margin-bottom: 30px;
-      }
-      .card-offer {
-        background: white;
-        border-radius: 3px;
-        box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-        margin: 28px;
+
+    .mobile-offer-container {
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      .offer-cards-mobile {
+        display: flex;
+        flex-direction: column;
+        h2 {
+          color: #32325d;
+          font-size: 20px;
+          text-align: center;
+          font-family: "Open Sans" !important;
+          margin-top: 30px;
+        }
+        p {
+          color: #32325d;
+          text-align: center;
+        }
+        p:last-child {
+        margin-bottom: 30px;
+        }
+        .card-offer {
+          background: white;
+          border-radius: 3px;
+          box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+          margin: 28px;
+        }
       }
     }
   }
 
-.offer-h1 {
-  margin-left: 0px;
-  margin-bottom: 25px;
-  margin-top: 25px !important;
+.offer-h1-mobile {
+  margin: 25px 0px !important;
   font-size: 40px !important;
 }
 
@@ -199,14 +201,14 @@ background-color: $body;
       .explore{
         background-color: #53f !important;
         color: white;
-        margin: 10px;
+        margin: 10px 0px;
         border-radius: 3px;
         box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
       }
       .compte {
         background-color: white !important;
         color: #32325d;
-        margin: 10px;
+        margin-top: 10px;
         border-radius: 3px;
         box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
       }
@@ -254,3 +256,22 @@ background-color: $body;
     }
   }
 }
+
+.contact-offer-presentation-mobile {
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+    margin-top: -30px;
+    margin-bottom: 15px;
+    background-color: $body;
+    color: black;
+    // background: $card-background;
+    // border-radius: $project-border-radius;
+    // box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    p {
+      font-size: 15px;
+    }
+    p:last-child {
+      margin-bottom: 15px;
+    }
+  }

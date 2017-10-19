@@ -6,7 +6,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
 <% end %>
 
 <div class="offer-container">
-  <div class="box">
+  <div class="box hidden-xs hidden-sm">
     <span class="box1"></span>
     <span class="box2"></span>
   </div>
@@ -71,9 +71,14 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
           </div>
         </div>
 
+    </div>
+  </div>
+
 <!-- MOBILE -->
+    <div class="container mobile-offer-container">
+      <div class="row">
         <div class="col-xs-12 hidden-md hidden-lg">
-          <h1 class="offer-h1">Vendez vos créations</h1>
+          <h1 class="offer-h1-mobile">Vendez vos créations</h1>
           <h2>Créez une boutique avec nous</h2>
           <div class="col-xs-12 col-sm-offset-1 col-sm-10">
             <div class="offer-cards-mobile">
@@ -118,9 +123,9 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
             </div>
           </div>
         </div>
+       </div>
+      </div>
 
-    </div>
-  </div>
 </div>
 
 <div id="anchor-info" class="container">
@@ -147,7 +152,13 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
         <p>Nous pouvons également concevoir une boutique à partir d'un feuille blanche, selon votre cahier des charges. Contactez nous pour revoir ensemble votre projet.</p>
       </div>
     </div>
-      <div id="contactbutton" class="contact-offer-presentation">
+      <div id="contactbutton" class="contact-offer-presentation hidden-xs hidden-sm">
+        <p>Contactez-nous: 06.85.47.68.48</p>
+        <p class="text-center">Ou</p>
+        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+      </div>
+
+      <div class="col-xs-12 contact-offer-presentation-mobile hidden-md hidden-lg">
         <p>Contactez-nous: 06.85.47.68.48</p>
         <p class="text-center">Ou</p>
         <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
