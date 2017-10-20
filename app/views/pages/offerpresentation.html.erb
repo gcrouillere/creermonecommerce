@@ -114,7 +114,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
               </div>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+          <div class="col-xs-12 col-sm-offset-1 col-sm-10" id="btncompte">
             <div class="offer-buttons-mobile">
               <%= link_to home_path do %>
                 <button type="submit" class="btn explore">DEMO D'UNE BOUTIQUE</button>
@@ -130,7 +130,12 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
 
 <div id="anchor-info" class="container">
   <div class="row">
-    <div class="col-offset-xs-1 col-xs-10 bottom-info">
+    <div id="contactbutton-mobile" class="col-xs-12 contact-offer-presentation-mobile hidden-md hidden-lg">
+      <p>Contactez-nous: 06.85.47.68.48</p>
+      <p class="text-center">Ou</p>
+      <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+    </div>
+    <div class="col-offset-xs-1 col-xs-11 col-offset-md-1 col-md-10 bottom-info">
       <div class="offer-intro">
         <h2>UNE BOUTIQUE A VOTRE IMAGE, UN DESIGN EPURE</h2>
         <p>Nous vous proposons un design qui s'adapte à votre image. Quand nous créons votre projet, la structure du design est prête. Nous avons simplement besoins de choisir ensemble quelques photos, 2 couleurs et un logo pour personnaliser votre boutique en ligne.</p>
@@ -149,7 +154,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
         </p>Si vous le souhaitez, nous mettons en place avec vous les abonnements mensuels pour obtenir un hébergement illimité et un nom de domaine propre (10 € par mois).</p>
         <h2>OFFRE MODULABLE</h2>
         <p>Nous disposons d'une structure de base pour votre boutique en ligne qui nous permet de la créer avec un budget limité.</p>
-        <p>Nous pouvons également concevoir une boutique à partir d'un feuille blanche, selon votre cahier des charges. Contactez nous pour revoir ensemble votre projet.</p>
+        <p>Nous pouvons également concevoir une boutique à partir d'une feuille blanche, selon votre cahier des charges. Contactez nous pour revoir ensemble votre projet.</p>
       </div>
     </div>
       <div id="contactbutton" class="contact-offer-presentation hidden-xs hidden-sm">
@@ -158,10 +163,5 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
         <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
       </div>
 
-      <div class="col-xs-12 contact-offer-presentation-mobile hidden-md hidden-lg">
-        <p>Contactez-nous: 06.85.47.68.48</p>
-        <p class="text-center">Ou</p>
-        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
-      </div>
   </div>
 </div>

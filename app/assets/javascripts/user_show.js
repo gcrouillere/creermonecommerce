@@ -20,6 +20,7 @@ $(document).ready(function() {
   // Manage contact-button position
   function changeButton() {
     if($(document).scrollTop() > $('#anchor-info').offset().top) {
+
       $('#contactbutton').css({
         position: 'fixed',
         top: 20,
@@ -34,9 +35,29 @@ $(document).ready(function() {
     }
   }
 
+  function changeButtonMobile() {
+    if($(document).scrollTop() > $('#btncompte').offset().top + $('#btncompte').height()) {
+      // console.log("fixed")
+      $('#contactbutton-mobile').css({
+        position: 'fixed',
+        top: 0,
+        zIndex: 1
+      });
+      $('.bottom-info').css({marginTop: 50});
+    } else {
+      $('#contactbutton-mobile').css({
+        position: '',
+        top: '',
+        zIndex: 0
+      });
+      $('.bottom-info').css({marginTop: 0});
+    }
+  }
+
   $(document).scroll(function() {
     checkOffset();
     changeButton();
+    changeButtonMobile();
   });
 
 
