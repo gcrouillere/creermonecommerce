@@ -10,19 +10,8 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
 
 <!-- LAPTOP -->
     <div class="hidden-xs hidden-sm col-md-12 info-top">
-      <div class="list-header-1">
-        <div class="white-div"></div>
-        <div class="list-h1">
-          <div class="block1">
-            <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-            <h2>Contactez nous pour un devis</h2>
-          </div>
-          <i class="fa fa-times cross cross-1"></i>
-        </div>
-        <p>Cette boutique est la base de notre offre, nous pouvons l'étoffer selon vos besoins. Contactez nous pour revoir votre projet ensemble.</p>
-        <p>Tel: 06.85.47.68.48</p>
-        <p>gcrouillere@hotmail.fr</p>
-      </div>
+
+      <%= render 'shared/general_info_bubble' %>
 
       <div class="list-header-2">
         <div class="white-div"></div>
@@ -34,7 +23,7 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
           <i class="fa fa-times cross cross-2"></i>
         </div>
         <p>Les produits affichés sont des exemples. Créez les votres dans la partie administration. Vous pourrez ensuite les visualiser comme vos futurs clients. <%= current_user ? "" : "Créez un compte pour accéder à l'administration."%></p>
-        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %> pour personnaliser la boutique.</p>
+        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account", title: "Créer un compte pour configurer la boutiqu en ligne" %> pour personnaliser la boutique.</p>
       </div>
     </div>
 
@@ -98,7 +87,7 @@ Créer votre boutique en ligne. Créez votre compte et visualisez votre futur si
   </div>
       <% @ceramiques.each do |ceramique| %>
           <div class="col-xs-12">
-            <%= link_to ceramique_path(ceramique), class: "cardlink" do %>
+            <%= link_to ceramique_path(ceramique), class: "cardlink", title: "#{ceramique.name}: lien vers la fiche produit" do %>
               <div class="ceramiquecard mobile">
                 <div class="img-container">
                   <img class="img" src="<%= cl_image_path ceramique.photos[0].path %>">

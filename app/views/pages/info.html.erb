@@ -42,19 +42,7 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
           <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %> pour personnaliser la boutique.</p>
         </div>
 
-        <div class="list-header-1">
-          <div class="white-div"></div>
-          <div class="list-h1">
-            <div class="block1">
-              <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-              <h2>Contactez nous pour un devis</h2>
-            </div>
-            <i class="fa fa-times cross cross-1"></i>
-          </div>
-          <p>Cette boutique est la base de notre offre, nous pouvons l'étoffer selon vos besoins. Contactez nous pour revoir votre projet ensemble.</p>
-          <p>Tel: 06.85.47.68.48</p>
-          <p>gcrouillere@hotmail.fr</p>
-        </div>
+        <%= render 'shared/general_info_bubble' %>
 
     </div>
       <div class="wrapper">

@@ -1,7 +1,7 @@
-<% logositepictag = image_tag ENV['LOGOSITE'] %>
+<% logositepictag = image_tag ENV['LOGOSITE'] , alt: "Accueil de la boutique en ligne de démonstration" %>
 <% if user_signed_in? %>
   <% if  current_user.logophoto.present? %>
-    <% logositepictag = cl_image_tag current_user.logophoto.path %>
+    <% logositepictag = cl_image_tag current_user.logophoto.path, alt: "Accueil de la boutique en ligne de démonstration" %>
   <% end %>
 <% end %>
 
@@ -18,13 +18,13 @@
     <!-- Navbar right when connected -->
     <div class="navbar-item">
       <div class="nav-bar-list">
-        <%= link_to admin_root_path do %>
+        <%= link_to admin_root_path, title: "Administration de votre boutique en ligne" do %>
           <span><i class="fa fa-unlock-alt"></i> Administration</span>
         <% end %>
-        <%= link_to info_path do %>
+        <%= link_to info_path, title: "Informations personnelles sur l'artisan" do %>
           <span><i class="fa fa-female"></i> Bio</span>
         <% end %>
-        <%= link_to new_lesson_path do %>
+        <%= link_to new_lesson_path, title: "Effectuer une réservation pour un stage" do %>
           <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
         <% end %>
         <% if session[:order].present? %>
@@ -32,7 +32,7 @@
             <span><i class="fa fa-shopping-cart"></i> Panier</span>
           <% end %>
         <% end %>
-        <%= link_to user_path(current_user), class: "navbar-item navbar-link" do %>
+        <%= link_to user_path(current_user), class: "navbar-item navbar-link", title: "Configurer votre boutique en ligne" do %>
           <span><i class="fa fa-user"></i> Configuration</span>
         <% end %>
         <%= link_to destroy_user_session_path, method: :delete do %>
@@ -44,10 +44,10 @@
   <% else %>
     <div class="navbar-item">
       <div class="nav-bar-list">
-        <%= link_to info_path do %>
+        <%= link_to info_path, title: "Informations personnelles sur l'artisan" do %>
             <span><i class="fa fa-female"></i> Bio</span>
         <% end %>
-        <%= link_to new_lesson_path do %>
+        <%= link_to new_lesson_path, title: "Effectuer une réservation pour un stage" do %>
           <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
         <% end %>
         <% if session[:order].present? %>
@@ -55,10 +55,10 @@
             <span><i class="fa fa-shopping-cart"></i> Panier</span>
           <% end %>
         <% end %>
-        <%= link_to new_user_registration_path, class: "navbar-item navbar-link" do %>
+        <%= link_to new_user_registration_path, class: "navbar-item navbar-link", title: "Créer un compte pour configurer votre boutique en ligne" do %>
           <span><i class="fa fa-user-plus"></i> Inscription</span>
         <% end %>
-        <%= link_to new_user_session_path, class: "navbar-item navbar-link" do %>
+        <%= link_to new_user_session_path, class: "navbar-item navbar-link", title: "Configurer votre boutique en ligne" do %>
           <span><i class="fa fa-user"></i> Configuration</span>
         <% end %>
       </div>
@@ -75,10 +75,10 @@
 
   <div class="navbar-item">
     <div class="list-mobile">
-      <%= link_to info_path do %>
+      <%= link_to info_path, title: "Informations personnelles sur l'artisan" do %>
         <li><span><i class="fa fa-female"></i> Bio</span></li>
       <% end %>
-      <%= link_to new_lesson_path do %>
+      <%= link_to new_lesson_path, title: "Effectuer une réservation pour un stage" do %>
         <span><i class="fa fa-calendar-o"></i> Stage</span>
       <% end %>
       <% if user_signed_in? %>
@@ -87,12 +87,12 @@
             <span><i class="fa fa-shopping-cart"></i> Panier</span>
           <% end %>
         <% else %>
-          <%= link_to user_path(current_user), class: "navbar-item navbar-link" do %>
-           <span><i class="fa fa-user"></i> Configuration</span>
+          <%= link_to user_path(current_user), class: "navbar-item navbar-link", title: "Configurer votre boutique en ligne" do %>
+           <span><i class="fa fa-user"></i> Configurer</span>
           <% end %>
         <% end %>
       <% else %>
-        <%= link_to new_user_registration_path, class: "navbar-item navbar-link" do %>
+        <%= link_to new_user_registration_path, class: "navbar-item navbar-link", title: "Créer un compte pour configurer votre boutique en ligne" do %>
           <span><i class="fa fa-user-plus"></i> S'inscrire</span>
         <% end %>
       <% end %>

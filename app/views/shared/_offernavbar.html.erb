@@ -3,37 +3,37 @@
   <% if user_signed_in? && params[:action] != "offerpresentation" %>
   <div class="offernavbar-devise">
     <div class="offer-bar-list-devise">
-      <%= link_to "Démo", home_path %>
-      <%= link_to "Info", root_path(anchor: "anchor-info") %>
-      <%= link_to "Configuration", user_path(current_user) %>
+      <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
+      <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+      <%= link_to "Configuration", user_path(current_user), title: "Créer un compte pour configurer votre boutique en ligne" %>
     </div>
   </div>
   <% elsif user_signed_in? && (params[:action] = "offerpresentation")%>
     <div class="top-space"></div>
     <div class="offernavbar">
       <div class="offer-bar-list">
-        <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path(anchor: "anchor-info") %>
-        <%= link_to "Configuration", user_path(current_user) %>
+        <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
+        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Configuration", user_path(current_user), title: "Créer un compte pour configurer votre boutique en ligne" %>
       </div>
     </div>
   <% elsif params[:controller] == "app_specific_registration/registrations" || params[:controller] == "devise/sessions" || params[:controller] == "users" %>
     <div class="offernavbar-devise">
       <div class="offer-bar-list-devise">
-        <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path(anchor: "anchor-info") %>
-        <%= link_to "Connexion", new_user_session_path %>
-        <%= link_to "Inscription", new_user_registration_path %>
+        <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
+        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
+        <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
       </div>
     </div>
   <% else %>
   <div class="top-space"></div>
   <div class="offernavbar">
     <div class="offer-bar-list">
-      <%= link_to "Démo", home_path %>
-      <%= link_to "Info", root_path(anchor: "anchor-info") %>
-      <%= link_to "Connexion", new_user_session_path %>
-      <%= link_to "Inscription", new_user_registration_path %>
+      <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
+      <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+      <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
+      <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
     </div>
   </div>
   <% end %>
@@ -44,12 +44,12 @@
   <% if params[:action] != "offerpresentation" %>
     <div class="offernavbar-devise">
       <div class="offer-bar-list-devise">
-        <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path(anchor: "anchor-info") %>
+        <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
+        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
         <% if user_signed_in? %>
-          <%= link_to "Configuration", user_path(current_user) %>
+          <%= link_to "Configuration", user_path(current_user), title: "Configurer votre boutique en ligne" %>
         <% else %>
-          <%= link_to "Inscription", new_user_registration_path %>
+          <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
         <% end %>
       </div>
     </div>
@@ -57,12 +57,12 @@
     <div class="top-space"></div>
     <div class="offernavbar">
       <div class="offer-bar-list">
-        <%= link_to "Démo", home_path %>
-        <%= link_to "Info", root_path(anchor: "anchor-info") %>
+        <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
+        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
         <% if user_signed_in? %>
-          <%= link_to "Configuration", user_path(current_user) %>
+          <%= link_to "Configuration", user_path(current_user), title: "Configurer votre boutique en ligne" %>
         <% else %>
-          <%= link_to "Inscription", new_user_registration_path %>
+          <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
         <% end %>
       </div>
     </div>

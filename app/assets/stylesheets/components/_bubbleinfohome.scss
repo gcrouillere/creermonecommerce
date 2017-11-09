@@ -17,7 +17,10 @@
       .info-circle, .cross-1 {
         margin: 3px;
       }
-      .cross-1 {
+       .cross-1, .cross-2 {
+       margin: 3px 6px 3px 3px;
+      }
+      .cross-2, .cross-1 {
         cursor: pointer;
       }
       h1 {
@@ -58,10 +61,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      .info-circle, .cross-2 {
+      .block1 {
+        flex: 1 0 auto;
+        display: flex;
+        align-items: center;
+      }
+      .info-circle  {
         margin: 3px 3px 3px 6px;
       }
-      .cross-2 {
+      .cross-1, .cross-2 {
+       margin: 3px 6px 3px 3px;
+      }
+      .cross-2, .cross-1 {
         cursor: pointer;
       }
       h2 {
@@ -93,6 +104,8 @@
       margin: 10px;
       padding: 0;
       .logo-container {
+        display: flex;
+        height: 35px;
         background-color: $primary;
         display: flex;
         align-items: center;
@@ -109,7 +122,7 @@
       }
       p {
         font-size: 11px;
-        margin: 3px 3px 6px 3px;
+        margin: 3px 3px 12px 3px;
         text-align: center;
       }
     }
