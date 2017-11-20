@@ -58,7 +58,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem "geocoder"
 
 #redirection
-gem 'rack-rewrite', '~> 1.5.0'
+gem 'rack-host-redirect'
 
 group :development, :test do
   gem 'better_errors'

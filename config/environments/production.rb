@@ -103,4 +103,8 @@ Rails.application.configure do
   #  # config.enable = false # default is true
   # end
 
+  config.middleware.use Rack::HostRedirect, {
+  'creermonecommerce.herokuapp.com' => 'www.creermonecommerce.fr'
+  }
+
 end
