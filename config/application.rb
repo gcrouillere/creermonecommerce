@@ -25,7 +25,7 @@ module Ceramiquesnugier
     end
 
     config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
-      r301      'https://creermonecommerce.herokuapp.com/', 'https://www.creermonecommerce.fr/'
+      r301      'https://creermonecommerce.herokuapp.com', 'https://www.creermonecommerce.fr'
       r301      'https://creermonecommerce.herokuapp.com/home', 'https://www.creermonecommerce.fr/home'
       r301      'https://creermonecommerce.herokuapp.com/info', 'https://www.creermonecommerce.fr/info'
       r301      'https://creermonecommerce.herokuapp.com/produits', 'https://www.creermonecommerce.fr/produits'
