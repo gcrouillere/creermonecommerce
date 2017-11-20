@@ -24,7 +24,7 @@ module Ceramiquesnugier
       generate.helper false
     end
 
-    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+    config.middleware.insert_before(Rack::Runtime, Rack::Rewrite) do
       r301      '/', 'https://www.creermonecommerce.fr/'
       r301      '/home', 'https://www.creermonecommerce.fr/home'
       r301      '/info', 'https://www.creermonecommerce.fr/info'
