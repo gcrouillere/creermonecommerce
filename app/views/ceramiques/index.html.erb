@@ -23,7 +23,7 @@ Créez votre boutique en ligne. Créez votre compte et visualisez votre futur si
           <i class="fa fa-times cross cross-2"></i>
         </div>
         <p>Les produits affichés sont des exemples. Créez les votres dans la partie administration. Vous pourrez ensuite les visualiser comme vos futurs clients. <%= current_user ? "" : "Créez un compte pour accéder à l'administration."%></p>
-        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account", title: "Créer un compte pour configurer la boutiqu en ligne" %> pour personnaliser la boutique.</p>
+        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account", title: "Créer un compte pour configurer la boutique en ligne" %> pour personnaliser la boutique.</p>
       </div>
     </div>
 
@@ -90,7 +90,7 @@ Créez votre boutique en ligne. Créez votre compte et visualisez votre futur si
             <%= link_to ceramique_path(ceramique), class: "cardlink", title: "#{ceramique.name}: lien vers la fiche produit" do %>
               <div class="ceramiquecard mobile">
                 <div class="img-container">
-                  <img class="img" src="<%= cl_image_path ceramique.photos[0].path %>">
+                  <img class="img" src="<%= cl_image_path ceramique.photos[0].path %>" alt="<%= ceramique.name%>">
                   <h2 class="prix-index"><%= humanized_money(ceramique.price)%> <%= currency_symbol %></h2>
                 </div>
                 <h2> <%= ceramique.name.capitalize%> </h2>

@@ -5,19 +5,19 @@ Vendez vos produits dans votre boutique en ligne ! Site de e-commerce configurab
   Créez votre boutique et partagez des informations avec vos clients.
 <% end %>
 
-<% avatarpictag = image_tag ENV['AVATAR'], class: "img-avatar" %>
-<% avatarpictagmobile = image_tag ENV['AVATAR']  %>
-<% citypictag= image_tag ENV['CITY'] %>
+<% avatarpictag = image_tag ENV['AVATAR'], class: "img-avatar", alt: "Image personnalisable de l'artisan" %>
+<% avatarpictagmobile = image_tag ENV['AVATAR'], alt: "Image personnalisable de l'artisan"  %>
+<% citypictag= image_tag ENV['CITY'], alt: "Image personnalisable la localisation de l'artisan" %>
 <% if user_signed_in? %>
   <% if  current_user.avatarphoto.present? %>
     <% if  current_user.avatarphoto.width.to_f / current_user.avatarphoto.height > 1.2 %>
-      <% avatarpictag = cl_image_tag current_user.avatarphoto.path, :width => 450, :height => 390, :crop => :thumb, :gravity => :face, class: "img-avatar" %>
+      <% avatarpictag = cl_image_tag current_user.avatarphoto.path, :width => 450, :height => 390, :crop => :thumb, :gravity => :face, class: "img-avatar", alt: "Image personnalisable de l'artisan" %>
     <% else %>
-      <% avatarpictag = cl_image_tag current_user.avatarphoto.path, class: "img-avatar" %>
+      <% avatarpictag = cl_image_tag current_user.avatarphoto.path, class: "img-avatar", alt: "Image personnalisable de l'artisan"%>
     <% end %>
-    <% avatarpictagmobile = cl_image_tag(cl_image_path current_user.avatarphoto.path, :width => 200, :height => 200, :crop => :thumb, :gravity => :face) %>
+    <% avatarpictagmobile = cl_image_tag(cl_image_path current_user.avatarphoto.path, :width => 200, :height => 200, :crop => :thumb, :gravity => :face, alt: "Image personnalisable de l'artisan") %>
     <% if  current_user.cityphoto.present? %>
-      <% citypictag= cl_image_tag current_user.cityphoto.path %>
+      <% citypictag= cl_image_tag current_user.cityphoto.path, alt: "Image personnalisable la localisation de l'artisan" %>
     <% end %>
   <% end %>
 <% end %>

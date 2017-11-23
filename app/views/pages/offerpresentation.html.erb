@@ -18,11 +18,11 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
         <h1>Vendez vos créations en ligne</h1>
         <h2>Créez une boutique avec notre agence</h2>
           <div class="offer-cards">
-            <%= link_to ceramiques_path do %>
+            <%= link_to ceramiques_path, title: "Visualisez les produits de démonstration de la boutique en ligne" do %>
               <div class="produit card-offer">
                 <h2>Vendez vos produits</h2>
                 <div class="card-separator">
-                  <%= image_tag 'commerce.png', class: "offer-card-image"%>
+                  <%= image_tag 'commerce.png', class: "offer-card-image", alt: "Chariot représentant la fonction de vente de la boutique en ligne"%>
                   <hr>
                 </div>
                 <p>Créez vos fiches produits</p>
@@ -30,11 +30,11 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
                 <p>Visualiser vos commandes</p>
               </div>
             <% end %>
-            <%= link_to new_lesson_path do %>
+            <%= link_to new_lesson_path, title: "Offrez une prise de réservations pour des stages dans votre boutique en ligne" do %>
               <div class="stage-info card-offer">
                 <h2>Accueillez vos clients</h2>
                 <div class="card-separator">
-                  <%= image_tag 'time.png', class: "offer-card-image"%>
+                  <%= image_tag 'time.png', class: "offer-card-image", alt: "Calendrier représentant la possibilité de réserver des stages via la boutique"%>
                   <hr>
                 </div>
                 <p>Proposez des stages/visites</p>
@@ -42,11 +42,11 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
                 <p>Visualiser les réservations</p>
               </div>
             <% end %>
-            <%= link_to info_path do %>
+            <%= link_to info_path, title: "Vos informations personnelles visibles par les clients de votre e-commerce" do %>
               <div class="ecrire card-offer">
                 <h2>Partagez</h2>
                 <div class="card-separator">
-                  <%= image_tag 'website.png', class: "offer-card-image"%>
+                  <%= image_tag 'website.png', class: "offer-card-image", alt: "Page internet avec infos personnalisables"%>
                   <hr>
                 </div>
                 <p>Ecrivez sur votre métier</p>
@@ -56,15 +56,15 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
             <% end %>
           </div>
           <div class="offer-buttons">
-            <%= link_to home_path do %>
+            <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
               <button type="submit" class="pull-right btn explore">DEMO D'UNE BOUTIQUE</button>
             <% end %>
             <% if user_signed_in? %>
-            <%= link_to user_path(current_user) do %>
+            <%= link_to user_path(current_user), title: "Accédez à votre compte pour paramétrer la boutique en ligne" do %>
                 <button type="submit" class="pull-right btn compte">CREEZ VOTRE PROJET DE BOUTIQUE EN 3 CLICS</button>
               <% end %>
             <% else %>
-              <%= link_to new_user_registration_path do %>
+              <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
                 <button type="submit" class="pull-right btn compte">CREEZ VOTRE PROJET DE BOUTIQUE EN 3 CLICS</button>
               <% end %>
             <% end %>
@@ -85,7 +85,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
               <div class="produit card-offer">
                 <h2>Vendez vos produits</h2>
                 <div class="card-separator">
-                  <%= image_tag 'commerce.png', class: "offer-card-image"%>
+                  <%= image_tag 'commerce.png', class: "offer-card-image", alt: "Chariot représentant la fonction de vente de la boutique en ligne"%>
                   <hr>
                 </div>
                 <p>Créez vos fiches produits</p>
@@ -95,7 +95,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
               <div class="stage-info card-offer">
                 <h2>Accueillez vos clients</h2>
                 <div class="card-separator">
-                  <%= image_tag 'time.png', class: "offer-card-image"%>
+                  <%= image_tag 'time.png', class: "offer-card-image", alt: "Calendrier représentant la possibilité de réserver des stages via la boutique"%>
                   <hr>
                 </div>
                 <p>Proposez des stages/visites</p>
@@ -105,7 +105,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
               <div class="ecrire card-offer">
                 <h2>Partagez</h2>
                 <div class="card-separator">
-                  <%= image_tag 'website.png', class: "offer-card-image"%>
+                  <%= image_tag 'website.png', class: "offer-card-image", alt: "Page perso avec infos personnalisables sur l'artisan"%>
                   <hr>
                 </div>
                 <p>Ecrivez sur votre métier</p>
@@ -116,8 +116,10 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
           </div>
           <div class="col-xs-12 col-sm-offset-1 col-sm-10" id="btncompte">
             <div class="offer-buttons-mobile">
-              <%= link_to home_path do %>
+              <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
                 <button type="submit" class="btn explore">DEMO D'UNE BOUTIQUE</button>
+              <% end %>
+              <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
                 <button type="submit" class="btn compte">CREEZ VOTRE BOUTIQUE EN 3 CLICS</button>
               <% end %>
             </div>
