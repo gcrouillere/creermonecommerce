@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+# 'https://rails-assets.org'
 ruby '2.3.5'
 
 gem 'devise'
@@ -33,6 +34,7 @@ gem 'stripe'
 #map
 gem "gmaps4rails"
 source 'https://rails-assets.org' do
+  # 'http://insecure.rails-assets.org/'
   gem "rails-assets-underscore"
 end
 
@@ -46,6 +48,7 @@ gem "letter_opener", group: :development
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin-index_as_calendar', github: 'bys-control/activeadmin-index_as_calendar'
+gem 'sprockets-es6', '~> 0.6.0'
 
 #keepawake on heroku
 gem 'dynopoker'
