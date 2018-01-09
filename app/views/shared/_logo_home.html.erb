@@ -1,0 +1,5 @@
+  <% logositepictag = image_tag ENV['LOGOSITE'] , alt: "Accueil de la boutique en ligne de démonstration" %>
+
+  <%= link_to home_path, class: "logo-home" , title: "Démo de notre boutique ligne" do %>
+    <%= logositepictag %>
+  <% end %>

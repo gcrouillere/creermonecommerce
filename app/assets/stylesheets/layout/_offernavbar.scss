@@ -10,8 +10,14 @@
   position: relative;
   z-index: 1;
   background: white;
+  img {
+    position: absolute;
+    top: 14px;
+    left: 30px;
+    width: 4%;
+  }
   .offer-bar-list {
-    height: 70px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,10 +36,16 @@
 // #6772e5
 
 .offernavbar-devise {
+    img {
+    position: absolute;
+    top: 14px;
+    left: 30px;
+    width: 4%;
+  }
   .offer-bar-list-devise {
     background: #43cea2;
     background: linear-gradient(to right, #43cea2, #185a9d);
-    height: 70px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;

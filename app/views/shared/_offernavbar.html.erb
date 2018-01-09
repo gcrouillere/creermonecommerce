@@ -2,6 +2,7 @@
 <div class="hidden-xs hidden-sm">
   <% if user_signed_in? && params[:action] != "offerpresentation" %>
   <div class="offernavbar-devise">
+    <%= render  "shared/logo_home" %>
     <div class="offer-bar-list-devise">
       <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
       <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
@@ -11,6 +12,7 @@
   <% elsif user_signed_in? && (params[:action] = "offerpresentation")%>
     <div class="top-space"></div>
     <div class="offernavbar">
+      <%= render  "shared/logo_home" %>
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
@@ -19,6 +21,7 @@
     </div>
   <% elsif params[:controller] == "app_specific_registration/registrations" || params[:controller] == "devise/sessions" || params[:controller] == "users" %>
     <div class="offernavbar-devise">
+      <%= render  "shared/logo_home" %>
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
@@ -29,6 +32,7 @@
   <% else %>
   <div class="top-space"></div>
   <div class="offernavbar">
+    <%= render  "shared/logo_home" %>
     <div class="offer-bar-list">
       <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
       <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
@@ -43,6 +47,7 @@
 <div class="hidden-md hidden-lg">
   <% if params[:action] != "offerpresentation" %>
     <div class="offernavbar-devise">
+      <%= render  "shared/logo_home" %>
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
@@ -56,6 +61,7 @@
   <% else %>
     <div class="top-space"></div>
     <div class="offernavbar">
+      <%= render  "shared/logo_home" %>
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
