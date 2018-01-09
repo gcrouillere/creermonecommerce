@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_create :send_admin_mail
 
   has_many :ceramiques
   has_many :categories
@@ -24,5 +23,9 @@ class User < ApplicationRecord
 
   def display_name
     return self.email
+  end
+
+  def send_admin_mail
+    SignupMailer.mail_after_signup(self).deliver_now
   end
 end
