@@ -47,7 +47,6 @@
 <div class="hidden-md hidden-lg">
   <% if params[:action] != "offerpresentation" %>
     <div class="offernavbar-devise">
-      <%= render  "shared/logo_home" %>
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
@@ -61,7 +60,6 @@
   <% else %>
     <div class="top-space"></div>
     <div class="offernavbar">
-      <%= render  "shared/logo_home" %>
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
