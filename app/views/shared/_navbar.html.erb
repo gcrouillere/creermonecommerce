@@ -28,8 +28,10 @@
           <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
         <% end %>
         <% if session[:order].present? %>
-          <%= link_to order_path(Order.find(session[:order])) do %>
-            <span><i class="fa fa-shopping-cart"></i> Panier</span>
+          <% if Order.where(id: session[:order]).present? %>
+            <%= link_to order_path(Order.find(session[:order])) do %>
+              <span><i class="fa fa-shopping-cart"></i> Panier</span>
+            <% end %>
           <% end %>
         <% end %>
         <%= link_to user_path(current_user), class: "navbar-item navbar-link", title: "Configurer votre boutique en ligne" do %>
@@ -51,8 +53,10 @@
           <span><i class="fa fa-calendar-o"></i> Réserver un stage</span>
         <% end %>
         <% if session[:order].present? %>
-          <%= link_to order_path(Order.find(session[:order])) do %>
-            <span><i class="fa fa-shopping-cart"></i> Panier</span>
+          <% if Order.where(id: session[:order]).present? %>
+            <%= link_to order_path(Order.find(session[:order])) do %>
+              <span><i class="fa fa-shopping-cart"></i> Panier</span>
+            <% end %>
           <% end %>
         <% end %>
         <%= link_to new_user_registration_path, class: "navbar-item navbar-link", title: "Créer un compte pour configurer votre boutique en ligne" do %>
@@ -83,9 +87,12 @@
       <% end %>
       <% if user_signed_in? %>
         <% if session[:order].present? %>
-          <%= link_to order_path(Order.find(session[:order])) do %>
-            <span><i class="fa fa-shopping-cart"></i> Panier</span>
+          <% if Order.where(id: session[:order]).present? %>
+            <%= link_to order_path(Order.find(session[:order])) do %>
+              <span><i class="fa fa-shopping-cart"></i> Panier</span>
+            <% end %>
           <% end %>
+        <% end %>
         <% else %>
           <%= link_to user_path(current_user), class: "navbar-item navbar-link", title: "Configurer votre boutique en ligne" do %>
            <span><i class="fa fa-user"></i> Configurer</span>
