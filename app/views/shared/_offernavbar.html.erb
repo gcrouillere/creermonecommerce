@@ -5,7 +5,8 @@
     <%= render  "shared/logo_home" %>
     <div class="offer-bar-list-devise">
       <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
-      <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+      <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+      <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
       <%= link_to "Configuration", user_path(current_user), title: "Créer un compte pour configurer votre boutique en ligne" %>
     </div>
   </div>
@@ -15,7 +16,8 @@
       <%= render  "shared/logo_home" %>
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
-        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
         <%= link_to "Configuration", user_path(current_user), title: "Créer un compte pour configurer votre boutique en ligne" %>
       </div>
     </div>
@@ -24,7 +26,8 @@
       <%= render  "shared/logo_home" %>
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
-        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
         <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
         <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
       </div>
@@ -35,7 +38,8 @@
     <%= render  "shared/logo_home" %>
     <div class="offer-bar-list">
       <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
-      <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+      <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+      <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
       <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
       <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
     </div>
@@ -49,12 +53,8 @@
     <div class="offernavbar-devise">
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
-        <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
-        <% if user_signed_in? %>
-          <%= link_to "Configuration", user_path(current_user), title: "Configurer votre boutique en ligne" %>
-        <% else %>
-          <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
-        <% end %>
+        <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
+        <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
       </div>
     </div>
   <% else %>
@@ -63,11 +63,7 @@
       <div class="offer-bar-list">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Info", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
-        <% if user_signed_in? %>
-          <%= link_to "Configuration", user_path(current_user), title: "Configurer votre boutique en ligne" %>
-        <% else %>
-          <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
-        <% end %>
+        <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
       </div>
     </div>
   <% end %>

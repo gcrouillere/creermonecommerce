@@ -1,0 +1,65 @@
+.offer-content .offer-container {
+  .product-claim {
+    background-color: transparent;
+    position: absolute;
+    z-index: 2;
+    margin-left: 50px;
+    h1 {
+      margin-left: -20px;
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+    h2 {
+      width: 80%;
+      text-align: left;
+      letter-spacing: 2px;
+      margin-left: 20px;
+      font-weight: 600;
+      font-size: 22px;
+      color: #32325d;
+      // #160285;
+    }
+    p {
+      width: 80%;
+      text-align: left;
+      font-size: 17px;
+      margin-right: 10px;
+      margin-left: 25px;
+      margin-bottom: 30px;
+    }
+    a {
+      color: #333333;
+      border-bottom: 1px solid #686868;
+      text-decoration: none;
+    }
+  }
+}
+
+.box-claim {
+  margin-bottom: 450px;
+}
+
+@media all and (max-width: 800px) {
+  .offer-content .offer-container {
+    .product-claim {
+      position: initial;
+      width: 100%;
+      margin: 0;
+      h1 {
+        font-size: 30px;
+        margin: 35px 5px 50px 5px;
+        color: #32325d;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
+      }
+      h2 {
+        font-size: 22px;
+        margin: 10px auto;
+      }
+      p {
+        font-size: 18px;
+        margin: 10px auto 20px auto;
+        text-align: justify;
+      }
+    }
+ }
+}

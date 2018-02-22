@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/confirmation', to: 'pages#confirmation'
   get '/info', to: 'pages#info'
   get '/home', to: 'pages#home'
+  get '/product_claim_details', to: 'pages#product_claim_details'
   get '/google906057532e2dbb7e', to: 'pages#google906057532e2dbb7e'
   get '/robots.:format', to: 'pages#robots'
   # , :defaults => { :format => 'txt' }
