@@ -17,7 +17,6 @@
       font-weight: 600;
       font-size: 22px;
       color: #32325d;
-      // #160285;
     }
     p {
       width: 80%;
@@ -31,12 +30,17 @@
       color: #333333;
       border-bottom: 1px solid #686868;
       text-decoration: none;
+      h2 {
+        border-bottom: 1px solid #686868;
+        text-decoration: none;
+        width: 590px;
+      }
     }
   }
 }
 
 .box-claim {
-  margin-bottom: 450px;
+  margin-bottom: 550px;
 }
 
 @media all and (max-width: 800px) {
@@ -62,4 +66,19 @@
       }
     }
  }
+}
+
+@media all and (max-width: 700px) {
+  .offer-content .offer-container {
+    .product-claim {
+      a {
+        h2 {
+          font-size: 17px;
+          width: 300px;
+          border-bottom: none;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }

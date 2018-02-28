@@ -1,6 +1,6 @@
 <!-- LAPTOP -->
 <div class="hidden-xs hidden-sm">
-  <% if user_signed_in? && params[:action] != "offerpresentation" %>
+  <% if user_signed_in? && params[:action] != "offerpresentation" && params[:action] != "product_claim_details" %>
   <div class="offernavbar-devise">
     <%= render  "shared/logo_home" %>
     <div class="offer-bar-list-devise">
@@ -28,8 +28,8 @@
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
         <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
         <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
-        <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
         <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
+        <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
       </div>
     </div>
   <% else %>
@@ -40,8 +40,8 @@
       <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>
       <%= link_to "Infos", root_path(anchor: "anchor-info"), title: "Consulter notre offre de boutique en ligne" %>
       <%= link_to "Fonctionnalités", product_claim_details_path, title: "Les fonctionnalités de notre boutique en ligne" %>
-      <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
       <%= link_to "Inscription", new_user_registration_path, title: "Créer un compte pour configurer votre boutique en ligne" %>
+      <%= link_to "Connexion", new_user_session_path, title: "Configurer votre boutique en ligne" %>
     </div>
   </div>
   <% end %>
@@ -49,7 +49,7 @@
 
 <!-- MOBILE -->
 <div class="hidden-md hidden-lg">
-  <% if params[:action] != "offerpresentation" %>
+  <% if params[:action] != "offerpresentation" || params[:action] != "product_claim_details" %>
     <div class="offernavbar-devise">
       <div class="offer-bar-list-devise">
         <%= link_to "Démo", home_path, title: "Page d'accueil de votre boutique en ligne" %>

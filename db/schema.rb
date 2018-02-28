@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009123602) do
+ActiveRecord::Schema.define(version: 20180226163320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 20171009123602) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.text     "content",    null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
   create_table "attachinary_files", force: :cascade do |t|
@@ -87,15 +96,33 @@ ActiveRecord::Schema.define(version: 20171009123602) do
 
   create_table "ceramiques", force: :cascade do |t|
     t.string   "name",                    null: false
-    t.string   "description",             null: false
+    t.text     "description",             null: false
     t.integer  "stock",                   null: false
     t.integer  "category_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "price_cents", default: 0, null: false
+    t.string   "slug"
+    t.integer  "weight"
+    t.integer  "offer_id"
+    t.string   "extract"
+    t.boolean  "active"
     t.integer  "user_id"
     t.index ["category_id"], name: "index_ceramiques_on_category_id", using: :btree
+    t.index ["offer_id"], name: "index_ceramiques_on_offer_id", using: :btree
     t.index ["user_id"], name: "index_ceramiques_on_user_id", using: :btree
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -109,6 +136,15 @@ ActiveRecord::Schema.define(version: 20171009123602) do
     t.index ["user_id"], name: "index_lessons_on_user_id", using: :btree
   end
 
+  create_table "offers", force: :cascade do |t|
+    t.string   "title",                       null: false
+    t.string   "description",                 null: false
+    t.boolean  "showcased",   default: false, null: false
+    t.float    "discount"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string   "state"
     t.string   "ceramique"
@@ -118,8 +154,16 @@ ActiveRecord::Schema.define(version: 20171009123602) do
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.integer  "lesson_id"
+    t.integer  "port_cents",   default: 0, null: false
     t.index ["lesson_id"], name: "index_orders_on_lesson_id", using: :btree
     t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string   "name",                       null: false
+    t.boolean  "active",     default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -136,6 +180,12 @@ ActiveRecord::Schema.define(version: 20171009123602) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false, null: false
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "facebook_picture_url"
+    t.string   "token"
+    t.datetime "token_expiry"
+    t.string   "tracking"
     t.float    "latitude"
     t.float    "longitude"
     t.string   "first_name"
@@ -146,6 +196,7 @@ ActiveRecord::Schema.define(version: 20171009123602) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "articles", "users"
   add_foreign_key "basketlines", "ceramiques"
   add_foreign_key "basketlines", "orders"
   add_foreign_key "bookings", "users"
@@ -153,6 +204,7 @@ ActiveRecord::Schema.define(version: 20171009123602) do
   add_foreign_key "calendarupdates", "users"
   add_foreign_key "categories", "users"
   add_foreign_key "ceramiques", "categories"
+  add_foreign_key "ceramiques", "offers"
   add_foreign_key "ceramiques", "users"
   add_foreign_key "lessons", "users"
   add_foreign_key "orders", "lessons"

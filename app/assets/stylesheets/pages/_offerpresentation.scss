@@ -226,13 +226,29 @@ background-color: $body;
       color: #32325d;
       // #160285;
     }
+    a.pdf-link {
+      h2 {
+        border-bottom: 1px solid #686868;
+        position: absolute;
+      }
+    }
+    @media all and (max-width: 700px) {
+      a.pdf-link {
+        h2 {
+          border-bottom: none;
+          position: initial;
+          text-decoration: underline;
+          font-size: 16px;
+        }
+      }
+    }
     p {
       font-size: 17px;
       margin-right: 10px;
       margin-left: 10px;
     }
   }
-  margin-bottom: 50px;
+  margin-bottom: 100px;
 }
 
 #anchor-info {
