@@ -1,0 +1,153 @@
+.page-top {
+  position: relative;
+  h1 {
+    margin-left: 30px;
+    margin-top: 0px;
+  }
+   a {
+      position: absolute;
+      bottom: 5px;
+      right: 30px;
+      max-width: 200px;
+      text-decoration: none;
+      color: $link-laptop;
+    }
+    a:hover {
+      color: $primary;
+    }
+}
+
+.basket-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background: $card-background;
+  padding: $padding-small;
+  border-radius: $project-border-radius;
+  border: $card-border;
+
+  h4 {
+    font-size: 19px;
+  }
+
+  .basket-article-img {
+    width: 10%;
+    height: 10%;
+  }
+  .basket-article-img{
+    border-radius: $project-border-radius;
+  }
+  i{
+    margin-right: 20px;
+    font-size: $font-size-i;
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 50px;
+  .cost-details {
+    width: 400px;
+    margin-right: 20px;
+  }
+  .hidden-sm {
+    margin: 11px 0px 20px 0px;
+    text-align: center;
+    h3 {
+      margin: 20px 0px 0px 0px
+    }
+    h5 {
+      margin: 10px 0px 0px 0px
+    }
+  }
+  .hidden-md {
+    min-width: 250px;
+  }
+  .total_amount {
+    text-align: center;
+  }
+}
+
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  #order_promo, #order_promo_mobile {
+    border : 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .input-label-take-away {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    label {
+      font-weight: 100;
+      font-size: 14px;
+      margin: 0px 0px 0px 5px;
+    }
+    input {
+      margin: 0px;
+    }
+  }
+  .promo-with-percentage {
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    .promo-detail {
+      color: $primary;
+      font-weight: 100;
+      position: absolute;
+      right: 15px;
+      bottom: -17px;
+      font-size: 13px;
+    }
+    .promo-bloc {
+      label {
+        font-weight: 100;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// MOBILE
+
+.h5mobile {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.h3mobile {
+  margin-left: 20px;
+  margin-top: 20px;
+  font-weight: $font-weight-h3-mobile;
+  font-size: 25px;
+}
+
+.basket-item.mobile {
+  margin: 0px 10px 10px 10px;
+  justify-content: space-around;
+  .basket-article-img {
+    width: 45%;
+    height: 45%;
+  }
+  .order-detail {
+    text-align: center;
+    i {
+      margin: 0px;
+    }
+  }
+}
+
+.total.mobile {
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.mobile-back {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}

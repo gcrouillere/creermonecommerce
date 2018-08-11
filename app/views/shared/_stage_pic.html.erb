@@ -1,0 +1,6 @@
+<% @stagepicpath = image_path ENV['STAGEPIC'] %>
+<% if @admin %>
+  <% if  @admin.lessonphoto.present? %>
+    <% @stagepicpath = cl_image_path @admin.lessonphoto.path %>
+  <% end %>
+<% end %>

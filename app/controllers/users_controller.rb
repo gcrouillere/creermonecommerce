@@ -19,15 +19,30 @@ class UsersController < ApplicationController
       :id,
       :first_name,
       :last_name,
-      :produit,
       :email,
+      :produit,
       :phone,
+      :adress,
+      :zip_code,
+      :city,
+      :provider,
+      :tracking,
+      :uid,
+      :facebook_picture_url,
+      :token,
+      :token_expiry,
       :productphoto,
       :avatarphoto,
       :cityphoto,
       :productphotomobile,
       :lessonphoto,
-      :logophoto
+      :logophoto,
+      :darktheme1photo,
+      :darktheme2photo,
+      :darktheme3photo,
+      :darktheme4photo,
+      :country,
+      homerightphotos: []
     )
   end
 

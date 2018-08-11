@@ -1,59 +1,105 @@
 ActiveAdmin.register Ceramique , as: 'Produits' do
-  permit_params :name, :description, :stock, :category_id, :price_cents, photos: []
-  actions  :index, :new, :create, :destroy, :update, :edit, :show
+  permit_params :name, :description, :stock, :weight, :category_id, :position, :price_cents, photos: []
   menu priority: 1
   scope_to :current_user, association_method: :ceramiques
 
+  permit_params :name, :description, :stock, :weight, :category_id, :position, :price_cents, photos: []
+  menu priority: 1
+  config.filters = false
+
   index do
+    column :id
+    column :position
     column :name
     column :description
     column :stock
-    column "Categorie" do |ceramique|
+    column :weight
+    column "Catégorie" do |ceramique|
       ceramique.category.name
     end
     column :price_cents
+    column "Nb de ventes - CA", :sortable => 'ceramique.basketlines.sum(:quantity)* ceramique.price' do |ceramique|
+      "#{ceramique.basketlines.joins(:order).where.not("orders.state = ?", "lost").sum(:quantity)} - #{ceramique.basketlines.joins(:order).where.not("orders.state = ?", "lost").sum(:quantity) * ceramique.price} €"
+    end
     actions
   end
 
   form do |f|
-  f.inputs "" do
-    f.input :name
-    f.input :description
-    f.input :stock
-    f.input :category
-    f.input :price_cents,  :hint => "Prix en centimes d'euros. Ex: 1000 = 10 €"
-    f.input :photos, :as => :formtastic_attachinary
-    # , :hint => image_tag(f.object.photos[0].path)
+    f.inputs "" do
+      f.input :name
+      f.input :description
+      f.input :position
+      f.input :stock
+      f.input :weight, :hint => "Poids en grammes"
+      f.input :category
+      f.input :price_cents, :hint => "Prix en centimes d'euros. Ex: entrez 1200 pour un prix de 12 €"
+      f.input :photos, :as => :formtastic_attachinary, :hint => "Sélectionnez les photos du produit. Maintenez Ctrl appuyé pour en sélectionner plusieurs."
+    end
+    f.actions
   end
-  f.actions
- end
 
 show do |ceramique|
   attributes_table do
     row :name
     row :description
     row :stock
+    row :weight
     row "Categorie" do |ceramique|
       ceramique.category.name
     end
     row :price_cents
     row :images do |ceramique|
       ceramique.photos.each do |photo|
-        span img(src: "http://res.cloudinary.com/dbhsa0hgf/image/upload/#{photo.path}")
+        span img(src: "http://res.cloudinary.com/#{ENV['CLOUDINARY_NAME']}/image/upload/#{photo.path}")
       end
     end
   end
  end
+
+ csv do
+    column :position
+    column :name
+    column :description
+    column :stock
+    column :weight
+    column "Catégorie" do |ceramique|
+      ceramique.category.name
+    end
+    column :price_cents
+    column "Nb de ventes - CA" do |ceramique|
+      total = 0
+      sum = 0
+      ceramique.basketlines.each do |basketline|
+        if basketline.order.state == "paid"
+          total += basketline.quantity
+        end
+      end
+      sum = total * ceramique.price
+      "#{total} - #{sum} €"
+    end
+ end
+
  controller do
 
   def create
     super do |format|
-      redirect_to admin_produits_path and return if resource.valid?
+      if resource.valid?
+        flash[:notice] = "Produit mis à jour"
+        redirect_to admin_produits_path and return
+      else
+        flash[:alert] = "Certains champs ont été oubliés ou ne sont pas correctement remplis. Voir ci-dessous."
+      end
     end
   end
 
   def destroy
-    flash[:notice] = "#{ENV['MODEL'][0...-1].capitalize} supprimé"
+    if Order.where(state: ["pending","payment page"]).joins(:basketlines).where("basketlines.ceramique_id = ?", resource.id).present?
+      flash[:alert] = "Ce produit est dans un panier dans le processus d'achat, vous ne pouvez pas le supprimer"
+      redirect_to request.referrer and return
+    else
+      resource.basketlines.update(ceramique_id: nil)
+      flash[:notice] = "#{ENV['MODEL'][0...-1].capitalize} supprimé"
+    end
     super do |format|
       redirect_to admin_produits_path and return
     end
@@ -61,10 +107,15 @@ show do |ceramique|
 
   def update
     super do |format|
-      redirect_to admin_produits_path and return if resource.valid?
+      if resource.valid?
+        flash[:notice] = "Produit mis à jour"
+        redirect_to admin_produits_path and return
+      else
+        flash[:alert] = "Certains champs ont été oubliés ou ne sont pas correctement remplis. Voir ci-dessous."
+      end
     end
   end
 
- end
+  end
 
 end

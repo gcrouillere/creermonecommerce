@@ -14,76 +14,104 @@
     <meta property="og:description" content="<%= meta_description %>" />
     <meta property="og:site_name" content="<%= meta_title %>" />
 
-    <!-- Twitter Card data -->
-<!--<meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="<%=  %>">
-    <meta name="twitter:title" content="<%= meta_title %>">
-    <meta name="twitter:description" content="<%= meta_description %>">
-    <meta name="twitter:creator" content="<%= %>">
-    <meta name="twitter:image:src" content="<%= meta_image %>"> -->
-
     <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <meta name="google-site-verification" content="v6l89V9vrshQNOTxoFGZIg_cAdFHeUFHLdx-FAF2yB8" />
     <meta name="msvalidate.01" content="A2005042705811D0F9A1F93173061E82" />
-
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107498853-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-
-      gtag('config', 'UA-107498853-1');
-    </script>
-
   </head>
   <body>
-    <div class="body">
-      <div class="hidden-xs body-stage">
+    <%= render 'shared/facebookSDK'%>
 
-        <% stagepicpath = image_path ENV['STAGEPIC'] %>
-        <% if user_signed_in? %>
-          <% if  current_user.lessonphoto.present? %>
-            <% stagepicpath = cl_image_path current_user.lessonphoto.path %>
-          <% end %>
-        <% end %>
-
-        <style>
+<!-- DEFAULT THEME -->
+    <% if @active_theme.name == "default" %>
+      <div class="body-stage">
+      <%= render 'shared/stage_pic'%>
+      <style>
+        @media all and (min-width: 700px) {
           .body-stage {
-            background-image: url(<%= stagepicpath %>);
+            background-image: url(<%= @stagepicpath %>);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
           }
-        </style>
-
+        }
+        @media all and (max-width: 700px) {
+          .body-stage {
+            background: #e6dada;
+            background: linear-gradient(to right, #f0f2f0, #000c40);
+          }
+        }
+      </style>
         <%= render 'shared/navbar' %>
         <%= render 'shared/flashes' %>
         <div class="content">
           <%= yield %>
         </div>
         <%= render 'shared/footer' %>
-
-      </div>
-
-      <div class="hidden-sm hidden-md hidden-lg body-stage-mobile">
-
-        <%= render 'shared/navbar' %>
-        <%= render 'shared/flashes' %>
-        <div class="content">
+<!-- LIGHTTHEME -->
+    <% elsif @active_theme.name == "lighttheme" %>
+      <div class="body-stage-lightheme">
+      <%= render 'shared/stage_pic'%>
+      <style>
+        @media all and (min-width: 700px) {
+          .body-stage-lightheme {
+            background-image: url(<%= @stagepicpath %>);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+          }
+        }
+        @media all and (max-width: 700px) {
+          .body-stage-lightheme {
+            background: #e6dada;
+            background: linear-gradient(to right, #f0f2f0, #000c40);
+          }
+        }
+      </style>
+        <%= render "shared/navbar_#{@active_theme.name}" %>
+        <%= render 'shared/flashes_lighttheme' %>
+        <div class="content-lighttheme">
           <%= yield %>
         </div>
-        <%= render 'shared/footer' %>
-
-      </div>
+        <%= render "shared/lighttheme_filter" %>
+        <%= render "shared/footer_#{@active_theme.name}" %>
+<!-- DARKTHEME -->
+     <% elsif @active_theme.name == "darktheme" %>
+      <div class="body-stage-darktheme">
+      <%= render 'shared/stage_pic'%>
+      <style>
+        @media all and (min-width: 700px) {
+          .body-stage-darktheme {
+            background-image: url(<%= @stagepicpath %>);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100%;
+          }
+        }
+        @media all and (max-width: 700px) {
+          .body-stage-darktheme {
+            background: #e6dada;
+            background: linear-gradient(to right, #f0f2f0, #000c40);
+          }
+        }
+      </style>
+        <%= render "shared/navbar_#{@active_theme.name}" %>
+        <%= render 'shared/flashes_lighttheme' %>
+        <div class="content-darktheme">
+          <%= yield %>
+        </div>
+        <%= render "shared/footer_#{@active_theme.name}" %>
+    <% end %>
 
       <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
       <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
       <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
-
+      <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.5/showdown.min.js" %>
       <%= javascript_include_tag 'application' %>
       <%= cloudinary_js_config %>
-
+      <%= render 'shared/facebookshare' %>
       <%= yield(:after_js) %>
     </div>
   </body>

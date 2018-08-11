@@ -14,6 +14,16 @@ class PagesController < ApplicationController
     @model_string = model_print
   end
 
+  def contact
+    render "contact_#{@active_theme.name}"
+  end
+
+  def legal
+  end
+
+  def cgv
+  end
+
   def google906057532e2dbb7e
   end
 
@@ -21,8 +31,8 @@ class PagesController < ApplicationController
   end
 
   def robots
-    respond_to :text
-    render 'pages/robots.text.erb', public: true
+    render 'pages/robots.txt.erb'
+    expires_in 6.hours, public: true
   end
 
   def offerpresentation

@@ -5,100 +5,78 @@ Module de prise de réservations. Offrez la possibilité à vos clients d'effect
   Avec votre boutique en ligne, proposez des stages ou des visites à vos clients.
 <% end %>
 
+<%= photo_update('lessonphoto', 80, '', '', 30, '.stagepic', "Mise à jour photo pour stages")%>
+
 <div class="container">
   <div class="row">
-
-      <div class="hidden-xs col-sm-12 info-top">
-        <div class="list-header-2 stage-list">
-          <div class="white-div"></div>
-          <div class="list-h1">
-            <div class="block1">
-              <i class="fa fa-info-circle info-circle" aria-hidden="true"></i>
-              <h1>Réservation de stages via votre boutique en ligne</h1>
-            </div>
-            <i class="fa fa-times cross cross-2"></i>
-           </div>
-            <p>Proposez des stages ou des visites aux clients. Les caractéristiques de cette démo sont paramétrables: nombre de participants, durée, prix, etc.</p>
-            <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %> pour personnaliser la boutique.</p>
-        </div>
-
-        <%= render 'shared/general_info_bubble' %>
-    </div>
 
     <!-- LAPTOP -->
     <div class="hidden-xs col-sm-offset-2 col-sm-8">
       <div class="stage">
+        <%= facebook_share_id("facebookshare") %>
         <%= simple_form_for @lesson do |f| %>
-          <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Nombre de participants", selected: ENV['MINBOOKING'].to_i %>
-          <label class="control-label select required" for="lesson_student"><abbr title="required">*</abbr> 1er jour de stage</label>
+          <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, selected: ENV['MINBOOKING'].to_i %>
+          <label class="control-label select required" for="lesson_student"><abbr title="required">*</abbr> <%=t(:first_day)%></label>
           <div class="form-group">
             <div class='input-group date' id='datetimepicker1'>
               <span class="input-group-addon">
-                <span class="fa fa-calendar-o"></span>
+                <i class="far fa-calendar-alt"></i>
               </span>
-              <input type='text' class="form-control" name="lesson[start]" placeholder="Cliquez sur l'icône calendrier pour sélectionner une date"/>
+              <input type='text' class="form-control" name="lesson[start]" placeholder="<%=t(:clic_on_calendar)%>"/>
             </div>
           </div>
-          <%= f.input :duration, collection: [ENV['MINDURATION'],ENV['MAXDURATION']], label: "Durée en jours", selected: ENV['MINDURATION'] %>
+          <%= f.input :duration, collection: [ENV['MINDURATION'],ENV['MAXDURATION']], selected: ENV['MINDURATION'] %>
           <% if user_signed_in? %>
             <%= f.hidden_field :user_id, value: current_user.id %>
           <% end %>
           <div class="submit-div-stage">
-            <%= f.submit "Demande de réservation", class: "btn btn-primary stage-btn" %>
+            <input type="hidden" name="locale" value="<%= I18n.locale%>">
+            <%= f.submit t(:course_request), class: "btn btn-primary stage-btn" %>
           </div>
         <% end %>
-        <div class="wrapper">
-          <div class="texte">
-            <p><strong>Programme du stage : </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
-            <p><strong>Pendant le stage, vous apprenez ou perfectionnez les techniques suivantes: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis.</p>
-            <p> <strong>Hébergements et repas:</strong> Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
-            <p><strong>Prix: </strong>Les stages se déroulent sur 2 ou 5 jours, pour 2 à 6 personnes maximum. 2 jours: 150€/pers, 5 jours : 380€/pers. Ces prix ne comprennent pas l'hébergement ni les repas.</p>
-            <p><strong>Confirmation: </strong> Quand votre demande de stage sera traitée, vous recevrez une confirmation par mail. Vous devrez ensuite payer les arrhes pour valider définitivement votre participation.</p>
+        <div class="text-container">
+          <div class="texte-stage">
+            <% if user_signed_in? && current_user.admin %>
+              <% article_typing("stage", "horizontal", "markdown1", "live-text3", "input3") %>
+              <% @markdown = @markdown1 %>
+              <%= render 'shared/articletyping' %>
+          <% else %>
+            <% article_display("stage", "horizontal") %>
+            <%= @markdown.html_safe %>
+          <% end %>
           </div>
         </div>
-        <a href="http://www.1-mot.com/annuaire-web-agency-50.html" target="_blank" style="color: #916e35">Annuaire web-agency</a>
         </div>
     </div>
 
     <!-- MOBILE -->
     <div class="hidden-sm hidden-md hidden-lg col-xs-12">
-      <div class="info-top">
-        <div class="list-header-1 list-header-mobile stage-list">
-          <div class="list-h1">
-            <h1>Réservation de stages via votre boutique</h1>
-          </div>
-          <p>Proposez des stages ou des visites aux clients. Les caractéristiques de cette démo sont paramétrables ensuite: nombre de participants, durée, prix, etc.</p>
-          <span class="cross-mobile"><i class="fa fa-times"></i></span>
-        </div>
-      </div>
-
-      <div class="stage">
+      <div class="stage-mobile">
+        <%= facebook_share_id("facebooksharemobile") %>
         <%= simple_form_for @lesson do |f| %>
-          <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, label: "Nombre de participants", selected: ENV['MINBOOKING'].to_i %>
-          <label class="control-label select required" for="lesson_student"><abbr title="required">*</abbr> 1er jour de stage</label>
+          <%= f.input :student, collection: ENV['MINBOOKING'].to_i..ENV['CAPACITY'].to_i, selected: ENV['MINBOOKING'].to_i %>
+          <label class="control-label select required" for="lesson_student"><abbr title="required">*</abbr> <%=t(:first_day)%></label>
           <div class="form-group">
-            <div class='input-group date' id='datetimepicker1'>
+            <div class='input-group date' id='datetimepicker2'>
               <span class="input-group-addon">
-                <span class="fa fa-calendar-o"></span>
+                <i class="far fa-calendar-alt"></i>
               </span>
-              <input type='text' class="form-control" name="lesson[start]" placeholder="JJ.MM.AAAA"/>
+              <input type='text' class="form-control" name="lesson[start]" placeholder="<%=t(:clic_on_calendar_mobile)%>"/>
             </div>
           </div>
-          <%= f.input :duration, collection: [ENV['MINDURATION'],ENV['MAXDURATION']], label: "Durée en jours", selected: ENV['MINDURATION'] %>
+          <%= f.input :duration, collection: [ENV['MINDURATION'],ENV['MAXDURATION']], selected: ENV['MINDURATION'] %>
           <% if user_signed_in? %>
             <%= f.hidden_field :user_id, value: current_user.id %>
           <% end %>
           <div class="submit-div-stage">
-            <%= f.submit "Demande de réservation", class: "btn btn-primary stage-btn" %>
+            <input type="hidden" name="locale" value="<%= I18n.locale%>">
+            <%= f.submit t(:course_request), class: "btn btn-primary stage-btn" %>
           </div>
         <% end %>
         <div class="wrapper">
-          <div class="texte">
-            <p><strong>Programme du stage : </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis. Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
-            <p><strong>Pendant le stage, vous apprenez ou perfectionnez les techniques suivantes: </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam condimentum dolor ut vulputate tincidunt. Integer et purus et nisl eleifend semper eu sed turpis. Proin dignissim rutrum turpis.</p>
-            <p> <strong>Hébergements et repas:</strong> Sed quis volutpat dolor, a blandit risus. Phasellus vestibulum sit amet quam vitae tristique. Morbi rutrum leo ut porttitor gravida. Maecenas id vulputate nunc. Pellentesque quis auctor mi.</p>
-            <p><strong>Prix: </strong>Les stages se déroulent sur 2 ou 5 jours, pour 2 à 6 personnes maximum. 2 jours: 150€/pers, 5 jours : 380€/pers. Ces prix ne comprennent pas l'hébergement ni les repas.</p>
-            <p><strong>Confirmation: </strong> Quand votre demande de stage sera traitée, vous recevrez une confirmation par mail. Vous devrez ensuite payer les arrhes pour valider définitivement votre participation.</p>
+          <div class="texte-stage">
+            <% article_display("stage", "horizontal") %>
+            <%= @markdown.html_safe %>
           </div>
         </div>
         </div>
@@ -109,16 +87,15 @@ Module de prise de réservations. Offrez la possibilité à vos clients d'effect
 
 <% content_for(:after_js) do %>
   <script>
-    $(document).on('ready', function() {
+    $(document).ready(function() {
 
       var confirmed_course_js_format = <%= raw @confirmed_course_js_format%>
-      // console.log(confirmed_course_js_format)
-      // console.log(<%= raw @disabled_dates%>)
+      var jsArray = <%= @first_possible_day.to_json.html_safe %>
 
-      $('#datetimepicker1').datetimepicker({
+      $('#datetimepicker1, #datetimepicker2').datetimepicker({
         disabledDates: <%= raw @disabled_dates%>,
         format: 'DD.MM.YYYY',
-        minDate: Date.now(),
+        minDate: jsArray[0],
         locale: moment.locale('fr')
         }).on('dp.show dp.change dp.update', function () {
           $('.tooltip-inner').remove();
@@ -142,13 +119,25 @@ Module de prise de réservations. Offrez la possibilité à vos clients d'effect
         });
     });
   </script>
-  <script type="application/ld+json">
+<script type="application/ld+json">
   {
     "@context": "http://schema.org",
-    "@type": "TouristAttraction",
-    "name": "Stage de poterie",
-    "description": "Fabriquez vos produits",
-    "url": "https://<%= ENV['APPNAME']%>.herokuapp.com/lessons/new"
+    "@type": "Course",
+    "name": "<%=t(:json_course_name)%>",
+    "description": "<%=t(:json_course_description)%>",
+    "provider": {
+      "@type": "Organization",
+      "name": "<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"%>,
+      "sameAs": "<%=request.original_url%>"
+    }
   }
-  </script>
+</script>
+<script
+  type="text/javascript"
+  async defer
+  src="//assets.pinterest.com/js/pinit.js"
+  data-pin-round="true"
+  data-pin-tall="15px"
+></script>
+  <%= render 'shared/facebookshare' %>
 <% end %>

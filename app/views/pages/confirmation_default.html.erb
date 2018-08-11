@@ -1,0 +1,35 @@
+<% content_for(:title_tag) do %>
+  Confirmation de commande
+<% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <!-- LAPTOP -->
+      <div class="hidden-xs hidden-sm">
+        <div class="text-center">
+            <%= image_tag ENV['SHIPPIC'], class: "box-img"%>
+            <h3 class="order-confirmation"><%=t(:thanks_product_order)%></h3>
+            <h3 class="order-confirmation"><%=t(:mail_sent)%></h3>
+        </div>
+      </div>
+
+      <!-- MOBILE -->
+      <div class="hidden-md hidden-lg">
+        <div class="text-center mobile-confirmation">
+        <div class="hidden-sm">
+            <%= image_tag ENV['SHIPPIC'], class: "box-img-mobile-xs"%>
+          </div>
+          <div class="hidden-xs">
+            <%= image_tag ENV['SHIPPIC'], class: "box-img-mobile-sm"%>
+          </div>
+          <h4><%=t(:thanks_product_order)%></h4>
+          <h4><%=t(:mail_sent)%></h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

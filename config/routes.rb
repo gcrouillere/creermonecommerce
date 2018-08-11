@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   #Pages
   get '/confirmation', to: 'pages#confirmation'
   get '/info', to: 'pages#info'
+  get '/contact', to: 'pages#contact'
+  get '/cgv', to: 'pages#cgv'
+  get '/legal', to: 'pages#legal'
   get '/home', to: 'pages#home'
   get '/product_claim_details', to: 'pages#product_claim_details'
   get '/google906057532e2dbb7e', to: 'pages#google906057532e2dbb7e'
@@ -30,4 +33,18 @@ Rails.application.routes.draw do
 
   #Root
   root to: 'pages#offerpresentation'
+
+  #Subscribe
+  post '/user-subscribe', to: "users#subscribe"
+
+  #Errors
+  get "/404", to: "errors#error_404"
+
+  #API
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :shipping_categories, only: [:show]
+      resources :promos, only: [:show]
+    end
+  end
 end

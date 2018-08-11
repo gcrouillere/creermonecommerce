@@ -1,28 +1,31 @@
-<% if  @user.first_name && @user.last_name %>
-<%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}," %>
-<% else %>
-<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}," %>
-<% end %>
+<%= "#{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}" %>,
 
 Tu as reçu une nouvelle commande. Voici le détail de cette commande :
 
-Référence de commande: <%= "#{@order.id}-#{Time.now.hour}#{Time.now.min}#{Time.now.day}#{Time.now.month}#{Time.now.year}" %>
-
-Client: <%= @user.email%>
+Client: <%= @user.first_name %> <%= @user.last_name %> - <%= @user.email %>
 
 <% @order.basketlines.each do |basketline| %>
-  <%=@model_string[0..-2].capitalize%>: <%= basketline.ceramique.name.capitalize %>
+  Référence du produit dans l'administration: ID: <%= basketline.ceramique.id %> - <%= basketline.ceramique.name.capitalize %>
   Quantité: <%= basketline.quantity %>
-  Total pour cet article: <%= humanized_money(basketline.ceramique.price * basketline.quantity) %> €
+  <% basketline.ceramique.offer ? discount =  basketline.ceramique.offer.discount : discount = 0 %>
+  <% @order.promo ? promo_order = @order.promo.percentage : promo_order = 0 %>
+  Total pour cet article: <%= humanized_money(basketline.ceramique.price * (1 - discount) * basketline.quantity * (1 - promo_order)) %> €
   <% if  %>
     <% @order.basketlines.size > 1 %>
   ---------------------------------
   <% end %>
 <% end %>
 
-Montant total: <%= humanized_money(@amount) %> €
+<% if @order.take_away %>
+Montant total: <%= humanized_money(@order.amount) %> €
 
-Adresse de livraison : 1 Rue imaginaire 99000 Ville
+La commande est à retirer en magasin, pas de livraison à prévoir.
+<% else %>
+Frais de port: <%= humanized_money(@order.port) %> €
+Montant total: <%= humanized_money(@order.amount + @order.port) %> €
+
+Adresse de livraison : <%= @user.adress %> - <%= @user.zip_code %> - <%= @user.city %> - <%= @user.country %>
+<% end %>
 
 Cordialement
 

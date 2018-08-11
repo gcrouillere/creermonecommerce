@@ -1,9 +1,9 @@
 ActiveAdmin.register Category do
+  scope_to :current_user
   permit_params :name
   config.filters = false
   actions  :index, :new, :create, :destroy, :update, :edit
-  menu priority: 2
-  scope_to :current_user
+  menu priority: 2, url: -> { admin_categories_path(locale: I18n.locale) }
 
   index do
     column :name
@@ -11,15 +11,15 @@ ActiveAdmin.register Category do
   end
 
   form do |f|
-  f.inputs "" do
-    f.input :name
+    f.inputs "" do
+      f.input :name
     end
-  f.actions
-  end
+    f.actions
+   end
 
   controller do
 
-    def create
+   def create
       super do |format|
         redirect_to admin_categories_path and return if resource.valid?
       end
@@ -42,6 +42,7 @@ ActiveAdmin.register Category do
         redirect_to admin_categories_path and return if resource.valid?
       end
     end
+
   end
 
 end

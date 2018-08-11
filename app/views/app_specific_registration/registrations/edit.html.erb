@@ -1,4 +1,4 @@
-<h2>Mise à jour du compte : </h2>
+<h2><%= t(:account_update)%></h2>
 <h2><%= current_user.email%></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -22,10 +22,12 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Nous attendons la confirmation pour: <%= resource.unconfirmed_email %></p>
     <% end %>
+      <% unless  current_user.provider %>
+      <%= f.input :password, autocomplete: "off", hint: "Laissez vide si vous ne le changer pas", required: false %>
+      <%= f.input :password_confirmation, hint: "Laissez vide si vous ne le changer pas", required: false %>
+      <%= f.input :current_password, hint: "Votre mot de passe actuel pour confirmer tous vos changements", required: true %>
+    <% end %>
 
-    <%= f.input :password, :label => 'Mot de passe', autocomplete: "off", hint: "laissez vide si vous ne voulez pas le changer", required: false %>
-    <%= f.input :password_confirmation, :label => 'Confirmation mot de passe', required: false %>
-    <%= f.input :current_password, hint: "nous avons besoin de votre mot de passe pour confirmer vos changements", required: true %>
   </div>
 
   <div class="form-actions">

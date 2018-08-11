@@ -1,0 +1,150 @@
+.page-top-lighttheme {
+  h1 {
+    font-size: 34px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-left: 20px;
+  }
+}
+
+  .cart-container {
+    table {
+      margin: auto;
+      width: 95%;
+      h4, h5 {
+        font-weight: 300;
+      }
+      tr {
+        border-bottom: 1px solid rgba(100,100,100,.1);
+      }
+      th:nth-child(3) {
+        text-align: center;
+        width: 350px;
+      }
+       th:nth-child(4) {
+        text-align: right;
+      }
+      th {
+        padding-bottom: 10px;
+        margin-top: 20px;
+        font-size: 12px;
+        color: grey;
+        font-weight: 100;
+        min-width: 50px;
+      }
+      td:nth-child(3) {
+        text-align: center;
+      }
+       td:nth-child(4) {
+        text-align: right;
+        min-width: 70px;
+      }
+      .basket-delete {
+        height: 100%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        .delete-article {
+          color: black;
+          margin-right: 20px;
+        }
+      }
+      .cart-item {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 50px;
+        img {
+          width: 20%;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+.total-lighttheme {
+  margin-right: 30px;
+  margin-top: 30px;
+  .shipping-cost {
+    display: flex;
+    justify-content: flex-end;
+    select {
+      width: 150px;
+      margin: 0 10px;
+    }
+  }
+  h3, h5 {
+    text-align: right;
+    font-weight: 300;
+  }
+  .total_amount {
+    margin-bottom: 40px;
+    margin-top: 4px;
+     margin-right: 21px;
+    @media all and (max-width: 700px) {
+      margin-right: 0px !important;
+      text-align: center;
+    }
+  }
+}
+
+@media all and (min-width: 700px) {
+  .container.lightthemecart {
+    padding: 0px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .page-top-lighttheme {
+    h1 {
+      margin-top: 0px;
+    }
+  }
+  .container.lightthemecart {
+    table {
+      h5 {
+      margin: 0px;
+      }
+      h4 {
+        font-size: 14px;
+      }
+    }
+   th:nth-child(3) {
+      text-align: center;
+      width: 40px;
+    }
+    .cart-item {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      img {
+        width: 40%;
+        margin-right: 8px;
+      }
+    }
+  }
+  .total-lighttheme {
+    margin: 20px auto ;
+    h5 {
+      text-align: right;
+      font-weight: 300;
+      margin: 5px auto;
+    }
+  }
+}
+
+.pay-form-lighttheme.payment-form {
+  display: block;
+  float: right;
+  text-align: center;
+}
+
+.pay-form-lighttheme-mobil.payment-form {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 83%;
+  .input-label-take-away {
+    display: block;
+  }
+}

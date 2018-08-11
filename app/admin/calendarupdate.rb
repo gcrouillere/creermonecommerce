@@ -1,9 +1,9 @@
 ActiveAdmin.register Calendarupdate do
   permit_params :period_start, :period_end
   actions  :index, :new, :create, :destroy, :show
-  menu priority: 3
-  config.filters = false
+  menu priority: 4
   scope_to :current_user
+  config.filters = false
 
   form do |f|
     f.inputs "" do
@@ -14,15 +14,13 @@ ActiveAdmin.register Calendarupdate do
   end
 
   index_as_calendar do |calendarupdate|
-    if calendarupdate.user == current_user
-      {
-        title: "Période bloquée",
-        start: calendarupdate.period_start,
-        end: calendarupdate.period_end + 1.day,
-        url: "#{admin_calendarupdate_path(calendarupdate)}",
-        textColor: '#2A2827',
-      }
-    end
+    {
+      title: "Période bloquée",
+      start: calendarupdate.period_start,
+      end: calendarupdate.period_end + 1.day,
+      url: "#{admin_calendarupdate_path(calendarupdate)}",
+      textColor: '#2A2827',
+    }
   end
 
   index do
@@ -45,7 +43,7 @@ ActiveAdmin.register Calendarupdate do
         period_ok = period_check(p_start, p_end)
         if period_ok
           while day_checked <= p_end
-            Booking.create(day: day_checked, capacity: 0, course: 0, duration: 0, full: true, user: current_user)
+            Booking.create(day: day_checked, capacity: 0, course: 0, duration: 0, full: true)
             day_checked += 1.day
           end
         else
@@ -58,15 +56,19 @@ ActiveAdmin.register Calendarupdate do
       end
 
       super do |format|
-        last_calendar = Calendarupdate.last
-        Lesson.create(
+        last_calendar = Calendarupdate.new(
+          period_start: p_start,
+          period_end: p_end,
+          )
+        last_calendar.save
+        last_lesson = Lesson.new(
           start: p_start,
           student: ENV['CAPACITY'].to_i,
           duration: (p_end - p_start).to_i + 1,
           user: current_user,
           confirmed: true,
           )
-        last_lesson = Lesson.last
+        last_lesson.save
         last_calendar.update(lesson: last_lesson)
         redirect_to admin_lessons_path and return
       end
@@ -88,7 +90,7 @@ ActiveAdmin.register Calendarupdate do
       day_checked = day_start
       p_end = day_end
       while day_checked <= p_end
-          if Booking.where("day = ? AND capacity < ?", day_checked, ENV['CAPACITY'].to_i).where(user: current_user).present?
+          if Booking.where("day = ? AND capacity < ?", day_checked, ENV['CAPACITY'].to_i).present?
             period_ok = false
           end
           day_checked += 1.day
@@ -110,7 +112,7 @@ ActiveAdmin.register Calendarupdate do
       p_end = calendarupdate.period_end
       day_checked = p_start
       while day_checked <= p_end
-        booking = Booking.where(day: day_checked).where(user: current_user).first
+        booking = Booking.where(day: day_checked).first
         if booking.duration == 0
           booking.destroy
         end

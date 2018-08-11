@@ -7,7 +7,7 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
-gem 'rails', '5.0.3'
+gem 'rails', '~> 5.1', '>= 5.1.4'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -62,6 +62,31 @@ gem "geocoder"
 
 #redirection
 gem 'rack-host-redirect'
+
+#friendlyid
+gem 'friendly_id', '~> 5.1.0'
+
+# JSON request in controller
+gem 'httparty'
+
+# Facebook omniauth
+gem 'omniauth-facebook'
+
+# Blogging
+gem 'redcarpet'
+
+# Search
+gem "algoliasearch-rails"
+
+# PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+#Rails variables in JS
+gem 'gon'
+
+#Models internationalization
+gem 'mobility', '~> 0.7.5'
 
 group :development, :test do
   gem 'better_errors'

@@ -34,13 +34,21 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.creermonecommerce.fr/lessons/new</loc>
+    <image:image>
+      <image:loc>https://www.creermonecommerce.fr<%= image_path ENV['STAGEPIC']%></image:loc>
+    </image:image>
+    <lastmod>2017-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <% @ceramiques.each do |ceramique| %>
     <url>
-      <loc>https://www.creermonecommerce.fr/lessons/new</loc>
-      <image:image>
-        <image:loc>https://www.creermonecommerce.fr<%= image_path ENV['STAGEPIC']%></image:loc>
-      </image:image>
-      <lastmod>2017-11-23</lastmod>
+      <loc>https://<%=ENV['APPNAME']%>.herokuapp.com/<%=ENV['MODEL']%>/<%= "#{ceramique.id}-#{ceramique.name.parameterize}-#{ceramique.category.name.parameterize}" %></loc>
+      <lastmod><%= ceramique.updated_at.strftime("%Y-%m-%d") %></lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
-  </url>
+    </url>
+  <% end %>
 </urlset>

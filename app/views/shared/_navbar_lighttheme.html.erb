@@ -1,0 +1,172 @@
+<!-- Right Navigation LAPTOP -->
+<% opacity_addition = "" %>
+<% nav_bar_mobility = "nav-mobile" %>
+<% if  params[:controller] == "lessons" %>
+  <% opacity_addition = "opacity-on-laptop" %>
+  <% nav_bar_mobility = "nav-fixe" %>
+<% end %>
+<!-- Right Navigation LAPTOP -->
+<div class="navbar-laptop-lighttheme hidden-xs hidden-sm <%= opacity_addition %> nav-mobile">
+  <!-- Logo -->
+  <%= link_to root_path, class: "navbar-brand", title: "Retour à l'accueil de notre offre de boutique ligne" do %>
+    <%= render 'shared/logo_pic' %>
+    <%= @logositepictag %>
+  <% end %>
+
+  <!-- Different navigation if login or not -->
+  <% if user_signed_in? %>
+
+    <!-- Navbar right when connected -->
+    <div class="navbar-item">
+      <div class="nav-bar-list">
+        <%= link_to root_path do %>
+          <span><%=t(:home_page)%></span>
+        <% end %>
+        <%= link_to ceramiques_path do %>
+          <span><%=t(:shop_link)%></span>
+        <% end %>
+        <%= link_to info_path do %>
+          <span><%=t(:info_link)%></span>
+        <% end %>
+        <%= link_to articles_path do %>
+          <span><%=t(:blog_link)%></span>
+        <% end %>
+        <a href="#" id="lighttheme-filter-search"><%= image_tag "search.svg", class: "searchimg"%></a>
+        <%= link_to new_lesson_path do %>
+          <span><%=t(:lesson_link)%></span>
+        <% end %>
+        <% if session[:order].present? %>
+          <% if Order.where(id: session[:order]).present? %>
+            <% if Order.where(id: session[:order]).first.state != "lost" %>
+              <%= link_to order_path(Order.find(session[:order])) do %>
+                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-langages">
+            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "EN.svg", class: "flag"%>
+                <% end %>
+            </li>
+            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "FR.svg", class: "flag"%>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  <% else %>
+    <div class="navbar-item">
+      <div class="nav-bar-list">
+        <%= link_to root_path do %>
+          <span><%=t(:home_page)%></span>
+        <% end %>
+        <%= link_to ceramiques_path do %>
+          <span><%=t(:shop_link)%></span>
+        <% end %>
+        <%= link_to info_path do %>
+          <span><%=t(:info_link)%></span>
+        <% end %>
+        <%= link_to articles_path do %>
+          <span><%=t(:blog_link)%></span>
+        <% end %>
+        <a href="#" id="lighttheme-filter-search"><%= image_tag "search.svg", class: "searchimg"%></a>
+        <%= link_to new_lesson_path do %>
+          <span><%=t(:lesson_link)%></span>
+        <% end %>
+        <% if session[:order].present? %>
+          <% if Order.where(id: session[:order]).present? %>
+            <% if Order.where(id: session[:order]).first.state != "lost" %>
+              <%= link_to order_path(Order.find(session[:order])) do %>
+                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <div class="dropdown">
+          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-langages">
+            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "EN.svg", class: "flag"%>
+                <% end %>
+            </li>
+            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "FR.svg", class: "flag"%>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+<!-- Right Navigation MOBILE -->
+<div class="navbar-mobile-lighttheme hidden-md hidden-lg">
+ <!-- Logo -->
+  <%= link_to root_path, class: "navbar-brand-mobile" do %>
+    <%= render 'shared/logo_pic' %>
+    <%= @logositepictag %>
+  <% end %>
+
+  <div class="navbar-item">
+    <div class="list-mobile">
+      <%= link_to ceramiques_path do %>
+        <span><%=t(:shop_link_mobile)%></span>
+      <% end %>
+      <%= link_to info_path do %>
+        <%= image_tag "info.svg", class: "infoimg"%>
+      <% end %>
+      <%= link_to articles_path do %>
+        <%= image_tag "blog.svg", class: "blogimg"%>
+      <% end %>
+      <%= link_to new_lesson_path do %>
+        <span><%=t(:lesson_link_mobile)%></span>
+      <% end %>
+      <a href="#" id="lighttheme-filter-search-mobile"><%= image_tag "search.svg", class: "searchimg"%></a>
+      <% if session[:order].present? %>
+        <% if Order.where(id: session[:order]).present? %>
+          <% if Order.where(id: session[:order]).first.state != "lost" %>
+            <%= link_to order_path(Order.find(session[:order])) do %>
+              <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+        <div class="dropdown dropdown-mobile-navbar">
+          <a class="dropdown-toggle" type="button" data-toggle="dropdown">
+              <%= image_tag "#{I18n.locale.upcase}.svg", class: "flag"%>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-langages">
+            <li><%= link_to params.merge(locale: "en", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "EN.svg", class: "flag"%>
+                <% end %>
+            </li>
+            <li><%= link_to params.merge(locale: "fr", change: true).permit(:locale, :change) do %>
+                  <%= image_tag "FR.svg", class: "flag"%>
+                <% end %>
+            </li>
+          </ul>
+        </div>
+
+    </div>
+  </div>
+
+</div>
