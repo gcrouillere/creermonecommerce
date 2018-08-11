@@ -1,3 +1,40 @@
+/* NAVBAR MOBILE */
+.content {
+  padding-top: 90px;
+}
+.alert.alert-dismissible {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+  top: 70px;
+}
+.navbar-mobile {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+}
+.jumbotron {
+  margin-top: -20px;
+}
+.devise-container {
+  padding-top: 70px;
+}
+.navbar-laptop {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 3;
+}
+
+/* NAVBAR FIXE */
+// .content {
+//   padding-top: 20px;
+// }
+// .jumbotron {
+//   margin-top: -20px;
+// }
+
 /* Navbar laptop */
 .navbar-laptop {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
@@ -20,6 +57,20 @@
   }
 }
 
+  .fa-shopping-cart {
+    font-size: 22px;
+  }
+
+  .lightcart {
+    width: 20px;
+    top: -1px;
+    position: relative;
+  }
+
+  .flag {
+    width: 20px;
+  }
+
 /* Navbar mobile */
 .navbar-mobile {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
@@ -37,10 +88,30 @@
       display: flex;
       flex: 1 0 auto;
       margin-left: 15px;
-      height: 40px;
+      height: 30px;
     }
   }
+}
 
+.list-mobile {
+  .lightcart {
+    width: 17px;
+    top: -1px;
+    position: relative;
+  }
+  .infoimg {
+    width: 17px;
+    top: -1px;
+    position: relative;
+  }
+  .blogimg {
+    width: 19px;
+    top: -1px;
+    position: relative;
+  }
+  .flag {
+    width: 17px;
+  }
 }
 
 /* Navbar right items */
@@ -55,9 +126,14 @@
         text-decoration: none !important;
         color: black !important;
         margin-right: 20px;
+        padding-bottom: 2px;
+         border-bottom: 1px solid transparent;
       i {
         color: black !important;
       }
+    }
+    a:hover {
+      border-bottom: 1px solid black;
     }
   }
   /* mobile */
@@ -69,6 +145,24 @@
       color: black !important;
       margin-right: 15px;
     }
+    span {
+     font-size: 13px;
+    }
+  }
+}
+
+.dropdown-menu.dropdown-menu-langages {
+  padding: 0;
+  min-width: 0px;
+  right: 12px;
+  left: unset;
+  a {
+    margin-right: 0px !important;
+    border-bottom: none;
+    padding: 2px 20px;
+  }
+  a:hover {
+    border-bottom: none;
   }
 }
 

@@ -19,7 +19,7 @@ $(document).ready(function() {
 
   // Manage contact-button position
   function changeButton() {
-    if ($('#contactbutton').size() > 0) {
+    if ($('#contactbutton').length > 0) {
       if($(document).scrollTop() > $('#anchor-info').offset().top) {
 
         $('#contactbutton').css({

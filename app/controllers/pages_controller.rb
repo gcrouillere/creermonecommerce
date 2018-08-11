@@ -4,14 +4,17 @@ class PagesController < ApplicationController
 
   def home
     @model_string = model_print
+    render "home_#{@active_theme.name}"
   end
 
   def confirmation
     @model_string = model_print
+    render "confirmation_#{@active_theme.name}"
   end
 
   def info
     @model_string = model_print
+    render "info_#{@active_theme.name}"
   end
 
   def contact

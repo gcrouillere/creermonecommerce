@@ -1,64 +1,62 @@
-.jumbotron {
+.jumbotron-darktheme {
   padding: 0;
   margin-bottom: 0;
 }
 
-.jumbotron .banner {
-  background-size: cover;
-  height: 1000px;
+.banner-darktheme {
+  padding: 10px 30px 30px 30px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  .banner-content {
-    position: absolute;
-    top: 150px;
-    left: calc(50% - 130px);
-    text-align: center;
-    color: $home-font-color;
-    padding: 0 10px;
-    -moz-text-size-adjust: auto;
-    h1, h2, h3, p {
-      color: $home-font-color;
+  .photo1, .photo4 {
+    width: 100%;
+    padding-bottom: 30px;
+    border-radius: $project-border-radius;
+  }
+  .photos2and3 {
+    width: 100%;
+    display: flex;
+    position: relative;
+    .photo2 {
+      width: 50%;
+      margin-right: 15px;
+      margin-bottom: 30px;
+      border-radius: $project-border-radius;
     }
-    h1 {
-      text-shadow: 1px 1px 0px $home-text-shadow;
-      letter-spacing: 6px;
-    }
-    p {
-      font-weight: 400;
+    .photo3 {
+      padding-bottom: 30px;
+      width: 50%;
+      padding-left: 15px;
+      border-radius: $project-border-radius;
+      img {
+        width: 100%;
+      }
     }
   }
 }
 
-.jumbotron .banner-xs {
-    background-size: cover;
-    height: 634px;
-    position: relative;
+.jumbotron-darktheme .banner-xs-darktheme {
+  padding: 14px;
+  img {
+    width: 100%;
+    padding-bottom: 14px;
+  }
+  .photos3and4 {
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    .banner-content-xs {
-      position: absolute;
-      top: 100px;
-      text-align: center;
-      left: calc(50% - 107px);
-      color: $home-font-color;
-      padding: 0 10px;
-      h1, h2, h3, p {
-        color: $home-font-color;
-      }
-      h1 {
-        text-shadow: 1px 1px 0px $home-text-shadow;
-      }
+    .photo3 {
+      padding-right: 7px;
     }
+    .photo4 {
+      padding-left: 7px;
+    }
+  }
 }
 
-.home-text {
-  background: linear-gradient(135deg, #979EA1, #454749);
+.home-text.home-text-darktheme {
   padding: 10px;
-  margin-bottom: -20px;
+  background: #242424;
+  label {
+    color: white;
+  }
   .text {
     display: flex;
     h1:first-child, h2:first-child {
@@ -123,13 +121,4 @@
       }
     }
   }
-}
-
-.btn-home {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 50px;
-  font-weight: 100;
-  font-size: 20px;
-  letter-spacing: 2px;
 }

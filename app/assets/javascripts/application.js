@@ -1,4 +1,4 @@
-//= require jquery
+//= require jquery3
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
@@ -9,11 +9,5 @@
 //= require jquery.elevatezoom
 //= require moment
 //= require bootstrap-datetimepicker
+//= require algolia/v3/algoliasearch.min
 //= require_tree .
-
-
-$(document).ready(function() {
-  setTimeout(function(){
-    $('.alert').remove();
-  }, 5000);
-})

@@ -2,6 +2,7 @@
  * Fonts type
  * ------------------------------------- */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+// @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700|Nanum+Myeongjo:400,700,800");
 $base-font: "Open Sans", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
 
@@ -9,11 +10,13 @@ $header-font: "Raleway", "Helvetica", "sans-serif";
  * Colors
  * ------------------------------------- */
  //Main :
-$primary: #008D5B;
-$navbar: #43cea2;
-// #00DA8D;
+$primary:  #0FB79B;
+$primary-opacified: rgba(15, 183, 155, 0.3);
+$navbar: linear-gradient(to right, #fefefe, #0FB79B);
+$h2card: #0FB79B;
 $body: #fbfbfb;
 $footer: #141E30;
+$discount: #FFD10C;
 $home-text-shadow: #333333;
 $home-font-color: white;
 
@@ -23,10 +26,9 @@ $link-laptop: black;
 $card-text: black;
 
 //Stages :
-$mobile-stage-background-gradient: linear-gradient(to right, #f0f2f0, #000c40);
 $stage-color-label: white;
-$backstagelink: #FF7B66;
-$backstagelinkhover: #FEB79B;
+$backstagelink: #0FB79B;
+$backstagelinkhover: #BBF5EB;
 $available-stage-background-color: #A6F7B0;
 
 //Bootstrap :
@@ -70,7 +72,8 @@ $font-weight-label: 100;
  * Cards
  * ------------------------------------- */
 $card-background: white;
-$project-border-radius: 3px;
+$project-border-radius: 1px;
 $card-border: 1px solid rgba(0, 0, 0, 0.1);
 $padding-large: 20px;
 $padding-small: 10px;
+$mobile-avatar-image-width: 70px;
