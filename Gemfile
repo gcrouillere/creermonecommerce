@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
+gem 'bootsnap'
 
 # pictures
 gem 'cloudinary', '1.1.7'
@@ -48,7 +49,6 @@ gem "letter_opener", group: :development
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin-index_as_calendar', github: 'bys-control/activeadmin-index_as_calendar'
-gem 'sprockets-es6', '~> 0.6.0'
 
 #keepawake on heroku
 gem 'dynopoker'
