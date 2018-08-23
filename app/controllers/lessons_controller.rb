@@ -60,7 +60,6 @@ class LessonsController < ApplicationController
         end
       end
     end
-    LessonMailer.mail_francoise_after_lesson_create(@lesson).deliver_now
     redirect_to stage_confirmation_path
   end
 
