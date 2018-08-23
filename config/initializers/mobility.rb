@@ -41,7 +41,7 @@ Mobility.configure do |config|
   # If you enable this, you should also enable +locale_accessors+ by default
   # (see below).
   #
-  # config.default_options[:dirty] = true
+  config.default_options[:dirty] = true
 
   # No fallbacks are used by default. To define default fallbacks, uncomment
   # and set the default fallback option value here. A "true" value will use

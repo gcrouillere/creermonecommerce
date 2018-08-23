@@ -1,7 +1,8 @@
 #footer {
   background-color: $footer;
-  margin-top: 20px;
+  margin-top: 0px;
   display: flex;
+  justify-content: space-between;
   .contact-default {
     width: 25%;
     padding: 10px 0;

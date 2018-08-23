@@ -8,6 +8,14 @@
   <%= cl_image_path @ceramique.photos[0].path %>
 <% end %>
 
+<div class="overlay">
+  <div class="overlay-content">
+    <div class="overlay-title">Fiche produit</div>
+    <div class="overlay-paragraph">Créez vos fiches produits dans l'administration de votre boutique. Grâce à un formulaire intuitif vous créez un produit et toutes ses caractéristiques en quelques clics. Il n'y a aucune limite pour les photos et le texte.</div>
+    <div class="overlay-paragraph hidden-xs">Les caractéristiques des produits sont éditables à tous moments. Changez les photos, le prix, le stock, etc. Les changements sont visibles immédiatement par les utilisateurs. Ne vous souciez pas des dimensions des photos ou de la taille du texte, ces paramètres sont gérés automatiquement par la boutique.</div>
+    <a class="overlay-button">OK</a>
+  </div>
+</div>
 
 <div class="container">
 
@@ -181,12 +189,6 @@
               <% end %>
             </div>
           </div>
-        </div>
-
-        <div class="mobile-link">
-          <%= link_to ceramiques_path do %>
-            <span><i class="fa fa-arrow-right"></i> Liste des <%= ENV['MODEL'].capitalize%></span>
-          <% end %>
         </div>
 
       </div>

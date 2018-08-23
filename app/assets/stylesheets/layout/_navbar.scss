@@ -18,7 +18,7 @@
   margin-top: -20px;
 }
 .devise-container {
-  padding-top: 70px;
+  padding-top: 30px;
 }
 .navbar-laptop {
   position: fixed;
@@ -47,7 +47,11 @@
     /* Navbar logo */
   .navbar-brand {
     display: flex;
-    padding: 0px;
+    color: white;
+    text-shadow: 1px 1px 1px #E25752;
+    font-size: 32px;
+    font-weight: 600;
+    font-family: Raleway;
     img {
       display: flex;
       flex: 1 0 auto;
@@ -83,7 +87,12 @@
   /* Navbar logo */
   .navbar-brand-mobile {
     display: flex;
-    padding: 0px;
+    color: white;
+    text-shadow: 1px 1px 1px #E25752;
+    font-size: 21px;
+    font-weight: 600;
+    font-family: Raleway;
+    margin-left: 8px;
     img {
       display: flex;
       flex: 1 0 auto;
@@ -124,16 +133,17 @@
     list-style: none;
     a {
         text-decoration: none !important;
-        color: black !important;
+        color: white !important;
+        font-weight: 100;
         margin-right: 20px;
         padding-bottom: 2px;
-         border-bottom: 1px solid transparent;
+        border-bottom: 1px solid transparent;
       i {
-        color: black !important;
+        color: white !important;
       }
     }
     a:hover {
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid white;
     }
   }
   /* mobile */
@@ -142,7 +152,8 @@
     list-style: none;
     a {
       text-decoration: none !important;
-      color: black !important;
+      font-weight: 100;
+      color: white !important;
       margin-right: 15px;
     }
     span {

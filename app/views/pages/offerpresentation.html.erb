@@ -6,128 +6,113 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
 <% end %>
 
 <div class="offer-container">
-  <div class="box hidden-xs hidden-sm">
+  <div class="box">
     <span class="box1"></span>
     <span class="box2"></span>
   </div>
-  <div class="container container-user-show">
-    <div class="row">
 
-<!-- LAPTOP -->
-        <div class="hidden-xs hidden-sm col-md-12">
-        <h1>Vendez vos créations en ligne</h1>
-        <h2>Créez une boutique avec notre agence</h2>
-          <div class="offer-cards">
-            <%= link_to ceramiques_path, title: "Visualisez les produits de démonstration de la boutique en ligne" do %>
-              <div class="produit card-offer">
-                <h2>Vendez vos produits</h2>
-                <div class="card-separator">
-                  <%= image_tag 'commerce.png', class: "offer-card-image", alt: "Chariot représentant la fonction de vente de la boutique en ligne"%>
-                  <hr>
-                </div>
-                <p>Créez vos fiches produits</p>
-                <p>Gérez vos stocks</p>
-                <p>Visualisez vos commandes</p>
-              </div>
-            <% end %>
-            <%= link_to new_lesson_path, title: "Offrez une prise de réservations pour des stages dans votre boutique en ligne" do %>
-              <div class="stage-info card-offer">
-                <h2>Accueillez vos clients</h2>
-                <div class="card-separator">
-                  <%= image_tag 'time.png', class: "offer-card-image", alt: "Calendrier représentant la possibilité de réserver des stages via la boutique"%>
-                  <hr>
-                </div>
-                <p>Proposez des stages/visites</p>
-                <p>Gérez votre calendrier</p>
-                <p>Visualisez les réservations</p>
-              </div>
-            <% end %>
-            <%= link_to info_path, title: "Vos informations personnelles visibles par les clients de votre e-commerce" do %>
-              <div class="ecrire card-offer">
-                <h2>Partagez</h2>
-                <div class="card-separator">
-                  <%= image_tag 'website.png', class: "offer-card-image", alt: "Page internet avec infos personnalisables"%>
-                  <hr>
-                </div>
-                <p>Ecrivez sur votre métier</p>
-                <p>Partagez votre technique</p>
-                <p>Popularisez votre boutique</p>
-              </div>
-            <% end %>
-          </div>
-          <div class="offer-buttons">
-            <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
-              <button type="submit" class="pull-right btn explore">DEMO D'UNE BOUTIQUE</button>
-            <% end %>
-            <% if user_signed_in? %>
-            <%= link_to user_path(current_user), title: "Accédez à votre compte pour paramétrer la boutique en ligne" do %>
-                <button type="submit" class="pull-right btn compte">CREEZ VOTRE PROJET DE BOUTIQUE EN 3 CLICS</button>
-              <% end %>
-            <% else %>
-              <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
-                <button type="submit" class="pull-right btn compte">CREEZ VOTRE PROJET DE BOUTIQUE EN 3 CLICS</button>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-
+  <div class="homepage-intro hidden-xs">
+    <div class="homepage-title-bloc">
+      <h1>Vendez vos créations en ligne</h1>
+      <h2>Créez une boutique avec notre solution e-commerce</h2>
+      <ul>
+        <li><%= image_tag 'check3.svg'%> Administration simple</li>
+        <li><%= image_tag 'check3.svg'%> Paiements par CB et Paypal</li>
+        <li><%= image_tag 'check3.svg'%> Transactions sécurisées</li>
+        <li><%= image_tag 'check3.svg'%> Personnalisable</li>
+        <li><%= image_tag 'check3.svg'%> Compatible smartphones</li>
+        <li><%= image_tag 'check3.svg'%> Prête pour le référencement</li>
+      </ul>
+    </div>
+    <%= image_tag 'home.png', class: "homepage-front-img", alt: "cycle de vie d'un e-commerce"%>
+  </div>
+  <div class="homepage-intro-mobile hidden-sm hidden-md hidden-lg">
+    <div class="homepage-title-bloc">
+      <h1>Vendez vos créations en ligne</h1>
+      <h2>Créez une boutique avec notre solution e-commerce</h2>
+      <ul>
+        <li><%= image_tag 'check3.svg'%> Administration simple</li>
+        <li><%= image_tag 'check3.svg'%> Paiements par CB et Paypal</li>
+        <li><%= image_tag 'check3.svg'%> Transactions sécurisées</li>
+        <li><%= image_tag 'check3.svg'%> Personnalisable</li>
+        <li><%= image_tag 'check3.svg'%> Compatible smartphones</li>
+        <li><%= image_tag 'check3.svg'%> Prête pour le référencement</li>
+      </ul>
     </div>
   </div>
+  <div class="offer-buttons hidden-xs">
+    <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
+      <button type="submit" class="pull-right btn explore">DEMO D'UNE BOUTIQUE</button>
+    <% end %>
+    <% if user_signed_in? %>
+    <%= link_to user_path(current_user), title: "Accédez à votre compte pour paramétrer la boutique en ligne" do %>
+        <button type="submit" class="pull-right btn compte">INSCRIVEZ-VOUS POUR UN ESSAI</button>
+      <% end %>
+    <% else %>
+      <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
+        <button type="submit" class="pull-right btn compte">INSCRIVEZ-VOUS POUR UN ESSAI</button>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="offer-buttons-mobile hidden-sm hidden-md hidden-lg">
+    <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
+      <button type="submit" class="btn explore">DEMO D'UNE BOUTIQUE</button>
+    <% end %>
+    <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
+      <button type="submit" class="btn compte">CREEZ VOTRE BOUTIQUE EN 3 CLICS</button>
+    <% end %>
+  </div>
 
-<!-- MOBILE -->
-    <div class="container mobile-offer-container">
-      <div class="row">
-        <div class="col-xs-12 hidden-md hidden-lg">
-          <h1 class="offer-h1-mobile">Vendez vos créations</h1>
-          <h2>Créez une boutique avec nous</h2>
-          <div class="col-xs-12 col-sm-offset-1 col-sm-10">
-            <div class="offer-cards-mobile">
-              <div class="produit card-offer">
-                <h2>Vendez vos produits</h2>
-                <div class="card-separator">
-                  <%= image_tag 'commerce.png', class: "offer-card-image", alt: "Chariot représentant la fonction de vente de la boutique en ligne"%>
-                  <hr>
-                </div>
-                <p>Créez vos fiches produits</p>
-                <p>Gérez vos stocks</p>
-                <p>Visualisez vos commandes</p>
-              </div>
-              <div class="stage-info card-offer">
-                <h2>Accueillez vos clients</h2>
-                <div class="card-separator">
-                  <%= image_tag 'time.png', class: "offer-card-image", alt: "Calendrier représentant la possibilité de réserver des stages via la boutique"%>
-                  <hr>
-                </div>
-                <p>Proposez des stages/visites</p>
-                <p>Gérez votre calendrier</p>
-                <p>Visualisez les réservations</p>
-              </div>
-              <div class="ecrire card-offer">
-                <h2>Partagez</h2>
-                <div class="card-separator">
-                  <%= image_tag 'website.png', class: "offer-card-image", alt: "Page perso avec infos personnalisables sur l'artisan"%>
-                  <hr>
-                </div>
-                <p>Ecrivez sur votre métier</p>
-                <p>Partagez votre technique</p>
-                <p>Popularisez votre boutique</p>
-              </div>
+
+  <div class="container container-user-show">
+    <div class="row offer-cards">
+      <%= link_to ceramiques_path, title: "Visualisez les produits de démonstration de la boutique en ligne", class: "col-xs-12 col-sm-4 col-md-4 offer-card-link" do %>
+        <div class="produit card-offer">
+          <h2 class="">Vendez vos produits</h2>
+          <h3 class="after-hover">Cliquez pour voir la démo</h3>
+          <div class="card-separator">
+            <div class="card-image-circle">
+              <%= image_tag 'homecart.svg', class: "offer-card-image", alt: "Chariot représentant la fonction de vente de la boutique en ligne"%>
             </div>
+            <hr>
           </div>
-          <div class="col-xs-12 col-sm-offset-1 col-sm-10" id="btncompte">
-            <div class="offer-buttons-mobile">
-              <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
-                <button type="submit" class="btn explore">DEMO D'UNE BOUTIQUE</button>
-              <% end %>
-              <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
-                <button type="submit" class="btn compte">CREEZ VOTRE BOUTIQUE EN 3 CLICS</button>
-              <% end %>
-            </div>
-          </div>
+          <p>Créez vos fiches produits</p>
+          <p>Gérez vos stocks</p>
+          <p>Visualisez vos commandes</p>
         </div>
-      </div>
+      <% end %>
+      <%= link_to new_lesson_path, title: "Offrez une prise de réservations pour des stages dans votre boutique en ligne", class: "col-xs-12 col-sm-4 col-md-4" do %>
+        <div class="stage-info card-offer">
+          <h2>Accueillez vos clients</h2>
+          <h3 class="after-hover">Cliquez pour voir la démo</h3>
+          <div class="card-separator">
+            <div class="card-image-circle">
+              <%= image_tag 'homecalendar.svg', class: "offer-card-image", alt: "Calendrier représentant la possibilité de réserver des stages via la boutique"%>
+            </div>
+            <hr>
+          </div>
+          <p>Proposez des stages/visites</p>
+          <p>Gérez votre calendrier</p>
+          <p>Visualisez les réservations</p>
+        </div>
+      <% end %>
+      <%= link_to info_path, title: "Vos informations personnelles visibles par les clients de votre e-commerce", class: "col-xs-12 col-sm-4 col-md-4"  do %>
+        <div class="ecrire card-offer">
+          <h2>Partagez</h2>
+          <h3 class="after-hover">Cliquez pour voir la démo</h3>
+          <div class="card-separator">
+            <div class="card-image-circle">
+              <%= image_tag 'homeblog.svg', class: "offer-card-image", alt: "Page internet avec infos personnalisables"%>
+            </div>
+            <hr>
+          </div>
+          <p>Ecrivez sur votre métier</p>
+          <p>Partagez votre technique</p>
+          <p>Popularisez votre boutique</p>
+        </div>
+      <% end %>
     </div>
-
+  </div>
 </div>
 
 <div id="anchor-info" class="container">
@@ -140,8 +125,8 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
     <div class="col-offset-xs-1 col-xs-11 col-offset-md-1 col-md-10 bottom-info">
       <div class="offer-intro">
         <h2>UNE BOUTIQUE A VOTRE IMAGE, UN DESIGN &Eacute;PUR&Eacute;</h2>
-        <p>Nous vous proposons un design qui s'adapte à votre image. Quand nous créons votre projet, nous avons simplement besoins de choisir ensemble quelques photos, vos couleurs et un logo pour personnaliser votre boutique en ligne.</p>
-        <p>Nous pouvons conserver la configuration que vous avez pu tester dans notre démo de boutique ou définir ensemble tous les éléments.</p>
+        <p>Nous vous proposons un design qui s'adapte à votre image. Quand nous créons votre projet, vous avez le choix entre utiliser notre base visuelle ou nous fournir un cahier des charges.</p>
+        <p>Nous disposons de plusieurs designs de boutique, dans lesquels vous pouvez sélectionner les éléments qui vous correspondent le mieux. Si vous avez une idée précise du rendu que vous souhaitez, nous construisons votre site selon vos indications.</p>
         <h2>SIMPLE D'UTILISATION</h2>
         <p>L'administration de votre boutique vous permet de gérer toutes vos ressources (fiches produits, informations personnelles, calendrier des réservations). Grâce à des formulaires simples et un calendrier vous visualisez et mettez à jour toutes ces ressources en quelques clics.<p>
         <p>Ne vous souciez pas du format des photos ou de la taille du texte, votre boutique en ligne s'adapte automatiquement.</p>
@@ -150,10 +135,10 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
         <p>Votre boutique est herbergée en https, les connexions de vos clients sont sécurisées.</p>
         <h2>&Eacute;VOLUTION</h2>
         <p>Les photos et textes qui donnent l'identité de votre site sont modifiables à tout moment par vos soins. Vous mettez ainsi en avant les nouvelles collections, des changements dans votre atelier pour vos visites, etc.</p>
-        <p>La structure de base sur laquelle repose votre la boutique est en constante évolution dans notre agence. Dès qu'une amélioration technique est prête nous vous en faisons bénéficier avec votre accord.</p>
+        <p>La structure de base sur laquelle repose votre boutique est en constante évolution dans notre agence. Dès qu'une nouvelle fonctionnalité est prête nous vous en faisons bénéficier, avec votre accord.</p>
         <h2>PROPRI&Eacute;T&Eacute;</h2>
         <p>Vous êtes propriétaires de la boutique, le code source est mis en ligne sur une plateforme sécurisée. Elle est hébergée sur des serveurs européens. Au lancement de votre boutique, vous disposez d'un hébergement et d'un nom de domaine gratuits sous certaines conditions (la taille de votre base de donnée est limitée et votre nom de domaine est suffixé).<p>
-        <p>Si vous le souhaitez, nous mettons en place avec vous les abonnements mensuels pour obtenir un hébergement illimité et un nom de domaine propre.</p>
+        <p>Nous mettons en place pour vous les abonnements mensuels, pour obtenir un hébergement illimité et un nom de domaine propre.</p>
         <h2>OFFRE MODULABLE</h2>
         <p>Nous disposons d'une structure de base pour votre boutique en ligne qui nous permet de la créer avec un budget limité.</p>
         <p>Nous pouvons également concevoir une boutique à partir d'une feuille blanche, selon votre cahier des charges. Contactez nous pour revoir ensemble votre projet.</p>
@@ -165,6 +150,58 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
       <p class="text-center">Ou</p>
       <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
     </div>
+  </div>
+</div>
 
+<div class="offer-container">
+  <div class="container container-user-show">
+    <h2 class="pricing-header">Tarifs</h2>
+    <div class="row offer-cards pricing-cards">
+      <%= link_to new_user_registration_path, title: "Inscrivez-vous pour bénéficier d'un essai", class: "col-xs-12 col-sm-4 col-md-4 offer-card-link" do %>
+        <div class="produit card-offer">
+          <h2 class="">Essai gratuit</h2>
+          <h3 class="after-hover free">Cliquez pour vous inscrire</h3>
+          <div class="card-separator">
+            <div class="card-image-circle pricing-circle">
+              <span class="price">0 €</span>
+            </div>
+            <hr>
+          </div>
+          <p>Durée 1 mois</p>
+          <p>Sans engagement</p>
+          <p>Fonctionnalités complètes</p>
+        </div>
+      <% end %>
+      <%= link_to new_user_registration_path, title: "Inscrivez-vous pour initier votre projet", class: "col-xs-12 col-sm-4 col-md-4" do %>
+        <div class="stage-info card-offer">
+          <h2>Standard</h2>
+          <h3 class="after-hover base">Inscrivez-vous, nous vous appelons</h3>
+          <div class="card-separator">
+            <div class="card-image-circle pricing-circle">
+              <span class="price">700 €</span>
+            </div>
+            <hr>
+          </div>
+          <p>Prestation unique</p>
+          <p>Prêt en 1 semaine</p>
+          <p>Assistance technique 6 mois</p>
+        </div>
+      <% end %>
+      <%= link_to new_user_registration_path, title: "Inscrivez-vous pour revoir votre cahier des charges", class: "col-xs-12 col-sm-4 col-md-4"  do %>
+        <div class="ecrire card-offer">
+          <h2>Sur-mesure</h2>
+          <h3 class="after-hover on-demand">Contactez-nous pour un devis</h3>
+          <div class="card-separator">
+            <div class="card-image-circle pricing-circle">
+              <span class="price">Sur devis</span>
+            </div>
+            <hr>
+          </div>
+          <p>Recueil de vos besoins</p>
+          <p>Développement</p>
+          <p>Intégration</p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

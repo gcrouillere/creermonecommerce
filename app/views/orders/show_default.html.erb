@@ -2,6 +2,15 @@
   <%= t(:basket)%>
 <% end %>
 
+<div class="overlay">
+  <div class="overlay-content">
+    <div class="overlay-title">Panier client</div>
+    <div class="overlay-paragraph">Les cartes bancaires suivantes sont acceptées pour le paiement : Mastercard, Visa et American Express. Limite minimum de paiement: 5€. Les paiements sont sécurisés par Stripe, spécialiste des paiements sur internet.</div>
+    <div class="overlay-paragraph">Les paiements sont versés automatiquement sur votre RIB, 24h après le paiement par le client sur la boutique.</div>
+    <a class="overlay-button">OK</a>
+  </div>
+</div>
+
 <div class="page-top">
   <h1><%= t(:basket)%></h1>
 </div>
@@ -67,10 +76,10 @@
               <% basketline.ceramique.offer ? discount =  basketline.ceramique.offer.discount : discount = 0 %>
               <h5><%=t(:price)%>: <%= humanized_money(basketline.ceramique.price * (1 - discount) * basketline.quantity) %> <%= currency_symbol %></h5>
             </div>
-              <%= link_to  order_path(:id => @order.id, :basketline_id => basketline.id), :confirm => 'Are you sure?', :method => :delete, class: "delete-article" do %>
-                <i class="fa fa-trash"></i>
-              <% end %>
           </div>
+          <%= link_to  order_path(:id => @order.id, :basketline_id => basketline.id), :confirm => 'Are you sure?', :method => :delete, class: "delete-article" do %>
+            <i class="fa fa-trash"></i>
+          <% end %>
         </div>
       <% end %>
 

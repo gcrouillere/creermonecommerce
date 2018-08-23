@@ -1,0 +1,171 @@
+<div class="offer-container">
+
+  <div class="box">
+    <span class="box1"></span>
+    <span class="box2"></span>
+  </div>
+
+  <div class="container">
+    <div class="realisations">
+      <div class="photos-bloc hidden-xs">
+        <div class="line1">
+          <div class="column-1">
+            <%= link_to 'https://www.heleneraynal.fr', target: "blank" do %>
+            <div class="image-realisations image-1">
+              <style>
+                .image-1 {
+                  background-image: url(<%= image_path 'raynal.jpg' %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+            </div>
+            <% end %>
+            <%= link_to 'https://ceramiquesnugier.herokuapp.com', target: "blank" do %>
+              <div class="image-realisations image-2">
+                <style>
+                  .image-2 {
+                    background-image: url(<%= image_path 'nugier.jpg' %>);
+                    background-size: cover;
+                    background-position-y: center;
+                    background-position-x: center;
+                  }
+                </style>
+              </div>
+            <% end %>
+          </div>
+          <div class="column-2">
+            <%= link_to 'https://www.latourneedesmoustaches.fr/', target: "blank" do %>
+              <div class="image-realisations image-3">
+                <style>
+                  .image-3 {
+                    background-image: url(<%= image_path 'moustaches.jpg' %>);
+                    background-size: cover;
+                    background-position-y: center;
+                    background-position-x: center;
+                  }
+                </style>
+              </div>
+            <% end %>
+            <div class="colum-2-bottom-bloc">
+              <%= link_to 'https://sunsuelle.herokuapp.com', target: "blank" do %>
+                <div class="image-realisations image-4">
+                  <style>
+                    .image-4 {
+                      background-image: url(<%= image_path 'sunsuelle.jpg' %>);
+                      background-size: cover;
+                      background-position-y: center;
+                      background-position-x: center;
+                    }
+                  </style>
+                </div>
+              <% end %>
+              <div class="column-2-thumbnails">
+                <%= link_to 'https://www.jacobceramique.fr/', target: "blank" do %>
+                  <div class="image-realisations image-5">
+                    <style>
+                      .image-5 {
+                        background-image: url(<%= image_path 'jacob.jpg' %>);
+                        background-size: cover;
+                        background-position-y: center;
+                        background-position-x: center;
+                      }
+                    </style>
+                  </div>
+                <% end %>
+                <%= link_to 'https://annehuetrapeaud.herokuapp.com', target: "blank" do %>
+                <div class="image-realisations image-6">
+                  <style>
+                    .image-6 {
+                      background-image: url(<%= image_path 'huetrapeaud.jpg' %>);
+                      background-size: cover;
+                      background-position-y: center;
+                      background-position-x: center;
+                    }
+                  </style>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="line2">
+          <%= link_to 'https://www.carolekceramique.fr', target: "blank" do %>
+            <div class="image-realisations image-7">
+              <style>
+                .image-7 {
+                  background-image: url(<%= image_path 'kaltenbacher.jpg' %>);
+                  background-size: cover;
+                  background-position-y: center;
+                  background-position-x: center;
+                }
+              </style>
+            </div>
+          <% end %>
+          <%= link_to 'https://tymorta.herokuapp.com/', target: "blank" do %>
+          <div class="image-realisations image-8">
+            <style>
+              .image-8 {
+                background-image: url(<%= image_path 'tybarber.jpg' %>);
+                background-size: cover;
+                background-position-y: center;
+                background-position-x: center;
+              }
+            </style>
+          </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- MOBILE -->
+      <div class="photos-bloc hidden-sm hidden-md hidden-lg">
+        <div class="mobile-realisation-pics">
+          <%= link_to 'https://www.heleneraynal.fr', target: "blank" do %>
+            <%= image_tag 'raynal.jpg' %>
+          <% end %>
+          <%= link_to 'https://www.latourneedesmoustaches.fr/', target: "blank" do %>
+            <%= image_tag 'moustaches.jpg' %>
+          <% end %>
+          <%= link_to 'https://sunsuelle.herokuapp.com', target: "blank" do %>
+            <%= image_tag 'sunsuelle.jpg' %>
+          <% end %>
+          <%= link_to 'https://www.carolekceramique.fr', target: "blank" do %>
+            <%= image_tag 'kaltenbacher.jpg' %>
+          <% end %>
+          <%= link_to 'https://tymorta.herokuapp.com/', target: "blank" do %>
+            <%= image_tag 'tybarber.jpg' %>
+          <% end %>
+          <%= link_to 'https://ceramiquesnugier.herokuapp.com', target: "blank" do %>
+            <%= image_tag 'nugier.jpg' %>
+          <% end %>
+          <%= link_to 'https://www.jacobceramique.fr/', target: "blank" do %>
+            <%= image_tag 'jacob.jpg' %>
+          <% end %>
+          <%= link_to 'https://annehuetrapeaud.herokuapp.com', target: "blank" do %>
+            <%= image_tag 'huetrapeaud.jpg' %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="realisations-text">
+        <h1>Nos réalisations en e-commerce</h1>
+        <h2>Une solution globale</h2>
+        <p>Tous les sites de e-commerce présentés ci-dessus sont réalisés avec notre application. Ils disposent tous des fonctionnalités de base offertes par l'application. Vous y retrouverez notamment le parcours d'achat avec paiement par CB et paypal.</p>
+        <h2>Pour des clients partout en France</h2>
+        <p>Nos clients sont situés à Strasbourg, Ploëmel, Guérande, Saint-Quentin-la-Poterie, Albi ... Nous échangeons par téléphone et par visio-conférence. Plus de réactivité, moins de CO2 !</p>
+        <h2>Des modules à activer ou désactiver selon vos besoins</h2>
+        <p>Certains utilisent le module de prise de réservations et de paiement des arrhes pour des stages ou des cours. La prise de réservation est gérée à partir d'un calendrier ouvert ou d'une liste de stage, selon le fonctionnement voulu par le propriétaire de la boutique.</p>
+        <p>Certaines de ces boutiques en ligne proposent un blog, à travers lequel elles peuvent communiquer sur leur marque, leurs produits ou leur savoir-faire. Ces publications de blog jouent un rôle important dans le référencement. Elles peuvent être partagées automatiquement sur les réseaux sociaux à travers des boutons prévus à cet effet.</p>
+        <h2>Une identité visuelle unique</h2>
+        <p>Chaque site bénéficie des thèmes existant dans notre application de boutique en ligne. Ils sont personnalisés avec vos photos, logos et couleurs, pour les rendre uniques. Si vous avez des besoins spécifiques et que vous rechercher un rendu visuel différent, nous le développons pour vous.</p>
+        <h2>Des fonctionnalités solides</h2>
+        <p>Notre application de e-commerce offre de nombreuses fonctionnalités : expédition à l'international, traduction de votre site en plusieurs langues, statistiques sur les paniers abandonnés, génération automatique de factures, alertes e-mail, recherche des produits par mots-clés par le client ...</p>
+        <p>Nous développons constamment de nouvelles options pour nos clients. Si vous avez des besoins spécifiques, nous les intégrons à votre boutique en ligne.</p>
+        <h2>Contactez-nous pour initier votre projet</h2>
+        <p>Vous pouvez nous joindre au 06 85 47 68 48. Vous pouvez également nous laissez vos coordonnées à travers le <%= link_to "formulaire de contact", new_user_registration_path %>, nous vous appelons.</p>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -2,8 +2,7 @@
 <div class="navbar-laptop hidden-xs hidden-sm">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand", title: t(:navbar_home_link) do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
+    Accueil
   <% end %>
 
   <!-- Different navigation if login or not -->
@@ -33,7 +32,7 @@
           <% if Order.where(id: session[:order]).present? %>
             <% if Order.where(id: session[:order]).first.state != "lost" %>
               <%= link_to order_path(Order.find(session[:order])) do %>
-                <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+                <span><%= image_tag "whitecart.svg", class: "lightcart"%></span>
               <% end %>
             <% end %>
           <% end %>
@@ -109,8 +108,7 @@
 <div class="navbar-mobile hidden-md hidden-lg">
  <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand-mobile" do %>
-    <%= render 'shared/logo_pic' %>
-    <%= @logositepictag %>
+    Accueil
   <% end %>
 
   <div class="navbar-item">
@@ -119,11 +117,11 @@
           <span><%= t(:shop_link_mobile) %></span>
         <% end %>
       <%= link_to info_path do %>
-        <%= image_tag "info.svg", class: "infoimg"%>
+        <%= image_tag "info-white.svg", class: "infoimg"%>
       <% end %>
       <%= link_to articles_path do %>
         <!-- <i class="fas fa-pen-square"></i> -->
-        <%= image_tag "blog.svg", class: "blogimg"%>
+        <%= image_tag "blog-white.svg", class: "blogimg"%>
       <% end %>
       <%= link_to new_lesson_path do %>
         <span><%= t(:lesson_link_mobile) %></span>
@@ -133,7 +131,7 @@
         <% if Order.where(id: session[:order]).present? %>
           <% if Order.where(id: session[:order]).first.state != "lost" %>
             <%= link_to order_path(Order.find(session[:order])) do %>
-              <span><%= image_tag "cart.svg", class: "lightcart"%></span>
+              <span><%= image_tag "whitecart.svg", class: "lightcart"%></span>
             <% end %>
           <% end %>
         <% end %>

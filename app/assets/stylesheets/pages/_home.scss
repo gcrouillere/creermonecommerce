@@ -14,7 +14,7 @@
   .banner-content {
     position: absolute;
     top: 150px;
-    left: calc(50% - 130px);
+    left: calc(50% - 254px);
     text-align: center;
     color: $home-font-color;
     padding: 0 10px;
@@ -43,7 +43,7 @@
       position: absolute;
       top: 100px;
       text-align: center;
-      left: calc(50% - 107px);
+      left: calc(50% - 128px);
       color: $home-font-color;
       padding: 0 10px;
       h1, h2, h3, p {
@@ -127,9 +127,13 @@
 
 .btn-home {
   padding: 10px 20px;
+  background: #E4554E;
   border: none;
   border-radius: 50px;
   font-weight: 100;
   font-size: 20px;
   letter-spacing: 2px;
+  &:hover {
+    background: #b23f39;
+  }
 }

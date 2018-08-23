@@ -5,8 +5,8 @@
     width: 100%;
     height: 690px;
     top: -136px;
-    position: relative;
-    background: linear-gradient(to right, #43cea2, #185a9d);
+    position: absolute;
+    background: linear-gradient(to right, #43cea2, #1d79d6);
     transform: skewY(-12deg);
     // background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%)
     .box1 {
@@ -17,7 +17,7 @@
       width: 33%;
     }
     .box2 {
-      background:#185a9d;
+      background:#1d79d6;
       position: absolute;
       bottom: 0px;
       right: 0px;
@@ -26,13 +26,64 @@
     }
   }
   .container-user-show {
-    position: absolute;
-    left: calc(50% - 585px);
-    top: 6px;
+    // position: absolute;
+    // left: calc(50% - 585px);
+    // top: 6px;
   }
 }
 .body-offer {
 background-color: $body;
+}
+
+
+.homepage-intro {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  height: 500px;
+  .homepage-front-img {
+    width: 50%;
+    position: relative;
+    top: 16px;
+  }
+  .homepage-title-bloc {
+    width: 44%;
+    ul {
+      list-style: none;
+      color: white;
+      padding-left: 57px;
+      margin-top: 22px;
+      li {
+        margin: 7px;
+      }
+      img {
+        width: 3%;
+      }
+    }
+  }
+}
+
+.homepage-intro-mobile {
+  position: relative;
+  h1 {
+    font-size: 30px;
+  }
+  .homepage-title-bloc {
+    width: 100%;
+    ul {
+      list-style: none;
+      color: white;
+      padding-left: 57px;
+      margin-top: 22px;
+      li {
+        margin: 7px;
+      }
+      img {
+        width: 3%;
+      }
+    }
+  }
 }
 
 .photos-card-container {
@@ -40,132 +91,143 @@ background-color: $body;
 }
 
 .offer-content {
-
   .offer-container {
-    // background: #43cea2;
-    // background: linear-gradient(to right, #43cea2, #185a9d);
     margin-top: 0px;
-    min-height: 100vh;
     .container {
       margin-top: 0px !important;
     }
 
-    .card-separator{
-      position: relative;
-      .offer-card-image {
-        transition: all ease 0.25s;
-        position: absolute;
-        right: calc(50% - 19px);
-        top: -17px;
-        margin: 0px;
-        width: 38px;
-      }
-      hr {
-        transition: all ease 0.25s;
-        border-top: 1px solid #C2C1C1;
-        margin: 40px 30px;
-      }
-    }
-
     h1 {
       color: white;
-      font-size: 45px;
+      font-size: 39px;
       text-align: center;
-      font-family: "Open Sans" !important;
-      margin-right: 30px;
       text-shadow: 0px 2px 0px rgba(0,0,0,0.15);
     }
     h2 {
-      margin: 5px;
       color: white;
       font-size: 20px;
       text-align: center;
-      font-family: "Open Sans" !important;
     }
 
     .offer-cards {
-      margin-top: 30px;
-      display: flex;
+      margin: 30px 0 60px 0;
+      @media all and (max-width: 768px) {
+        margin: 0px 0 30px 0 !important;
+      }
       align-items: center;
       justify-content: center;
       h2 {
         color: #32325d;
         font-size: 20px;
         text-align: center;
-        font-family: "Open Sans" !important;
         margin: 30px;
+        @media all and (max-width: 768px) {
+          margin: 30px 0px !important;
+          font-size: 18px;
+        }
       }
       p {
-        color: #32325d;
+        color: #525f7f;
         text-align: center;
+        @media all and (max-width: 768px) {
+          margin: 30px 0px !important;
+          font-size: 14px;
+        }
       }
       p:last-child {
       margin-bottom: 30px;
       }
+
       .card-offer {
         padding: 5px;
         min-width: 255px;
         background: white;
-        border-radius: 3px;
+        border-radius: 1px;
         box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
         margin: 20px;
+        border: 1px solid #e8e8e8;
         transition: all ease 0.25s;
+        position: relative;
+        @media all and (max-width: 768px) and (min-width: 576px) {
+          min-width: 210px;
+          margin: 0px;
+        }
+        @media all and (max-width: 576px) {
+          margin: 20px 0px;
+        }
+        .after-hover {
+          visibility: hidden;
+          position: absolute;
+          font-size: 12px;
+          margin: 0;
+          color: #369EBF;
+          top: 60px;
+          left: calc(50% - 72px);
+          transition: all ease 0.25s;
+        }
       }
       .card-offer:hover {
         transform: scale(1.03);
         box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.1);
         transition: all ease 0.25s;
-        h2 {
-          visibility: hidden;
-        }
-        .offer-card-image {
-          top: -74px;
-          width: 52px;
-          right: calc(50% - 26px);
+        .after-hover {
+         visibility: visible;
         }
         hr {
-          margin: 40px 5px;
+          margin: 60px 5px;
         }
       }
     }
-
-    .mobile-offer-container {
-      background: linear-gradient(to right, #43cea2, #185a9d);
-      .offer-cards-mobile {
+    .card-separator {
+      position: relative;
+      .card-image-circle {
+        position: absolute;
+        right: calc(50% - 33px);
+        top: -31px;
+        width: 66px;
+        height: 66px;
+        border-radius: 50%;
+        background: white;
         display: flex;
-        flex-direction: column;
-        h2 {
-          color: #32325d;
-          font-size: 20px;
-          text-align: center;
-          font-family: "Open Sans" !important;
-          margin-top: 30px;
-        }
-        p {
-          color: #32325d;
-          text-align: center;
-        }
-        p:last-child {
-        margin-bottom: 30px;
-        }
-        .card-offer {
-          background: white;
-          border-radius: 3px;
-          box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-          margin: 28px;
-        }
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #369EBF;
+      }
+      .offer-card-image {
+        transition: all ease 0.25s;
+        margin: 0px;
+        width: 38px;
+      }
+      hr {
+        transition: all ease 0.25s;
+        border-top: 1px solid #369EBF;
+        margin: 60px 30px;
+      }
+    }
+    .pricing-cards {
+      .after-hover.free {
+        left: calc(50% - 74px);
+      }
+      .after-hover.base {
+        left: calc(50% - 102px);
+      }
+      .after-hover.on-demand {
+        left: calc(50% - 87px);
+      }
+      .pricing-circle {
+        right: calc(50% - 38px);
+        top: -36px;
+        width: 76px;
+        height: 76px;
       }
     }
   }
 
-.offer-h1-mobile {
-  margin: 25px 0px !important;
-  font-size: 40px !important;
-}
-
  .offer-buttons {
     display: flex;
-    margin: 30px 0px;
+    position: relative;
+    top: -65px;
+    margin-left: 20px;
       .explore{
         position: relative;
         top: 0px;
@@ -199,6 +261,7 @@ background-color: $body;
   .offer-buttons-mobile {
     height: 110px;
     margin: 0px 10px 30px 10px;
+    position: relative;
       .explore{
         background-color: #53f !important;
         color: white;
@@ -249,6 +312,9 @@ background-color: $body;
     }
   }
   margin-bottom: 100px;
+  @media all and (max-width: 576px) {
+    margin-bottom: 20px;
+  }
 }
 
 #anchor-info {
@@ -258,8 +324,9 @@ background-color: $body;
     text-align: center;
     padding: 10px;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 50px;
+    right: -25px;
+    z-index: 1;
     background-color: white;
     color: white;
     background: #43cea2;
@@ -268,11 +335,15 @@ background-color: $body;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.15);
     box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
     p {
+      font-weight: 600;
       font-size: 12px;
     }
     p:last-child {
       margin-bottom: 0px;
     }
+  }
+  .link-account {
+    color: #53f;
   }
 }
 
@@ -282,11 +353,21 @@ background-color: $body;
     text-align: center;
     padding: 10px;
     margin-bottom: 15px;
+    z-index: 1;
     background-color: #43cea2;
-     // #185a9d
     color: white;
     p {
       font-size: 15px;
       margin: 0px !important;
     }
   }
+
+.pricing-header {
+  font-size: 50px !important;
+  color: #32325d !important;
+  text-shadow: 0px 2px 0px rgba(0,0,0,0.15);
+}
+.price {
+  color: #32325d;
+  font-weight: 600;
+}

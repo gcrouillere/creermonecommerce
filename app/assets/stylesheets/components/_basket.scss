@@ -62,20 +62,22 @@
 }
 
 .basket-item.mobile {
-  margin: 0px 10px 10px 10px;
+  margin: 0px 0px 10px 0px;
+  position: relative;
   .basket-article-img {
     width: 45%;
     height: 45%;
   }
   .order-detail {
     flex: 1 0 auto;
-      margin-left: 20px;
+    margin-left: 20px;
     position: relative;
-    a {
-      position: absolute;
-      right: -13px;
-      bottom: 8px;
-    }
+    text-align: center;
+  }
+  .delete-article {
+    position: absolute;
+    right: -13px;
+    bottom: 8px;
   }
 }
 

@@ -1,4 +1,14 @@
 .devise-container {
+  a {
+    color: #53f;
+  }
+  .btn {
+    background-color: #53f;
+    border-color: blue;
+  }
+}
+
+.devise-container {
   min-height: calc(100vh - 90px);
   #country {
       -webkit-appearance: none;

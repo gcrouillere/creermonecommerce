@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  devise_for :users, :controllers => {:registrations => "app_specific_registration/registrations"}
+  devise_for :users, :controllers => {:registrations => "app_specific_registration/registrations", omniauth_callbacks: 'users/omniauth_callbacks'}
   mount Attachinary::Engine => "/attachinary"
 
   # resources :ceramiques, only: [:create, :index, :destroy, :show]
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get '/cgv', to: 'pages#cgv'
   get '/legal', to: 'pages#legal'
   get '/home', to: 'pages#home'
+  get '/realisations', to: 'pages#realisations'
   get '/product_claim_details', to: 'pages#product_claim_details'
   get '/google906057532e2dbb7e', to: 'pages#google906057532e2dbb7e'
   get '/robots.:format', to: 'pages#robots'

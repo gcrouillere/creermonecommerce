@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :info, :google906057532e2dbb7e, :robots, :offerpresentation, :product_claim_details]
-  layout 'offerpresentationlayout', :only => [:offerpresentation, :product_claim_details]
+  skip_before_action :authenticate_user!, only: [:home, :info, :google906057532e2dbb7e, :robots, :offerpresentation, :product_claim_details, :cgv, :legal, :realisations]
+  layout 'offerpresentationlayout', :only => [:offerpresentation, :product_claim_details, :realisations]
 
   def home
     @model_string = model_print
@@ -39,6 +39,9 @@ class PagesController < ApplicationController
   end
 
   def offerpresentation
+  end
+
+  def realisations
   end
 
 end

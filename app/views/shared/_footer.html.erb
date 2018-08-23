@@ -30,12 +30,14 @@
       </div>
     <% end %>
   </div>
-  <div class="footer-center-infos">
-    <div class="center-bloc">
-      <%= link_to t(:cgv_short), cgv_path , class: "first-a" %>
-      <%= link_to t(:data), legal_path %>
+   <% if params[:action] != "offerpresentation" && params[:action] != "product_claim_details" %>
+    <div class="footer-center-infos">
+      <div class="center-bloc">
+        <%= link_to t(:cgv_short), cgv_path , class: "first-a" %>
+        <%= link_to t(:data), legal_path %>
+      </div>
     </div>
-  </div>
+  <% end %>
   <div class="mylink">
     <%= link_to @dev_redirection || session[:dev_redirection_default], title: "Créez votre boutique en ligne avec l'agence de Guillaume Crouillere" do %>
       <%= image_tag  'lego.svg', alt: "Guillaume Crouillere - Developpeur WEB indépendant"%>

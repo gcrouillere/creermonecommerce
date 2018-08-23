@@ -1,20 +1,20 @@
 class Ceramique < ApplicationRecord
-  # include AlgoliaSearch
-  # # extend FriendlyId
+  include AlgoliaSearch
+  # extend FriendlyId
 
-  # extend Mobility
-  # translates :name, type: :string, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
-  # translates :description, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
+  extend Mobility
+  translates :name, type: :string, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
+  translates :description, type: :text, fallbacks: { fr: :en, en: :fr }, locale_accessors: [:en, :fr]
 
-  # algoliasearch do
-  #   add_attribute :translated_name_fr
-  #   add_attribute :translated_name_en
-  #   add_attribute :translated_description_fr
-  #   add_attribute :translated_description_en
-  #   add_attribute :translated_category_en
-  #   add_attribute :translated_category_fr
-  #   attribute :category
-  # end
+  algoliasearch do
+    add_attribute :translated_name_fr
+    add_attribute :translated_name_en
+    add_attribute :translated_description_fr
+    add_attribute :translated_description_en
+    add_attribute :translated_category_en
+    add_attribute :translated_category_fr
+    attribute :category
+  end
 
   belongs_to :category
   belongs_to :offer, required: false

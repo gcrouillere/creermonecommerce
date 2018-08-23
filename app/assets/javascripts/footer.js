@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#footer i').on('click', function(e) {
+  $('#footer i, #offer-footer i').on('click', function(e) {
     e.stopPropagation();
     if ($('h6').hasClass('visible')) {
       $('h6').removeClass('visible');

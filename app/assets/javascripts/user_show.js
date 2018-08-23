@@ -20,7 +20,7 @@ $(document).ready(function() {
   // Manage contact-button position
   function changeButton() {
     if ($('#contactbutton').length > 0) {
-      if($(document).scrollTop() > $('#anchor-info').offset().top) {
+      if($(document).scrollTop() > $('#anchor-info').offset().top + 20) {
 
         $('#contactbutton').css({
           position: 'fixed',
@@ -38,11 +38,11 @@ $(document).ready(function() {
   }
 
   function changeButtonMobile() {
-    if($(document).scrollTop() > $('#btncompte').offset().top + $('#btncompte').height()) {
-      // console.log("fixed")
+    if($(document).scrollTop() > $('#anchor-info').offset().top) {
       $('#contactbutton-mobile').css({
         position: 'fixed',
         top: 0,
+        left: 0,
         zIndex: 1
       });
       $('.bottom-info').css({marginTop: 50});

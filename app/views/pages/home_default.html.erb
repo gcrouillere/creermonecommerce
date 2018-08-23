@@ -5,15 +5,24 @@
   <%=t(:home_title)%>
 <% end %>
 
+<div class="overlay">
+  <div class="overlay-content">
+    <div class="overlay-title">Accueil de la boutique en ligne</div>
+    <div class="overlay-paragraph">Voici une des pages d'accueil existant dans la base de l'application de boutique en ligne. La photo et les textes sont personnalisables lorsque vous êtes administrateur.</div>
+    <div class="overlay-paragraph">La barre de navigation et le pied de page sont définis en début de projet, tant dans la forme que dans le contenu.</div>
+    <a class="overlay-button">OK</a>
+  </div>
+</div>
+
 <%= render 'shared/home_pics' %>
 
 <div class="jumbotron">
   <style>
   .jumbotron .banner {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @homepicpath %>);
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= @homepicpath %>);
   }
   .jumbotron .banner-xs {
-  background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url(<%= @homepicpathmobile %>);
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.4) 50%), url(<%= @homepicpath %>);
   }
   </style>
 

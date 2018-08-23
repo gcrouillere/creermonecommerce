@@ -1,18 +1,18 @@
 /* -------------------------------------
  * Fonts type
  * ------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300,700|Raleway:400,100,300,700,500");
 // @import url("https://fonts.googleapis.com/css?family=Crimson+Text:400,600,700|Nanum+Myeongjo:400,700,800");
-$base-font: "Open Sans", "Helvetica", "sans-serif";
+$base-font: "Lato", "Helvetica", "sans-serif";
 $header-font: "Raleway", "Helvetica", "sans-serif";
 
 /* -------------------------------------
  * Colors
  * ------------------------------------- */
  //Main :
-$primary:  #0FB79B;
+$primary: #efbe47;
 $primary-opacified: rgba(15, 183, 155, 0.3);
-$navbar: linear-gradient(to right, #fefefe, #0FB79B);
+$navbar: linear-gradient(to right, #f9cd63, #E4554E);
 $h2card: #0FB79B;
 $body: #fbfbfb;
 $footer: #141E30;

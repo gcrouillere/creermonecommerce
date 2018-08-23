@@ -127,21 +127,6 @@
   font-size: 25px;
 }
 
-.basket-item.mobile {
-  margin: 0px 10px 10px 10px;
-  justify-content: space-around;
-  .basket-article-img {
-    width: 45%;
-    height: 45%;
-  }
-  .order-detail {
-    text-align: center;
-    i {
-      margin: 0px;
-    }
-  }
-}
-
 .total.mobile {
   justify-content: center;
   margin-bottom: 30px;

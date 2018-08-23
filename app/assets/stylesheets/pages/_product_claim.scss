@@ -1,30 +1,22 @@
 .offer-content .offer-container {
   .product-claim {
     background-color: transparent;
-    position: absolute;
+    position: relative;
     z-index: 2;
-    margin-left: 50px;
     h1 {
-      margin-left: -20px;
-      margin-top: 30px;
-      margin-bottom: 50px;
+      margin: 50px 0 50px 0;
     }
     h2 {
-      width: 80%;
+      margin-top: 30px;
       text-align: left;
       letter-spacing: 2px;
-      margin-left: 20px;
       font-weight: 600;
       font-size: 22px;
       color: #32325d;
     }
     p {
-      width: 80%;
-      text-align: left;
       font-size: 17px;
-      margin-right: 10px;
-      margin-left: 25px;
-      margin-bottom: 30px;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.25);
     }
     a {
       color: #333333;
@@ -46,13 +38,9 @@
 @media all and (max-width: 800px) {
   .offer-content .offer-container {
     .product-claim {
-      position: initial;
-      width: 100%;
-      margin: 0;
       h1 {
         font-size: 30px;
-        margin: 35px 5px 50px 5px;
-        color: #32325d;
+        margin: 35px 0px 50px 0px;
         text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3);
       }
       h2 {

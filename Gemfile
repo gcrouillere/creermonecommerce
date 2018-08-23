@@ -18,6 +18,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'bootsnap'
+gem 'country_select'
 
 # pictures
 gem 'cloudinary', '1.1.7'
@@ -46,7 +47,7 @@ gem 'elevatezoom-rails'
 gem "letter_opener", group: :development
 
 #admin
-gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'activeadmin', '~> 1.3'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'activeadmin-index_as_calendar', github: 'bys-control/activeadmin-index_as_calendar'
 
