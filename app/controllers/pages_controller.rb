@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :info, :google906057532e2dbb7e, :robots, :offerpresentation, :product_claim_details, :cgv, :legal, :realisations]
-  layout 'offerpresentationlayout', :only => [:offerpresentation, :product_claim_details, :realisations]
+  skip_before_action :authenticate_user!, only: [:home, :info, :google906057532e2dbb7e, :robots, :offerpresentation, :product_claim_details, :cgv, :legal, :realisations, :contact_form]
+  layout 'offerpresentationlayout', :only => [:offerpresentation, :product_claim_details, :realisations, :contact_form]
 
   def home
     @model_string = model_print
@@ -19,6 +19,9 @@ class PagesController < ApplicationController
 
   def contact
     render "contact_#{@active_theme.name}"
+  end
+
+  def contact_form
   end
 
   def legal

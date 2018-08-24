@@ -1,10 +1,20 @@
-.devise-container {
+.devise-container, .contact-coord {
   a {
     color: #53f;
   }
   .btn {
     background-color: #53f;
     border-color: blue;
+  }
+  .btn:hover {
+    background-color: darken(#53f, 30%);
+  }
+}
+
+.contact-coord {
+  .btn {
+    height: 50px;
+    font-size: 18px;
   }
 }
 

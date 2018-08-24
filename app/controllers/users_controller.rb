@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   layout 'offerpresentationlayout'
+  skip_before_action :authenticate_user!, only: [:subscribe]
 
   def show
     @user = current_user
@@ -10,6 +11,22 @@ class UsersController < ApplicationController
     @user.update(user_params)
     anchor_finder
     redirect_to user_path(@user, anchor: anchor_finder)
+  end
+
+  def subscribe
+    if Regexp.new('\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]{2,}\z').match(params[:user][:email]) && params[:user][:first_name] != "" && params[:user][:tracking] != ""
+      @user = User.user_subscribe(user_params)
+      session[:email] ? session[:email] += 1 : session[:email] = 1
+      if session[:email] < 10
+        SignupMailer.web_message(@user, @admin).deliver_now
+        flash[:notice] = t(:message_thank)
+      else
+        flash[:alert] = "Vous avez envoyé un trop grand nombre de messages"
+      end
+    else
+      flash[:alert] = t(:incorrect_fields)
+    end
+    redirect_to request.referrer
   end
 
   private

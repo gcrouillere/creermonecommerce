@@ -1,13 +1,11 @@
-<% unless session[:email]%>
-  <div class="subscribe-text">
-    <h2><%=t(:contact)%></h2>
-  </div>
-  <form action="/user-subscribe" method="post" authenticity_token="true" class="subscribe-form">
-    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <input type="text" name="user[email]" id="email" placeholder="<%=t(:email_adress)%>" class="subscribe-input">
-    <input type="text" name="user[first_name]" id="first_name" placeholder="<%=t(:first_last_name)%>" class="subscribe-input">
-    <textarea name="user[tracking]" id="tracking" placeholder="<%=t(:send_your_message)%>" class="subscribe-input textarea"></textarea>
-    <input type="submit" class="btn btn-primary" value="<%=t(:send)%>">
-  </form>
-<% end %>
-
+<div class="subscribe-text">
+  <h1>Contactez-nous avec ce formulaire</h1>
+  <p>Que ce soit pour des renseignements ou nous exposer votre projet, nous vous répondons rapidement.</p>
+</div>
+<form action="/user-subscribe" method="post" authenticity_token="true" class="subscribe-form">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="user[email]" id="email" placeholder="<%=t(:email_adress)%>" class="subscribe-input">
+  <input type="text" name="user[first_name]" id="first_name" placeholder="<%=t(:first_last_name)%>" class="subscribe-input">
+  <textarea name="user[tracking]" id="tracking" placeholder="<%=t(:send_your_message)%>" class="subscribe-input textarea"></textarea>
+  <input type="submit" class="btn btn-primary contact-button" value="<%=t(:send)%>">
+</form>
