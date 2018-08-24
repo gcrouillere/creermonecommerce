@@ -5,7 +5,7 @@
     <div class="hidden-xs hidden-sm col-md-12">
       <div class="top-info">
         <h2 class="compte-head">Compte utilisateur: <%=current_user.email%></h2>
-        <p>Configurez votre boutique à l'aide des champs données et photos ci-dessous. <%= link_to " Ou accédez directement à la démo de la boutique en ligne.", home_path %> </p>
+        <p>Configurez votre boutique à l'aide des champs données et photos ci-dessous. <%= link_to " Ou accédez directement à la démo de la boutique en ligne.", accueil_boutique_path %> </p>
       </div>
 
       <div class="col-xs-3 left-nav">
@@ -36,7 +36,7 @@
           <% end %>
         </div>
         <div id="slider" class="demo-bloc">
-          <%= link_to home_path, class: "btn btn-primary" do %>
+          <%= link_to accueil_boutique_path, class: "btn btn-primary" do %>
             VOIR VOTRE BOUTIQUE
           <% end %>
           <p>N'oubliez pas d'enregistrer vos photos</p>
@@ -110,7 +110,7 @@
       <div class="top-info-mobile">
         <h2 class="compte-head">Compte utilisateur: <%=current_user.email%></h2>
         <p>Configurez votre boutique à l'aide des champs données ci-dessous.</p>
-        <p><%= link_to " Ou accédez directement à la démo de la boutique en ligne.", home_path %></p>
+        <p><%= link_to " Ou accédez directement à la démo de la boutique en ligne.", accueil_boutique_path %></p>
       </div>
 
       <div class="user-info-mobile">
@@ -140,7 +140,7 @@
         <% end %>
       </div>
       <div id="slider" class="demo-bloc-mobile">
-        <%= link_to home_path, class: "btn btn-primary" do %>
+        <%= link_to accueil_boutique_path, class: "btn btn-primary" do %>
           VOIR VOTRE BOUTIQUE
         <% end %>
       </div>

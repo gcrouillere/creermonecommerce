@@ -41,7 +41,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
     </div>
   </div>
   <div class="offer-buttons hidden-xs">
-    <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
+    <%= link_to accueil_boutique_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
       <button type="submit" class="pull-right btn explore">DEMO D'UNE BOUTIQUE</button>
     <% end %>
     <% if user_signed_in? %>
@@ -55,7 +55,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
     <% end %>
   </div>
   <div class="offer-buttons-mobile hidden-sm hidden-md hidden-lg">
-    <%= link_to home_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
+    <%= link_to accueil_boutique_path, title: "Visualisez la page d'accueil de votre commerce en ligne" do %>
       <button type="submit" class="btn explore">DEMO D'UNE BOUTIQUE</button>
     <% end %>
     <%= link_to new_user_registration_path, title: "Créez un compte pour paramétrer la démonstration de boutique en ligne" do %>
@@ -178,7 +178,7 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
           <h3 class="after-hover base">Inscrivez-vous, nous vous appelons</h3>
           <div class="card-separator">
             <div class="card-image-circle pricing-circle">
-              <span class="price">700 €</span>
+              <span class="price">800 €</span>
             </div>
             <hr>
           </div>

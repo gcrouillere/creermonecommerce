@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   get '/contact_form', to: 'pages#contact_form'
   get '/cgv', to: 'pages#cgv'
   get '/legal', to: 'pages#legal'
-  get '/home', to: 'pages#home'
+  get '/accueil_boutique', to: 'pages#home'
   get '/realisations', to: 'pages#realisations'
   get '/product_claim_details', to: 'pages#product_claim_details'
   get '/google906057532e2dbb7e', to: 'pages#google906057532e2dbb7e'
