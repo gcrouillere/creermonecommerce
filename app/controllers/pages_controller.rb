@@ -37,8 +37,7 @@ class PagesController < ApplicationController
   end
 
   def robots
-    render 'pages/robots.txt.erb'
-    expires_in 6.hours, public: true
+    render 'pages/robots.txt'
   end
 
   def offerpresentation
