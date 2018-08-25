@@ -1,14 +1,14 @@
 module MetaTagsHelper
   def meta_title
-    content_for?(:title_tag) ? content_for(:title_tag) : "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize}"
+    content_for?(:title_tag) ? content_for(:title_tag) : "Créez une boutique en ligne avec notre solution e-commerce, simple d'utilisation pour vous et vos clients."
   end
 
   def meta_product_name
-    content_for?(:meta_product_name) ? content_for(:meta_product_name) : "Les #{ENV['MODEL']} de #{ENV['FIRSTNAME'].capitalize} #{ENV['LASTNAME'].capitalize} - vente de produits de l'artisanat"
+    content_for?(:meta_product_name) ? content_for(:meta_product_name) : "Creermonecommerce.fr une application intuitive de boutique en ligne"
   end
 
   def meta_description
-    description = "Des produits extraordinaires. Décor somptueux. Venez découvrir leur fabrication lors d'un stage."
+    description = "Vendez vos produits en ligne ! Site de e-commerce configurable. Créez votre compte et visualisez votre futur site de vente en ligne."
     content_for?(:description) ? content_for(:description) : description
   end
 

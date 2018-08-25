@@ -20,39 +20,36 @@ $(document).ready(function() {
   // Manage contact-button position
   function changeButton() {
     if ($('#contactbutton').length > 0) {
-      if($(document).scrollTop() > $('#anchor-info').offset().top + 20) {
-
+      if($(document).scrollTop() > $('#anchor-info').offset().top - 20) {
         $('#contactbutton').css({
           position: 'fixed',
           top: 20,
-          right: 30
         });
       } else {
         $('#contactbutton').css({
           position: '',
           top: '',
-          right: -25
         });
       }
     }
   }
 
   function changeButtonMobile() {
-    if($(document).scrollTop() > $('#anchor-info').offset().top) {
+    if($(document).scrollTop() > $('.button-container').offset().top + $('.button-container').height()) {
       $('#contactbutton-mobile').css({
         position: 'fixed',
-        top: 0,
+        bottom: 0,
         left: 0,
-        zIndex: 1
+        zIndex: 1,
+        marginBottom: 0
       });
-      $('.bottom-info').css({marginTop: 50});
     } else {
       $('#contactbutton-mobile').css({
         position: '',
         top: '',
-        zIndex: 0
+        zIndex: 0,
+        marginBottom: 15
       });
-      $('.bottom-info').css({marginTop: 0});
     }
   }
 

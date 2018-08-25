@@ -3,8 +3,8 @@
   .box {
     z-index: 0;
     width: 100%;
-    height: 690px;
-    top: -136px;
+    height: 720px;
+    top: -166px;
     position: absolute;
     background: linear-gradient(to right, #43cea2, #1d79d6);
     transform: skewY(-12deg);
@@ -12,17 +12,33 @@
     .box1 {
       background: #43cea2;
       position: absolute;
-      top: 0px;
+      top: 26px;
       height: 107px;
       width: 33%;
     }
     .box2 {
-      background:#1d79d6;
+      background:#257BD3;
       position: absolute;
       bottom: 0px;
       right: 0px;
-      height: 100px;
+      height: 107px;
       width: 33%;
+    }
+    .box3 {
+      background:#3EB1B4;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      height: 107px;
+      width: 33%;
+    }
+    .box4 {
+      background:#2E8EC9;
+      position: absolute;
+      top: 213px;
+      right: 0;
+      height: 107px;
+      width: 22%;
     }
   }
   .container-user-show {
@@ -141,6 +157,7 @@ background-color: $body;
       .card-offer {
         padding: 5px;
         min-width: 255px;
+        min-height: 325px;
         background: white;
         border-radius: 1px;
         box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
@@ -148,11 +165,11 @@ background-color: $body;
         border: 1px solid #e8e8e8;
         transition: all ease 0.25s;
         position: relative;
-        @media all and (max-width: 768px) and (min-width: 576px) {
+        @media all and (max-width: 995px) and (min-width: 567px) {
           min-width: 210px;
-          margin: 0px;
+          margin: 0 0 10px 0;
         }
-        @media all and (max-width: 576px) {
+        @media all and (max-width: 567px) {
           margin: 20px 0px;
         }
         .after-hover {
@@ -262,6 +279,9 @@ background-color: $body;
     height: 110px;
     margin: 0px 10px 30px 10px;
     position: relative;
+    a {
+      display: block;
+    }
       .explore{
         background-color: #53f !important;
         color: white;
@@ -309,10 +329,11 @@ background-color: $body;
       font-size: 17px;
       margin-right: 10px;
       margin-left: 10px;
+      text-align: justify;
     }
   }
   margin-bottom: 100px;
-  @media all and (max-width: 576px) {
+  @media all and (max-width: 567px) {
     margin-bottom: 20px;
   }
 }
@@ -323,9 +344,7 @@ background-color: $body;
     font-weight: 100;
     text-align: center;
     padding: 10px;
-    position: absolute;
-    top: 50px;
-    right: -25px;
+    width: max-content;
     z-index: 1;
     background-color: white;
     color: white;
@@ -341,10 +360,16 @@ background-color: $body;
     p:last-child {
       margin-bottom: 0px;
     }
+    .text-center {
+      text-align: center;
+    }
   }
   .link-account {
     color: #53f;
   }
+}
+.button-container {
+  min-height: 90px;
 }
 
 .contact-offer-presentation-mobile {
@@ -354,6 +379,8 @@ background-color: $body;
     padding: 10px;
     margin-bottom: 15px;
     z-index: 1;
+    width: 100%;
+    height: 86px;
     background-color: #43cea2;
     color: white;
     p {

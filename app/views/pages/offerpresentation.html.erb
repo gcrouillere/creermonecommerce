@@ -1,14 +1,16 @@
 <% content_for(:description) do %>
-Nous créons des boutiques en ligne pour des artisans. Grâce à notre application vous pouvez configurez votre projet de boutique en quelques clics.
+Nous créons des boutiques en ligne pour des artisans, des auto-entrepreneurs ou des PME. Nous proposons une solution e-commerce simple d'utilisation. Grâce à notre application vous pilotez votre e-commerce en quelques clics.
 <% end %>
 <% content_for(:title_tag) do %>
-Créez une boutique en ligne. Testez votre projet en quelques clics.
+Créez une boutique en ligne avec notre solution e-commerce, simple d'utilisation pour vous et vos clients.
 <% end %>
 
 <div class="offer-container">
   <div class="box">
     <span class="box1"></span>
     <span class="box2"></span>
+    <span class="box3"></span>
+    <span class="box4"></span>
   </div>
 
   <div class="homepage-intro hidden-xs">
@@ -116,14 +118,16 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
 </div>
 
 <div id="anchor-info" class="container">
-  <div class="row">
-    <div id="contactbutton-mobile" class="col-xs-12 contact-offer-presentation-mobile hidden-md hidden-lg">
-      <p>Contactez-nous: 06.85.47.68.48</p>
-      <p class="text-center">Ou</p>
-      <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+  <div class="row bottom-info">
+    <div class="button-container col-xs-12 hidden-md hidden-lg">
+      <div id="contactbutton-mobile" class="contact-offer-presentation-mobile">
+        <p>Contactez-nous: 06.85.47.68.48</p>
+        <p class="text-center">Ou</p>
+        <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+      </div>
     </div>
-    <div class="col-offset-xs-1 col-xs-11 col-offset-md-1 col-md-10 bottom-info">
-      <div class="offer-intro">
+    <div class="intro-container">
+      <div class="offer-intro col-xs-12 col-md-9">
         <h2>UNE BOUTIQUE A VOTRE IMAGE, UN DESIGN &Eacute;PUR&Eacute;</h2>
         <p>Nous vous proposons un design qui s'adapte à votre image. Quand nous créons votre projet, vous avez le choix entre utiliser notre base visuelle ou nous fournir un cahier des charges.</p>
         <p>Nous disposons de plusieurs designs de boutique, dans lesquels vous pouvez sélectionner les éléments qui vous correspondent le mieux. Si vous avez une idée précise du rendu que vous souhaitez, nous construisons votre site selon vos indications.</p>
@@ -144,11 +148,13 @@ Créez une boutique en ligne. Testez votre projet en quelques clics.
         <p>Nous pouvons également concevoir une boutique à partir d'une feuille blanche, selon votre cahier des charges. Contactez nous pour revoir ensemble votre projet.</p>
         <a class="pdf-link" href="http://res.cloudinary.com/dbhsa0hgf/image/upload/v1519805171/Documentation_boutique_en_ligne_-_creermonecommerce.fr.pdf" target="blank"><h2>Consultez la documentation complète en PDF</h2></a>
       </div>
-    </div>
-    <div id="contactbutton" class="contact-offer-presentation hidden-xs hidden-sm">
-      <p>Contactez-nous: 06.85.47.68.48</p>
-      <p class="text-center">Ou</p>
-      <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div id="contactbutton" class="contact-offer-presentation">
+          <p>Contactez-nous: 06.85.47.68.48</p>
+          <p class="text-center">Ou</p>
+          <p><%= link_to "Inscrivez-vous", new_user_registration_path, class: "link-account" %>, nous vous appelons.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
