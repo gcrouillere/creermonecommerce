@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 # 'https://rails-assets.org'
-ruby '2.3.5'
+ruby '2.4.4'
 
 gem 'devise'
 gem 'figaro'
