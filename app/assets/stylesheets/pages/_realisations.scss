@@ -62,6 +62,33 @@
         height: 300px;
       }
     }
+    .line3 {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      .image-9 {
+        width: 246px;
+        height: 550px;
+      }
+      .column2 {
+        .image-10 {
+          width: 522px;
+          height: 275px;
+        }
+        .colum-2-bottom-bloc {
+          display: flex;
+          justify-content: center;
+          .image-11 {
+            width: 240px;
+            height: 275px;
+          }
+          .image-12 {
+            width: 282px;
+            height: 275px;
+          }
+        }
+      }
+    }
     .mobile-realisation-pics {
       img {
         width: 80%;
